@@ -19,10 +19,10 @@ Page({
     nowTrip: {},
     clicktitle: '',
     clickid: 0,
-    mineDetal:{},
-    noMore:false,//投饭团弹窗
-    haveAdded:'',//已输入的的饭团数0
-    inputBottom:0,//输入框位置
+    mineDetal: {},
+    noMore: false, //投饭团弹窗
+    haveAdded: '', //已输入的的饭团数0
+    inputBottom: 0, //输入框位置
   },
   /**
    * 生命周期函数--监听页面加载
@@ -32,7 +32,7 @@ Page({
       tid: options.id
     });
     // console.log(tid,options)    
-    this.getMineDetal(options.id); 
+    this.getMineDetal(options.id);
 
     this.getActor();
   },
@@ -109,7 +109,7 @@ Page({
     let nowd = new Date()
     let year = nowd.getFullYear(),
       month = nowd.getMonth() + 1;
-   
+
     //计算要获取的月份列表 
     for (let i = 1; i <= n; i++) {
       tripact.push('')
@@ -122,7 +122,7 @@ Page({
           m: month
         })
       } else {
-        let tnext = getnext(year, month, i - Math.ceil(n/2))
+        let tnext = getnext(year, month, i - Math.ceil(n / 2))
         allMonth.push(tnext)
       }
     }
@@ -214,26 +214,31 @@ Page({
       url: '/pages/activity/index/index?id=' + this.data.clickid
     })
   },
-  bindAddRice(){
+  bindAddRice() {
     function show() {
-      wx.showToast({ title: "您当前没有饭团", icon: "none" })
-    }    
-    if (this.data.mineDetal.integral ==0) {
+      wx.showToast({
+        title: "您当前没有饭团",
+        icon: "none"
+      })
+    }
+    if (this.data.mineDetal.integral == 0) {
       show();
       this.getMineDetal(this.data.activityId);
       return;
     }
     this.setData({
-      isShowAdd: true ,
-      haveAdded:""   
+      isShowAdd: true,
+      haveAdded: ""
     })
   },
-  getMineDetal(tid){
+  getMineDetal(tid) {
     app.apiRequest({
       url: "/ranking/phone/getRankingtToUserIntegrty",
-      data: { "id": tid },
+      data: {
+        "id": tid
+      },
       success: res => {
-        console.log("我的信息",res);
+        console.log("我的信息", res);
         res.data.data.rankintegral = Math.abs(parseInt(res.data.data.rankintegral))
         this.setData({
           mineDetal: res.data.data
@@ -241,7 +246,7 @@ Page({
       }
     });
   },
-  sendRiceAdd() {//发送投饭团数据
+  sendRiceAdd() { //发送投饭团数据
     var tid = this.data.tid;
     var coun = this.data.haveAdded;
 
@@ -256,27 +261,28 @@ Page({
       });
       return false;
     }
-    console.log(tid,coun)
+    console.log(tid, coun)
     app.apiRequest({
-      url: '/ranking/add',
+      url: '/actor/pc/updateActor',
       data: {
         id: tid,
-        count: coun
+        integral: coun + this.data.star.integral
       },
-      success: res => {    
-        console.log(res)    
+      success: res => {
+        console.log(res)
         if (res.data.code == 0) {
           wx.showToast({
             title: "投递成功~"
           })
-          _this.getMineDetal(_this.data.activityId);
+          _this.getMineDetal(_this.data.tid);
           // _this.getPerformanceDetail(_this.data.activityId)
           // _this.data.pageInit.number=1
           // _this.data.rankList=[];
           // _this.data.rankListt= [];
           // _this.getRankingList(_this.data.activityId)
+          _this.data.star.integral = coun + this.data.star.integral
           _this.setData({
-            isShowAdd:false
+            isShowAdd: false
           })
         } else {
           wx.showToast({
@@ -293,21 +299,32 @@ Page({
     v = parseInt(v);
     if (isNaN(v)) {
       console.log()
-      wx.showToast({ title: "请您输入数字", icon: "none" })
+      wx.showToast({
+        title: "请您输入数字",
+        icon: "none"
+      })
       this.setData({
         haveAdded: ""
       });
       return;
     }
     if (v > this.data.mineDetal.integral) {
-      wx.showToast({ title: "投递数量不能多于您的饭团总数", icon: "none" })
+      wx.showToast({
+        title: "投递数量不能多于您的饭团总数",
+        icon: "none"
+      })
       this.setData({
         haveAdded: this.data.mineDetal.integral
       });
       return;
     }
     this.setData({
-      haveAdded:v
+      haveAdded: v
+    })
+  },
+  closeRicek() {
+    this.setData({
+      isShowAdd: false
     })
   },
   /**

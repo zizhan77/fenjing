@@ -1,0 +1,90 @@
+<!--pages/mess/mess.wxml-->
+<canvas class="can" canvas-id="haibao" width="{{sysWidth}}" height="{{sysHeight}}" wx:if="{{isSaved}}" style="width:{{sysWidth}}px;height:{{sysHeight}}px;"></canvas>
+<view class="mine_bars">  
+  免费拿票
+</view>
+<view class="newques_k">
+  <image src="http://resource.jiyilive.com/img2/icon/ic_wenti.png" class="newques_di"></image>
+  <view class="newques_dtit">
+    {{nowQuest}}
+  </view>
+  <view class="newques_dq" bindtap="checkQues" data-set="0">
+    <view class="newques_dqb">A</view>
+    {{answer1}}
+  </view>
+  <view class="newques_dq"  bindtap="checkQues" data-set="1">
+    <view class="newques_dqb">B</view>
+    {{answer2}}
+  </view>
+  <view class="newques_dq"  bindtap="checkQues" data-set="2">
+    <view class="newques_dqb">C</view>
+    {{answer3}}
+  </view>
+  <view class="newques_dq"  bindtap="checkQues" data-set="3">
+    <view class="newques_dqb">D</view>
+    {{answer4}}
+  </view>
+</view>
+<view class="newques_kd"></view>
+<view class="getBack" bindtap="backhomed">
+    <image src="http://resource.jiyilive.com/img/wish/exitb.png" mode="widthFix"></image>
+    退出任务
+  </view>
+<view class="listk" wx:if="">
+  
+  <view class="person">
+    <image src="{{utoux}}" style="height:150rpx;width:150rpx;"></image>    
+  </view>
+  <view class="quesk" style="display:{{isQuesShow}};">
+      <view class="ques_tit" style="opacity:0;">【第{{wordNumber}}题】</view>
+      <view class="ques_name">{{nowQuest}}</view>
+      <view class="ques_ansk" >
+        <view class="ques_ans"><view class="ques_ansback" bindtap="checkQues" data-set="0">{{answer1}}</view></view>
+        <view class="ques_ans"><view class="ques_ansback" bindtap="checkQues" data-set="1">{{answer2}}</view></view>
+        <view class="ques_ans"><view class="ques_ansback" bindtap="checkQues" data-set="2">{{answer3}}</view></view>
+        <view class="ques_ans"><view class="ques_ansback" bindtap="checkQues" data-set="3">{{answer4}}</view></view>        
+      </view>
+  </view>
+</view>
+  
+<!-- 统一提示框 答错了-->
+<view class="act_tan" wx:if="{{isWGuoGK}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/havenopass.png" class="act_tani" mode="widthFix"></image>
+    <view class="changlTime">{{chanlinge<1 ? 0:(chanlinge-1)}}</view>
+    <view class="act_butk">
+      <view class="act_butsb" bindtap="reChanlege">继续挑战</view>      
+    </view>
+    <view class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" bindtap="giveUpCount"></image>
+    </view>
+  </view>
+</view>
+<!-- 统一提示框 没次数-->
+<view class="act_tan" wx:if="{{isHaveShare}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/hovenotime.png" class="act_tani" mode="widthFix"></image>    
+    <view class="act_butk">
+      <!-- <view class="act_butsb" bindtap="makeHaib">生成助力海报</view> -->
+      <view class="act_buts" bindtap="haveShared">立即分享
+        <button open-type="share" style="position:absolute;width:280rpx;height:70rpx;left:0;top:0;right:0;bottom:0;margin:auto;opacity:0;"></button>
+      </view>
+    </view>
+    <view class="act_closek" bindtap="giveUpCount">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" ></image>
+    </view>
+  </view> 
+</view>
+<!-- 统一提示框 通关了-->
+<view class="act_tan" wx:if="{{isHavePassed}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/havepass.png" class="act_tani" mode="widthFix"></image>
+    <view class="act_butk">
+      <view class="act_butsb" bindtap="goToLaohj">马上抽奖</view>      
+    </view>
+    <navigator url="/pages/index/index" open-type="switchTab" class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png"></image>
+    </navigator>
+  </view>
+</view>
+

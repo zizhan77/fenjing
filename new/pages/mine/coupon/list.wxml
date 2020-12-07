@@ -1,0 +1,54 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>我的优惠券</view>
+</cu-custom>
+
+<!-- 顶部tab -->
+<scroll-view wx:if="{{!chooseCoupon}}" scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-purple cur':''}}" wx:for="{{couponStatusMap}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+    <view class="slid">
+      {{couponStatusMap[index]}}
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 不使用优惠券 -->
+<view wx:if="{{chooseCoupon}}" bindtap='bindChooseCoupon' class='cu-card bg-white text-center padding-sm shadow' 
+  style='font-size: 16px; margin: 30rpx 30rpx 10rpx 30rpx; border-radius :10px'>
+  不使用优惠券
+</view>
+
+<!-- 列表区 -->
+<view class="cu-card case">
+  <view wx:for="{{couponList}}" wx:key class="shadow coupon" style='position: relative'>
+    <view class='flex content'>
+      <!-- 遮罩层 -->
+      <view wx:if="{{couponStatusMap[TabCur]!='未使用'}}" class='cu-tag' style='background-color: rgba(1,1,1,0);'>
+        <view class="cu-avatar xl round {{couponStatusMap[TabCur]== '已使用'? 'used':'old'}}" style='width: 200rpx; height: 200rpx;'>
+        </view>
+      </view>
+      <!-- 遮罩层end -->
+      <view class="flex-sub radius">
+        <view class="padding-left-lg padding-top" style='font-size: 80rpx;'>
+          <view class="text-bold {{couponStatusMap[TabCur]=='未使用'?'left-price':'disable-color'}}" style='line-height: 80rpx;'>
+            <text class='text-price' style='font-size: 50rpx;'></text>
+            <text>50</text>
+          </view>
+          <text style="font-size: 30rpx; display: block; color: {{couponStatusMap[TabCur]=='未使用'?'rgb(22,22,22)': 'grey'}};">无金额门槛</text>
+        </view>
+      </view>
+      <view class="flex-twice radius margin-lr margin-top">
+        <view class="text-bold text-lg right-price {{couponStatusMap[TabCur]=='未使用'?'':'disable-color'}}">全场立减5元</view>
+        <view class='cf' style='min-height: 50rpx'>
+          <button id="to-use" wx:if="{{couponStatusMap[TabCur]=='未使用' && !chooseCoupon}}" class='cu-btn sm fr' bindtap='bindToUse' data-id="1">去使用</button>
+        </view>
+        <view class='margin-top-xs right-time'>有效期:2019.10.10-2019.12.10</view>
+      </view>
+    </view>
+    <view class='margin-left-lg margin-top margin-bottom-sm' style="color: {{couponStatusMap[TabCur]=='未使用'?'rgb(22,22,22)': 'grey'}};">全场通用</view>
+  </view>
+</view>
+

@@ -1,0 +1,20 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>积分记录</view>
+</cu-custom>
+
+<!-- 积分列表 -->
+<view class="cu-list menu border padding">
+  <view wx:if="{{empty}}" class='text-center'>暂无记录</view>
+  <view wx:for="{{integralList}}" wx:key class="cu-item flex justify-between" style='box-shadow:1px 1px 1px 1px #eee;'>
+    <text>{{item.activityName}}</text>
+    <view>
+      <view class='text-right margin-tb-sm text-red'>+{{item.integralQty}}</view>
+      <view class='margin-tb-sm'>{{item.createTime}}</view>
+    </view>
+  </view>
+</view>
+<view class='text-center margin-top-lg'>
+  <image class='more' src='http://image.jiyilive.com/%E6%9B%B4%E5%A4%9A%E7%8E%A9%E6%B3%95%EF%BC%8C%E6%95%AC%E8%AF%B7%E6%9C%9F%E5%BE%85%EF%BC%81@2x.png'></image>
+</view>

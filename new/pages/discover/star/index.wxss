@@ -1,0 +1,9 @@
+/* pages/discover/star/index.wxss */
+page{background:none;}
+.listk{width:100%;box-sizing:border-box;padding:30rpx 30rpx;}
+.listd{width:690rpx;margin:0 0 50rpx;display:flex;align-items:center;}
+.list_toux{width:120rpx;height:130rpx;position:realtive;flex:0 0 120rpx;margin-right:30rpx;}
+.list_toux image{width:120rpx;height:120rpx;border-radius:50%;overflow:hidden;}
+.lsit_touxtext{width:130rpx;height:30rpx;line-height:30rpx;font-size:24rpx;color:#fff;text-align:center;white-space:nowrap;position:absolute;left:0;bottom:0;z-index:10;}
+.list_touxd{background:#FF3E25;transform:skewz(15deg);position:absolute;width:98rpx;height:30rpx;}
+

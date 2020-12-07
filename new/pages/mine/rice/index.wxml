@@ -1,0 +1,33 @@
+<!--pages/mine/rice/index.wxml-->
+<view class="mine_bar" style="background-image:none;background-color:#fff;">
+  <navigator open-type="navigateBack" class="mine_barb"></navigator>
+  我的饭团
+</view>
+
+<view class="cont">
+  <view class="tit" style="background-image:url(http://resource.jiyilive.com/img2/back/activeback1.png">
+    <view class="titco">
+      <span>{{myrice || 0}}</span>个饭团
+    </view>    
+  </view>
+  <view class="li_k">
+    <view class="li_tit">活动记录</view>
+    <view class="li_hr"></view>
+    <block wx:for="{{sortList}}" wx:key>
+    <view class="li_d">
+      <view class="li_c">
+        <view class="li_dt">
+          {{item.activityName}}
+          <span>{{item.createTime}}</span>
+        </view>        
+        <view class="li_icon">
+          <span wx:if="{{item.integralQty>0}}">+{{item.integralQty}}</span>
+          <b wx:else>{{item.integralQty}}</b>
+        </view>
+      </view>      
+    </view>
+    </block>
+
+  </view>
+
+</view>

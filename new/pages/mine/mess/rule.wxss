@@ -1,0 +1,10 @@
+/* pages/mine/mess/rule.wxss */
+page{background:#fff;padding:160rpx 0 30rpx;}
+
+
+.law{width:90%;margin:15rpx auto;text-align:justify;font-size:24rpx;color:#333;}
+.lawp{margin:5px 0;text-indent:40rpx;}
+.law b{font-weight:bold;}
+.law span{font-style:italic;}
+.law u{text-decoration:underLine;}
+.lawtit{font-size:30rpx;color:#222;text-align:center;font-weight:bold;}

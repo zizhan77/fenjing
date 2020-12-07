@@ -1,0 +1,94 @@
+<!--pages/mine/prizes/index.wxml-->
+<!-- 导航 -->
+<view class="mine_bar" style="background-image:none;background-color:#fff;">
+  <navigator open-type="navigateBack" class="mine_barb"></navigator>
+  我的奖品
+</view>
+<view class="nav_k">
+  <view class="nav_dh" bindtap="changeNav">
+    <view class="nav_dhd {{navdh[0]}}" data-ind='0'>门票</view>
+    <view class="nav_dhd {{navdh[1]}}" data-ind='1'>实物奖品</view>
+    <view class="nav_dhd {{navdh[2]}}" data-ind='2'>电子券</view>
+  </view>
+  <view wx:if="{{navdh[0]}}" class="nav_lik" style="padding-top:30rpx;background:#f6f6f6;">
+    <view class="pink2 pink1" wx:if="{{navList.length!=0}}">门票为纸质票，采用邮费到付方式寄出。或凭手机号现场取票，演出前1-3天通知。获奖后请在12小时内兑换，超时未兑换视为主动放弃。</view>
+    <block wx:for="{{navList}}" wx:key>
+    <view style="background:#f6f6f6;">
+      <view class="nav_li ztnew ztnew1">
+        <view class="li_tit titzt">{{item.prizeName}}</view>
+        <image class="nav_lif" src="http://resource.jiyilive.com/img2/icon/ic_card.png"></image>
+        <view class="line linezt"></view>
+        <span class="timerzt" wx:if="{{item.status==0}}">
+          <b>放弃活动倒计时：{{item.sday}}</b>
+        </span>
+        <view class="nav_copy nav_copy1" wx:if="{{item.status==0}}">
+          <p>确认领取</p>
+          <view class="list_butzz" data-id="{{item.id}}" bindtap="confirmReward"></view>
+        </view>
+        <view class="nav_copy nav_copy1" style ="background:#fff;" wx:if="{{item.status==2}}">
+          <p>已放弃</p>
+        </view>
+        <view class=" nav_copy nav_copy1" style ="background:#9FE8FF;" wx:if="{{item.status==1}}">
+          <p>修改地址</p>
+          <button class="list_butzz" open-type="contact"></button>
+          <!-- <view class="list_butzz" data-id="{{item.id}}" bindtap="confirmReward"></view> -->
+        </view>
+      </view>
+      </view>
+    </block>
+    <view wx:if="{{empty[0]}}" class='text-center margin' style='padding-top: 200rpx;'>
+      <image style="width: 400rpx; height: 300rpx;" src='http://resource.jiyilive.com/img2/errors/havenodata.png'></image>
+      <view class='text-lg'>什么都没有哦~</view>
+    </view>
+  </view>
+  <view wx:if="{{navdh[1]}}" class="nav_lik" style="padding-top:30rpx;background:#f6f6f6;">
+    <view class="pink2 pink1" wx:if="{{navReward.length!=0}}">实物采用邮费到付方式寄出。获奖后请在12小时内兑换，超时未兑换视为主动放弃。</view>
+    <block wx:for="{{navReward}}" wx:key>
+      <view class="nav_li ztnew">
+        <view class="li_tit lititzt1">
+          {{item.prizeName}}
+        </view>
+        <image class="nav_lif" src="http://resource.jiyilive.com/img2/icon/ic_reward.png"></image>
+        <view class="line linezt linezt1"></view>
+        <span class="timerzt1" wx:if="{{item.status==0}}">
+          <b>放弃活动倒计时：{{item.sday}}</b>
+        </span>
+        <view class=" nav_copy" wx:if="{{item.status==0}}">
+          <p>确认领取</p>
+          <view class="list_butzz" data-id="{{item.id}}" bindtap="confirmReward"></view>
+        </view>
+        <view class="nav_copy" wx:if="{{item.status==2}}" style ="background:#fff;">
+          <p>已放弃</p>
+        </view>
+        <view class="nav_copy" wx:if="{{item.status==1}}" style ="background:#9FE8FF;">
+          <p>修改地址</p>
+          <button class="list_butzz1 " open-type="contact"></button>
+        </view>
+      </view>
+    </block>
+    <view wx:if="{{empty[1]}}" class='text-center margin' style='padding-top: 200rpx;'>
+      <image style="width: 400rpx; height: 300rpx;" src='http://resource.jiyilive.com/img2/errors/havenodata.png'></image>
+      <view class='text-lg'>什么都没有哦~</view>
+    </view>
+  </view>
+  <view wx:if="{{navdh[2]}}" class="nav_lik ztbox">
+    <view class="pink2" wx:if="{{navFriend.length!=0}}">电子券使用方式请参考详细介绍进行操作</view>
+    <block wx:for="{{navFriend}}" wx:key wx:for-index="k">
+      <view class="nav_li ztnew">
+        <image class="nav_lilo" src="{{item.spurl}}"></image>
+        <text>{{item.prizeName}}</text>
+        <view class="nav_lico" data-ind="{{k}}" bindtap="makeExtend" style="{{cardcode[k] ? 'height:auto;padding-bottom:37rpx;':''}}">{{item.des}}
+          <view class="nav_liex" data-ind="{{k}}" catchtap="makeExtend">{{cardcode[k] ? "收起":"展开"}}</view>
+        </view>
+        <view class="line"></view>
+          <view class="nav_copy" wx:if="{{item.url}}" bindtap="copythis" data-ma="{{item.url}}" data-prizedId="{{item.prizedId}}">复制链接</view>
+          <view class="nav_copy" style="background:#9FE8FF" wx:if="{{item.key}}" bindtap="copythis" data-ma="{{item.key}}" data-prizedId="{{item.prizedId}}">复制券码</view>
+      </view>
+    </block>
+    <view wx:if="{{empty[2]}}" class='text-center margin' style='padding-top: 200rpx;'>
+      <image style="width: 400rpx; height: 300rpx;" src='http://resource.jiyilive.com/img2/errors/havenodata.png'></image>
+      <view class='text-lg'>什么都没有哦~</view>
+    </view>
+  </view>
+</view>
+<view class="havenone" wx:if="{{havenodata}}">没有更多记录了 o(╥﹏╥)o~</view>

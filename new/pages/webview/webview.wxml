@@ -1,0 +1,5 @@
+
+<web-view src="{{tmpurl}}" class="viewk"></web-view>
+
+
+<!-- <web-view src="https://store.nature-es.cn/app/index.php?i=1604&c=entry&p=distrilist&mid=7462031&do=shop&m=vslai_shop" class="viewk"></web-view> -->

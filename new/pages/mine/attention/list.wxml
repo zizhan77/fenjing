@@ -1,0 +1,25 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>我的关注</view>
+</cu-custom>
+
+<view wx:for="{{likeList}}" wx:key class="cu-card article">
+  <view class="cu-item" bindtap='showDetail' data-id="{{item.performanceId}}" style='box-shadow:1px 1px 1px 1px #ddd; padding-bottom: 0'>
+    <view class="content" style='padding-left: 0;'>
+      <image src="{{item.thumbUrl}}" mode="aspectFill"></image>
+      <view class="desc padding-bottom">
+        <view class='title' style='color: rgb(25,25,25); line-height: 40rpx; margin-top:30rpx'>{{item.simpleTitle}}</view>
+        <view id="time" class='padding-left' style='color: rgb(72,72,72)'>{{item.showTime}}</view>
+        <view id="address" class='padding-left' style='color: rgb(102,102,102);'>{{item.basicPlace.name}}</view>
+
+        <view class="footer cf">
+           <text wx:if="{{item.status == 1}}" class='fr text-lg padding-right' style='color: #c975b1'>敬请期待</text>
+          <text wx:elif="{{item.status == null}}" class='fr text-lg padding-right' style="color: {{item.timeStr == '售卖中'?'#e57e7a': '#c975b1'}}">{{item.timeStr}}</text>
+          <text wx:elif="{{item.status == 3}}" class='fr text-lg padding-right' style='color: #e57e7a'>售卖中</text>
+          <text wx:elif="{{item.status == 4}}" class='fr text-lg padding-right' style='color: #c9c9ca'>已结束</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

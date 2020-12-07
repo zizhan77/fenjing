@@ -1,0 +1,72 @@
+<!--pages/mine/prizes/index.wxml-->
+<!-- 导航 -->
+<view class="mine_bar" style="background-image:none;background-color:#fff;">
+  <navigator open-type="navigateBack" class="mine_barb"></navigator>
+  参与活动
+</view>
+
+<view class="nav_k">    
+    <view class="nav_dh" bindtap="changeNav">
+      <view class="nav_dhd {{navdh[0]}}" data-ind='0'>进行中</view>      
+      <view class="nav_dhd {{navdh[1]}}" data-ind='1'>已结束</view>
+    </view>
+    <view wx:if="{{navdh[0]}}" class="nav_lik">
+      <block wx:for="{{navList}}" wx:key wx:for-index="k">
+        <view class="list_ph">
+          <view class="list_spo">
+          </view>
+          <view class="list_phk">
+            <image src="{{item.thumbnailUrl}}" class="list_pic" mode="aspectFill" bindtap="showPaih" data-id="{{item.id}}"></image>
+            <view class="list_con">
+              <view class="list_cont">{{item.activityTitle}}</view>
+              <view class="list_conbz">
+                <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+                距结束：{{item.sday}}
+              </view>              
+              <view class="list_conbz">
+                <image src="http://resource.jiyilive.com/img2/icon/ic_weizhi.png"></image>
+                {{item.provence}}
+              </view>
+              <view class="list_conp">
+                <view class="list_conpb">剩余{{item.totalNum || 0}}张</view>
+                <view class="list_conpb">送出{{item.givedNum || 0}}张</view>
+                <view class="list_conxx"></view>
+              </view>              
+            </view>
+          </view>
+          <view class="list_zz" data-id="{{item.id}}" bindtap="showActive"></view>          
+        </view>
+      </block>
+       <view wx:if="{{empty[0]}}" class='text-center margin' style='padding-top: 200rpx;'>
+          <image style="width: 400rpx; height: 300rpx;" src='http://resource.jiyilive.com/img2/errors/havenodata.png'></image>
+          <view class='text-lg'>什么都没有哦~</view>
+        </view>
+    </view>
+    <view wx:if="{{navdh[1]}}" class="nav_lik">
+      <block wx:for="{{navReward}}" wx:for-index="k"  wx:key>
+        <view class="list_ph">
+          <view class="list_spo">             
+          </view>
+          <view class="list_phk">       
+            <image src="{{item.thumbnailUrl}}" class="list_pic" mode="aspectFill" bindtap="showPaih" data-id="{{item.id}}"></image>
+            <view class="list_con"  style="opacity:0.5;">
+              <view class="list_cont">{{item.activityTitle}}</view>
+              <view class="list_conbz">
+                <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+                已结束
+              </view>
+              <view class="list_conbz">
+                <image src="http://resource.jiyilive.com/img2/icon/ic_weizhi.png"></image>
+                {{item.provence}}
+              </view>                          
+            </view>
+          </view>                 
+        </view>
+      </block>
+      <view wx:if="{{empty[1]}}" class='text-center margin' style='padding-top: 200rpx;'>
+          <image style="width: 400rpx; height: 300rpx;" src='http://resource.jiyilive.com/img2/errors/havenodata.png'></image>
+          <view class='text-lg'>什么都没有哦~</view>
+        </view>
+    </view>
+
+  </view>  

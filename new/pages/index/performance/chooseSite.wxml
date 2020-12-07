@@ -1,0 +1,75 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>演出详情</view>
+</cu-custom>
+
+<view class='head-title'>
+  <!-- 选择时间 -->
+  <view class='text-left solids-bottom padding-bottom-sm padding-left'>选择时间</view>
+  <view class='timeList'>
+    <view class="grid col-3 padding-sm">
+      <view wx:for="{{showTimeList}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn orange block text-sm {{item.id == choosedShowTimeId?'bg-choosed':'bg-unchoose'}}" style='line-height: 30rpx;' bindtap="chooseShowTime" data-id="{{item.id}}">{{item.showTime.date}} {{item.showTime.week}} {{item.showTime.time}}</button>
+      </view>
+    </view>
+  </view>
+  <!-- 选择票档 -->
+  <view class='text-left padding-bottom-sm padding-left'>选择票档</view>
+  <!-- <view class='priceList'>
+    <view class="grid col-3 padding-sm">
+      <view wx:for="{{ticketGearList}}" class="padding-xs" wx:key="{{index}}">
+        <button class="cu-btn orange block text-sm {{item.id == choosedTicketGearId?'bg-orange':'line-orange'}}" bindtap="chooseTicketGear" data-id="{{item.id}} " data-price="{{item.price}}">{{item.price}}元</button>
+      </view>
+    </view>
+  </view> -->
+  <view class='line'></view>
+</view>
+<view class='head-seat'>
+  <view class='seat flex justify-around'>
+    <view class='seat1'>
+      <text class='icon iconfont icon-seatNormal' decode="{{true}}">&nbsp;可选</text>
+    </view>
+    <view class='seat2'>
+      <text class='icon iconfont icon-seatDisabled' decode="{{true}}">&nbsp;不可选</text>
+    </view>
+    <view class='seat3'>
+      <text class='icon iconfont icon-seatChoose' decode="{{true}}">&nbsp;已选</text>
+    </view>
+  </view>
+  <view class='padding flex justify-around'>
+    <button wx:for="{{areaInfo}}" wx:key class='cu-btn sm light' style='background: {{item.color}}'>{{item.price}}元</button>
+  </view>
+</view>
+<view class='seat-change'>
+  <view class='seat-change-title'>舞台</view>
+  <view class='seat-change1'>
+    <block wx:for="{{seatArr}}" wx:for-item="row" wx:for-index="rowid" wx:key="this">
+      <view>
+        <block wx:for="{{row}}" wx:for-item="item" wx:for-index="colid" wx:key="this">
+          <!-- <image src='{{item.img}}' data-row="{{rowid}}" data-col="{{colid}}" data-seatid="{{item.id}}" data-seatno="{{item.seatNo}}" data-price="{{item.price}}" data-areaid="{{item.areaId}}" bindtap="{{item.disabled?'':'seatChange'}}" style='width: {{imgWidth}}%;' mode="widthFix"></image> -->
+          <text class='icon iconfont {{item.img}}' data-row="{{rowid}}" data-col="{{colid}}" data-seatid="{{item.id}}" data-seatno="{{item.seatNo}}" data-price="{{item.price}}" data-areaid="{{item.areaId}}" bindtap="{{item.disabled?'':'seatChange'}}" style='color: {{item.color}}' mode="widthFix"></text>
+        </block>
+      </view>
+      
+    </block>
+  </view>
+</view>
+<view style='position: fixed; bottom:0; width: 100%;'>
+  <view class='seat-chooseFinish text-center' wx:if="{{num}}">
+    <view wx:for="{{seatFinish}}" wx:for-item="item" wx:for-index="id" wx:key="this">
+      <text style='display: block;'>{{item.row}}排{{item.col}}座</text>
+      <text style='display: block; color:red'>￥{{item.price}}</text>
+    </view>
+  </view>
+  <view style='background-color: white;'>
+    <view class='sum-price'>合计金额：{{totalPrice}}元 | {{num}}张</view>
+    <view class='seat-buy' bindtap="{{opacity == 1? 'confirmOrder': ''}}"  style='opacity: {{opacity}}'>{{buy}}</view>
+  </view>
+</view>
+
+
+<modal class="modal" hidden="{{modalHidden}}" no-cancel bindconfirm="modalChange" bindcancel="modalChange">
+  <view> 提示!</view>
+  <view> 一次最多选择{{maxLimit}}个座位!</view>
+</modal>

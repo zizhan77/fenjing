@@ -1,0 +1,12 @@
+{
+  "usingComponents": {
+    "footComponent": "../publicJS/footer"
+  },
+  "enablePullDownRefresh": true,
+  "backgroundTextStyle": "light",
+  "backgroundColor": "#ffffff",
+  "navigationBarBackgroundColor": "#fff",
+  "navigationBarTitleText": "粉鲸饭团",
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "black"  
+}

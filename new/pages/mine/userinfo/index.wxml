@@ -1,0 +1,50 @@
+<!-- 导航 
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>个人信息</view>
+</cu-custom>
+-->
+<!-- 页面 -->
+<view class="cu-list menu sm-border">
+  <!-- 地址 -->
+  <view class="cu-item ">
+    <view class="content flex justify-between ">
+    <image src="http://resource.jiyilive.com/img2/icon/ic_location.png" class="inlineimg"></image>
+      <text>收货地址</text>
+      <view class='pickerd' bindtap="editAddress"><view class="picker">{{address == '' ? '未绑定': address}}</view></view>
+    </view>
+  </view>
+  <!-- 性别 -->
+  <view class="cu-item ">
+    <view class="content flex justify-between ">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_sex.png" class="inlineimg"></image>
+      <text>性别</text>
+      <picker bindchange="bindGenderChange" value="{{genderIndex}}" range="{{genderList}}" class="pickerd">
+        <view class="picker"> {{genderList[genderIndex]}}</view>
+      </picker>
+    </view>
+  </view>
+  <!-- 生日 -->
+  <view class="cu-item ">
+    <view class="content flex justify-between">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_calendar.png" class="inlineimg"></image>
+      <text>生日</text>
+      <picker
+        mode="date"
+        value="{{birthday}}"
+        bindchange="bindBirthdayChange"
+        class="pickerd"
+      >
+        <view class="picker">{{birthday? birthday : '待完善'}}</view>
+      </picker>
+    </view>
+  </view>
+  <!-- 绑定手机号 -->
+  <view class="cu-item ">
+    <view class="content flex justify-between ">
+    <image src="http://resource.jiyilive.com/img2/icon/ic_phone.png" class="inlineimg"></image>
+      <text>手机号码</text>
+      <button class='cu-btn bg-white padding-0 text-black pickerd' style='font-size: 30rpx;' open-type='getPhoneNumber' bindgetphonenumber="getPhoneNumber"><view class="picker">{{mobile == ''? '未绑定': mobile}}</view></button>
+    </view>
+  </view>
+</view>

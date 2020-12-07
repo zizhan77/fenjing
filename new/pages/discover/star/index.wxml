@@ -1,0 +1,12 @@
+<!--pages/discover/star/index.wxml-->
+<view class="mine_bar" style="background:#fff;">
+  <navigator class="mine_barb" open-type="navigateBack" role="navigation"></navigator>
+  艺人排行榜
+</view>
+<view class="listk">
+  <view class="listd">
+    <view class="list_toux">
+    
+    </view>
+  </view>
+</view>

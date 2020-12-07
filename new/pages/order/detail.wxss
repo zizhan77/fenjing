@@ -1,0 +1,8 @@
+/* pages/order/detail.wxss */
+page{
+  background-color: white;
+}
+.cu-card.article>.cu-item .content>image {
+  margin-top: 30rpx;
+  height: 8em;
+}

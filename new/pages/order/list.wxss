@@ -1,0 +1,15 @@
+/* pages/order/list.wxss */
+page{
+  background-color: white;
+}
+
+.order-btn{
+  background-image: url(http://image.jiyilive.com/%E7%AB%8B%E5%8D%B3%E6%94%AF%E4%BB%98@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+}
+.nav .cu-item.cur{border-bottom:none;}
+.slid{display:inline-block;height:100%;box-sizing:border-box;}
+.text-purple .slid{border-bottom:2px solid #6739b6;}

@@ -1,0 +1,172 @@
+<wxs module="Fix" src="fix.wxs"></wxs>
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>活动详情</view>
+</cu-custom>
+<!-- 概要 -->
+<view class="cu-card no-card article" style='position: relative;'>
+  <view class="cu-item" style='background-image: url({{performanceInfo.thumbUrl}}); background-repeat: no-repeat; background-size: 100%; filter: blur(18px); height: 398rpx;'></view>
+  <view class="cu-item shadow" style='position: absolute; top: 10px; width: 750rpx; background-color: rgba(1,1,1,0)'>
+    <view class="content">
+      <image style='margin-top: 30rpx; height: 11em;' src="{{performanceInfo.thumbUrl}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class='title margin-top' style='line-height: 40rpx; padding:0; color: rgb(255,255,255);'>{{performanceInfo.title}}</view>
+
+        <view class="time padding-tb" style='color: rgb(255,255,255);'>{{performanceInfo.showTimeStr}}</view>
+
+        <navigator url="map?endLat={{placeInfo.latitude}}&endLng={{placeInfo.longitude}}&name={{placeInfo.name}}" hover-class="none">
+          <view class="location" style='color: rgb(255,255,255);'>
+            {{placeInfo.name}}
+            <text class='cuIcon-locationfill'></text>
+          </view>
+        </navigator>
+
+        <view class='share flex justify-between'>
+          <text class='text-lg text-bold' style='line-height: 70rpx;'> </text>
+          <button open-type='share' class='share text-center cu-btn' style='display: inline-block; width: 100rpx; padding: 0; background-color: rgba(1,1,1,0)'>
+            <image src='http://resource.jiyilive.com/img2/index/share.png' style='width:20px; height: 20px;'></image>
+          </button>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="cu-card margin-tb-xs">
+  <view class="cu-item shadow bg-gray">
+    <view class="content flex justify-between padding-lr padding-tb-xs">
+      <view class='info' class='padding-top-xs'>
+        <view class='margin-bottom-xs' style='color: rgb(22,22,22);'>粉鲸饭团亲情奉献</view>
+        <view class='tags text-sm'>
+          <text class='cuIcon-vip' style='color: #cb3b59'></text><text style='color: rgb(53,53,53)'>真票保障</text>
+          <text class='cuIcon-vip margin-left' style='color: #cb3b59;'></text><text style='color: rgb(53,53,53)'>安全保障</text>
+          <text class='cuIcon-vip margin-left' style='color: #cb3b59'></text><text style='color: rgb(53,53,53)'>退票保障</text>
+        </view>
+      </view>
+      
+      <button class='cu-btn sm text-white margin-tb btn-notice' bindtap='bindnotice'>购票须知</button>
+    </view>
+  </view>
+</view>
+<!-- 详情 -->
+<view class='detail bg-white'>
+  <view id="detail-content" class="detail-content padding text-lg" style='height: {{foldHeight}}px'>
+    <import src="../../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>  
+  </view>
+  <!-- 折叠按钮 -->
+  <view id='fold-pannel' class='flex justify-center padding-tb-sm'>
+    <view bindtap='unfold' wx:if="{{foldHeight}}">
+      <view class='text-center text-blue light' style='font-size: 14px;'>展开更多介绍</view>
+      <view class='text-center' style='line-height: 4px;'>
+        <image style='width: 30rpx; height: 10rpx;' src='http://image.jiyilive.com/%E6%9B%B4%E5%A4%9A%E4%BB%8B%E7%BB%8D%E5%9B%BE%E6%A0%87.png'></image>
+      </view>
+    </view>
+    <text wx:else class="view-all {{foldHeight? 'cantap' : ''}}">{{' '}}</text>
+  </view>
+</view>
+
+
+<!-- 底部按钮 -->
+<view id="bottom-bar" class="cu-bar tabbar bg-white shadow foot">
+  <!-- 结束状态 -->
+  <block wx:if="{{performanceInfo.status == 4}}">
+    <view class='flex justify-center' style='width: 100%;'>
+      <view class='btn-finish text-center' style='width: 441rpx; height: 62rpx; line-height: 62rpx; color: rgb(255,255,255); margin: 0 auto'>已结束</view>
+    </view>
+  </block>
+  <block wx:else>
+    <view class='cf margin-lr flex align-center' style='width: 100%;'>
+      <view class='fl margin-right-xs' style='display:inline-block; width: 220rpx;'>
+        <button open-type='share' class='share text-center cu-btn bg-white' style='display: inline-block; width: 100rpx; padding: 0;'>
+          <image style='width:16px; height: 16px;' src='http://resource.jiyilive.com/img2/index/share2.png'></image>
+          <text style='display: block; padding: 10rpx;'>分享</text>
+        </button>
+        <button bindtap='{{isLike==1?"bindDisattention":"bindAttention"}}' data-id="{{performanceInfo.id}}" class='like text-center cu-btn bg-white' style='display: inline-block; width: 100rpx; padding: 0;'>
+          <image style='width:16px; height: 16px;' src='http://resource.jiyilive.com/img2/index/{{isLike==1? "liked": "unlike"}}.png'></image>
+          <text style='display: block; padding: 10rpx 0;'>{{isLike==1?"已关注": "关注"}}</text>
+        </button>
+      </view>
+      <view class='fr' style='display: inline-block; width: 500rpx;'>
+        <!-- 预售不确定时间 -->
+        <block wx:if="{{performanceInfo.status == 1}}">
+          <view class='btn-presale text-center'>敬请期待</view>
+        </block>
+        <!-- 预售已确定时间 -->
+        <block wx:if="{{performanceInfo.status == 2}}">
+          <view class='btn-presale text-center'>
+            距离开售还有
+            {{countDownTime.hou}}小时
+            {{countDownTime.min}}分
+            {{countDownTime.sec}}秒
+          </view>
+        </block>
+        <!-- 售卖状态 -->
+        <block wx:if="{{performanceInfo.status == 3}}">
+          <!-- 赞助商任务+售卖 -->
+          <view wx:if="{{performanceInfo.performanceNature == 1}}" class='btn-buy-free'>
+          <text class='text-center' bindtap='bindBuy' style='display: inline-block; width: 50%;color: rgb(102,102,102);'>立刻购买</text>
+          <text class='text-center' bindtap='bindFree' style='display: inline-block; width: 50%;'>送我</text>
+          <image id='free' src='http://resource.jiyilive.com/img2/index/free.png'></image>
+        </view>
+          <!-- 纯赞助商任务 -->
+          <view wx:if="{{performanceInfo.performanceNature == 2}}" class='btn-buy text-center' bindtap='bindFree'>
+            送我
+            <image id='free' src='http://resource.jiyilive.com/img2/index/free.png' style='right: 160rpx;'></image>
+          </view>
+          <!-- 纯售卖 -->
+          <view wx:if="{{performanceInfo.performanceNature == 3}}" class='btn-buy text-center' bindtap='bindBuy'>立刻购买</view>
+        </block>
+      </view>
+    </view>
+  </block>
+</view>
+
+<!-- 回到首页按钮 -->
+<view class='btn-goIndex text-center' bindtap='bindGoIndex'>
+  <text>回到首页</text>
+</view>
+<!-- 购买模态框 -->
+<view class="cu-modal bottom-modal {{showBuyModal?'show':''}}" bindtap='hideModal'>
+  <view class='cu-card no-card cu-dialog' catchtap>
+    <view class='cu-item padding'>
+      <!-- 选择时间 -->
+      <view class='text-left solids-bottom padding-bottom-sm'>选择时间</view>
+      <view class='timeList'>
+        <view class="grid col-3 padding-sm">
+          <view wx:for="{{showTimeList}}" class="padding-xs" wx:key="{{index}}">
+            <button class="cu-btn orange block text-sm {{item.id == choosedShowTimeId?'bg-choosed':'bg-unchoose'}}" style='line-height: 30rpx;' bindtap="chooseShowTime" data-id="{{item.id}}">{{item.showTime.date}} {{item.showTime.week}} {{item.showTime.time}}</button>
+          </view>
+        </view>
+      </view>
+      <!-- 选择票档 -->
+      <view class='text-left solids-bottom padding-bottom-sm'>选择票档</view>
+      <view class='priceList'>
+        <view class="grid col-3 padding-sm">
+          <view wx:for="{{ticketGearList}}" class="padding-xs" wx:key="{{index}}">
+            <button class="cu-btn orange block text-sm {{item.id == choosedTicketGearId?'bg-choosed':'bg-unchoose'}}" bindtap="chooseTicketGear" data-id="{{item.id}} " data-price="{{item.price}}">{{item.ticketGearName}}</button>
+          </view>
+        </view>
+      </view>
+
+      <!-- 选择数量 -->
+      <view class='text-left padding-bottom-sm'>选择数量
+          <view class="stepper">
+            <!-- 减号 -->
+            <text class="{{minusStatus}}" bindtap="bindMinus">-</text>
+            <!-- 数值 -->
+            <input type="number" bindchange="bindManual" value="{{num}}" />
+            <!-- 加号 -->
+            <text class="{{plusStatus}}" bindtap="bindPlus">+</text>
+         </view>
+      </view>      
+    </view>
+    <!-- 合计 -->
+      <view class='total padding-top-0 padding-left solid-top cf bg-white' style='line-height: 80rpx;'>
+        <view class='text-xl fl margin-tb-xs'>合计金额：<text class='text-bold text-red'>{{Fix.toFix(choosedPrice * num)}}元</text></view>
+        <view wx:if="{{curStoreNum > 0}}" class='fr btn-goBuy text-bold'  bindtap='bindConfirmOrder'>立即抢票</view>
+        <view wx:else class='fr btn-empty bg-grey text-bold'>已售罄</view>
+      </view>
+  </view>
+</view>

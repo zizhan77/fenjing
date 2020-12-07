@@ -1,0 +1,193 @@
+<!--pages/activity/index1/index.wxml-->
+<view class="mine_bars">
+  <view class="mine_barw" bindtap='bindBackUp'></view>
+  免费拿票
+</view>
+
+<view class="title">
+  <view class="title_d">
+    <view class="title_c">
+      <view class="title_cd">
+        STEP 1
+        <view class="title_cdd">参与小游戏</view>
+      </view>
+      <view class="title_chr"></view>
+      <view class="title_cd">
+        STEP 2
+        <view class="title_cdd">完成抽奖游戏</view>
+      </view>
+      <view class="title_chr"></view>
+      <view class="title_cd">
+        STEP 3
+        <view class="title_cdd">中奖免费拿票</view>
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="main_k">
+  <view class="main_tit">
+    <view class="main_tcon">
+      <p>{{activeTitle}}</p>
+    </view>
+    <image class="main_titdz" src="http://resource.jiyilive.com/img2/icon/ic_zuojiao.png"></image>
+    <image class="main_titdzr" src="http://resource.jiyilive.com/img2/icon/ic_zuojiao.png"></image>
+    <image class="main_bs" src="http://resource.jiyilive.com/img2/icon/ic_bashou.png"></image>
+    <image class="main_bsr" src="http://resource.jiyilive.com/img2/icon/ic_bashou.png"></image>
+  </view>
+
+  <!-- <view class="spons_k">
+    <image src="{{activeImage}}" mode="widthFix"></image>
+  </view> -->
+
+  <view class="newClass" style="z-index:999;position: relative;">
+    <template is="oneImage" data="{{listAll}}" wx:if="{{listAll.length==1}}"></template>
+    <template is="TwoImage" data="{{listAll}}" wx:elif="{{listAll.length==2}}"></template>
+    <template is="threeImage" data="{{listAll}}" wx:elif="{{listAll.length==3}}"></template>
+    <template is="fourImage" data="{{listAll}}" wx:elif="{{listAll.length==4}}"></template>
+    <template is="fiveImage" data="{{listAll}}" wx:elif="{{listAll.length==5}}"></template>
+    <template is="sixImage" data="{{listAll}}" wx:elif="{{listAll.length==6}}"></template>
+    <template is="sevenImage" data="{{listAll}}" wx:elif="{{listAll.length==7}}"></template>
+    <template is="eightImage" data="{{listAll}}" wx:elif="{{listAll.length==8}}"></template>
+    <template is="nineImage" data="{{listAll}}" wx:else="{{listAll.length==9}}"></template>
+  </view>
+
+  <view class="spons_d"></view>
+</view>
+<block wx:if="{{phoneNum}}">
+  <view style="position:fixed;bottom:30rpx;left:80rpx;">
+    <view class="line">活动进度：{{nowGuanKa || 0}}/{{allGuank}}</view>
+    <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" class="telC">
+      <view>获取手机号</view>
+    </button>
+  </view>
+</block>
+<block wx:else>
+  <view class="start_but" bindtap='touchEndf'>
+    <p>开始游戏</p>
+    <view class="start_con">活动进度：{{nowGuanKa || 0}}/{{allGuank}}</view>
+  </view>
+</block>
+
+<template name="oneImage">
+  <view class="onebox">
+    <view class="oneImage" wx:for="{{listAll}}">
+      <image src="{{item.thumburl}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</template>
+
+<template name="TwoImage">
+  <view class="twoBox">
+    <view class="TwoImage" wx:for="{{listAll}}">
+      <image src="{{item.thumburl}}"></image>
+      <text>{{item.name}}</text>
+    </view>
+  </view>
+</template>
+
+<template name="threeImage">
+  <view class="twoBox threebox">
+    <view class="TwoImage threebox1">
+      <image src="{{listAll[0].thumburl}}"></image>
+      <text>{{listAll[0].name}}</text>
+    </view>
+    <view class="TwoImage threebox1 threebox2">
+      <image src="{{listAll[1].thumburl}}"></image>
+      <text>{{listAll[1].name}}</text>
+    </view>
+    <view class="TwoImage threebox1 threebox2 threebox3">
+      <image src="{{listAll[2].thumburl}}"></image>
+      <text>{{listAll[2].name}}</text>
+    </view>
+  </view>
+</template>
+
+<template name="fourImage">
+  <view class="twoBox fourbox ">
+    <view class="fourItem">
+      <view class="fourImage" wx:for="{{listAll}}">
+        <image src="{{item.thumburl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="fiveImage">
+  <view class="twoBox">
+    <view class="fivebox">
+      <view class="five1">
+        <view class="fiveImage1" wx:for="{{listAll}}" wx:key="{{index}}" wx:if="{{index<2}}">
+          <image src="{{item.thumburl}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+      <view class="five1 five2">
+        <view class="fiveImage2" wx:for="{{listAll}}" wx:key="{{index}}" wx:if="{{index>=2}}" wx:if="{{index>1}}">
+          <image src="{{item.thumburl}}"></image>
+          <text>{{item.name}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="sixImage">
+  <view class="twoBox fourbox ">
+    <view class="sixBox">
+      <view class="sixImage" wx:for="{{listAll}}">
+        <image src="{{item.thumburl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="sevenImage">
+  <view class="twoBox">
+    <view class="seven1">
+      <image src="{{listAll[0].thumburl}}" style="width:130rpx;height:130rpx;"></image>
+      <text>{{listAll[0].name}}</text>
+    </view>
+    <view class="sixBox sevenImage">
+      <view class="sixImage" wx:for="{{listAll}}" wx:key="index" wx:if="{{index>0}}">
+        <image src="{{item.thumburl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="eightImage">
+  <view class="twoBox">
+    <view class="eight">
+      <view class="eightitem">
+        <image src="{{listAll[0].thumburl}}" style="width:130rpx;height:130rpx;"></image>
+        <text>{{listAll[0].name}}</text>
+      </view>
+      <view class="eightitem">
+        <image src="{{listAll[1].thumburl}}" style="width:130rpx;height:130rpx;"></image>
+        <text>{{listAll[1].name}}</text>
+      </view>
+    </view>
+    <view class="sixBox eightBox">
+      <view class="sixImage" wx:for="{{listAll}}" wx:key="index" wx:if="{{index>1}}">
+        <image src="{{item.thumburl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</template>
+
+<template name="nineImage">
+  <view class="twoBox">
+    <view class="sixBox ninebox">
+      <view class="sixImage nine1" wx:for="{{listAll}}" wx:key="index">
+        <image src="{{item.thumburl}}"></image>
+        <text>{{item.name}}</text>
+      </view>
+    </view>
+  </view>
+</template>

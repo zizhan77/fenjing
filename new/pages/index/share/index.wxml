@@ -1,0 +1,58 @@
+<!--pages/index/share/index.wxml-->
+<view class="mine_bars" style="background-image:url(http://resource.jiyilive.com/img2/sign/shareback.jpg);">
+  <navigator wx:if="{{isNotShare}}" open-type="navigateBack" class="mine_barb"></navigator>
+  <navigator wx:else url="/pages/index/index" open-type="switchTab" class="mine_barb" style="background-image:url(http://resource.jiyilive.com/img2/icon/ic_homew.png);"></navigator>
+  分享领饭团
+</view>
+<view class="message_k">
+  <view class="message">
+    <image src="http://resource.jiyilive.com/img2/icon/ic_laba.png"></image>
+    {{firstName}}刚邀请{{helpPer}}位好友获得{{riceCount}}个饭团
+  </view>
+</view>
+<view class="cont">
+  <image src="http://resource.jiyilive.com/img2/sign/sharetit.png" class="tit_img"></image>
+  <view class="res_k">
+    <view class="res_titk">首次邀请好友赚{{getRice}}饭团</view>
+    <view class="res_titb"></view>
+    <view class="res_titb1"></view>
+    <view class="res_d">
+      <view class="res_showk">
+        <navigator url="/pages/index/friend/index" class="res_show">
+          <span>{{sharedFriends}}</span>
+          成功邀请好友
+        </navigator>
+        <view class="res_showhr"></view>
+        <navigator url="/pages/mine/rice/index" class="res_show">
+          <span>{{haveGetRice}}</span>
+          成功获得饭团
+        </navigator>
+      </view>
+      <view>
+        <block wx:if="{{phoneNum && userLogin}}">
+          <view class="list_conbut">
+            <p>邀请好友</p>
+            <button open-type="share" wx:if="{{userLogin && phoneNum}}" style="position:absolute;left:0;top:0;width:364rpx;height:84rpx;opacity:0;z-index:20;" class="telC"></button>
+          </view>
+        </block>
+        <!-- zt -->
+        <block wx:else>
+          <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telC" wx:if="{{!userLogin}}">
+            <view>获取授权</view>
+          </button>
+          <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" class="telC" wx:else>
+            <view>获取手机号</view>
+          </button>
+        </block>
+        <!-- end -->
+
+      </view>
+    </view>
+  </view>
+  <view class="rule_k">
+    <image src="http://resource.jiyilive.com/img2/sign/ruletit.png" class="rule_tit1"></image>
+    <image src="http://resource.jiyilive.com/img2/sign/rulecon.png" class="rule_con" mode="widthFix"></image>
+    <image src="http://resource.jiyilive.com/img2/sign/maketit.png" class="rule_tit2"></image>
+    <image src="http://resource.jiyilive.com/img2/sign/makecon.png" class="rule_con" mode="widthFix"></image>
+  </view>
+</view>

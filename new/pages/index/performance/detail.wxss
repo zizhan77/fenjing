@@ -1,0 +1,164 @@
+/* pages/index/performance/detail.wxss */
+@import "/wxParse/wxParse.wxss";
+.detail-content {
+  overflow: hidden;
+}
+
+.stepper {  
+    height: 46rpx;  
+    float:right;    
+    width:190rpx;
+    /*给主容器设一个边框*/  
+    border-radius: 3px;  
+}  
+  
+/*加号和减号*/  
+.stepper text {  
+    width: 46rpx;  
+    line-height: 46rpx;  
+    background:#f0f0f0;
+    border-radius:4rpx;
+    text-align: center;
+    float: left;  
+}
+  
+/*数值*/  
+.stepper input {  
+    width: 40px;  
+    height: 26px;  
+    float: left;  
+    margin: 0 auto;  
+    text-align: center;  
+    font-size: 12px;  
+    /*给中间的input设置左右边框即可*/  
+    
+}  
+  
+/*普通样式*/  
+.stepper .normal{  
+    color: black;  
+}  
+  
+/*禁用样式*/  
+.stepper .disabled{  
+    color: #ccc;  
+}
+
+#fold-pannel{
+  min-height: 100rpx;
+}
+
+#fold-pannel image{
+  width: 100rpx;
+  height: 50rpx;
+}
+
+.bg-choosed{
+  background-image: url(http://resource.jiyilive.com/img/ico/butchesed.png);
+  background-size: 100%;
+  background-position: center center;
+  color:#916bc6 !important;
+  
+}
+
+.bg-unchoose{
+  background-image: url(http://image.jiyilive.com/%E5%B7%B2%E9%80%89%E4%B8%AD%E6%97%B6%E9%97%B4@2x.png);
+  background-size: 100%;
+  background-position: center center;
+}
+
+.btn-notice{
+  background-image: url(http://image.jiyilive.com/%E8%B4%AD%E7%A5%A8%E9%A1%BB%E7%9F%A5@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+.btn-finish{
+  background-image: url(http://image.jiyilive.com/%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A211@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+}
+
+.btn-presale{
+  background-image: url(http://image.jiyilive.com/%E8%B7%9D%E5%BC%80%E5%94%AE@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+  width: 100%; 
+  height: 64rpx;
+  line-height: 64rpx;
+  color: rgb(255,255,255);
+}
+
+.btn-buy{
+  background-image: url(http://image.jiyilive.com/%E7%AB%8B%E5%88%BB%E8%B4%AD%E4%B9%B0@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+  width: 100%; 
+  height: 73rpx;
+  line-height: 73rpx;
+  color: rgb(255,255,255);
+}
+
+.btn-buy-free{
+  background-image: url(http://image.jiyilive.com/%E4%BB%98%E8%B4%B9%E8%B4%AD%E4%B9%B0-%E9%80%81%E6%88%91@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+  width: 100%; 
+  height: 73rpx;
+  line-height: 73rpx;
+  color: rgb(255,255,255);
+}
+
+#free {
+  width: 26px;
+  height: 16px;
+  position: absolute;
+  top: 10rpx;
+  right: 50rpx;
+  display: inline-block;
+}
+
+.btn-goIndex{
+  background-image: url(http://image.jiyilive.com/%E5%9B%9E%E5%88%B0%E9%A6%96%E9%A1%B5@2x.png);
+  background-size: 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+  position: fixed; 
+  bottom: 120rpx; 
+  right: 50rpx;
+  width: 120rpx;
+  height: 120rpx;
+  padding: 32rpx;
+}
+
+.btn-goIndex text{
+  font-size: 28rpx;
+  color: #916bc6; 
+  position: relative; 
+  top: -14rpx;
+}
+
+.btn-goBuy{
+  background-image: url(http://image.jiyilive.com/%E7%AB%8B%E5%8D%B3%E6%8A%A2%E7%A5%A8@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+  color: white;
+  width: 200rpx; 
+  margin: 10rpx 30rpx 10rpx 10rpx;
+}
+
+.btn-empty{
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat:no-repeat;
+  color: white;
+  width: 200rpx; 
+  margin: 10rpx 30rpx 10rpx 10rpx;
+}
+
+.cu-modal.bottom-modal .cu-dialog {background:#fff;border-top-left-radius:25rpx;border-top-right-radius:25rpx;padding-top:20rpx;}

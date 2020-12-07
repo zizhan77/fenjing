@@ -1,0 +1,30 @@
+/* pages/pict/pict.wxss */
+page{background-image:url(http://resource.jiyilive.com/img2/active/back.png);background-attachment: fixed;background-size:auto 100%;}
+.makepic{position:fixed;width:600rpx;height:600rpx;left:-600rpx;top:0;margin:auto;box-shadow:0 0 2px 1px rgba(0,0,0,0.1);z-index:99;background:#f0f0f0;}
+.rescon .text{font-size:22rpx;font-weight:bold;color:#999;white-space:wrap;}
+.makepiczz{position:fixed;width:600rpx;height:600rpx;left:0rpx;top:0;margin:auto;z-index:100;background:#ffffff;visibility:hidden;}
+.loadk{position:fixed;width:100%;height:100%;background:#fff;left:0;top:0;z-index:99999;}
+.pintuk{position:absolute;width:613rpx;height:613rpx;left:-4rpx;bottom:0rpx;margin:auto;background:#fff;z-index:999;box-shadow: 0 0 2px 1px rgba(0,0,0,0.2);border:4rpx solid #202020;border-radius:20rpx;}
+.pintu{position:absolute;width:180rpx;height:180rpx;transition:all 0.1s ease;-webkit-transition:all 0.1s ease;z-index:10;box-shadow:0 0 1px 1px rgba(0,0,0,0.1);}
+
+.randombut{position:absolute;width:200rpx;bottom:-60rpx;line-height:40rpx;left:10rpx;height:40rpx;text-align:center;font-size:22rpx;color:#313234;}
+.exitbut{position:absolute;width:200rpx;bottom:-60rpx;right:10rpx;height:40rpx;line-height:40rpx;text-align:center;font-size:22rpx;color:#313234;}
+.randombut image,.exitbut image{display:inling-block;margin:0 auto;width:40rpx;height:40rpx;vertical-align:middle;}
+.model_k{position:fixed;width:550rpx;left:127rpx;top:182rpx;height:144rpx;box-sizing:border-box;padding:23rpx 40rpx 23rpx 200rpx;z-index:10;background:#fff;border:4rpx solid #202020;border-radius:20rpx;font-size:26rpx;color:#777;}
+.model{position:absolute;width:180rpx;height:180rpx;top:-18rpx;left:-55rpx;z-index:9;box-sizing:border-box;background:#fff;border:4rpx solid #202020;border-radius:16rpx;overflow:Hidden;line-height:37rpx;font-size:26rpx;color:#666;}
+.model image{position:absolute;left:0;top:0;right:0;bottom:0;margin:auto;max-width:100%;max-height:100%;}
+.modely{position:absolute;width:180rpx;height:180rpx;top:-18rpx;left:-48rpx;z-index:5;box-sizing:border-box;background:#9fe8ff;border:4rpx solid #202020;border-radius:16rpx;}
+.modeltext{height:56rpx;line-height:56rpx;font-size:40rpx;color:#313234;opacity:0.9;font-weight:bold;margin-bottom:5rpx;}
+.modeltext span{font-size:22rpx;}
+/*背景图片*/
+.backimg{position:absolute;top:0;right:0;bottom:0;left:0;margin:auto;z-index:0;height:100%;min-width:100%;}
+/*游戏说明*/
+.shuom{width:100%;color:#313234;position:absolute;left:0;bottom:645rpx;height:50rpx;line-height:20rpx;padding:5rpx 0;text-align:center;font-size:26rpx;opacity:0.7;}
+.shuom image{display:inline-block;width:30rpx;height:30rpx;vertical-align: middle;}
+
+.newpic_k{width:610rpx;height:880rpx;position:fixed;left:0;top:0;right:0;bottom:0;margin:auto;z-index:5;}
+
+
+
+
+

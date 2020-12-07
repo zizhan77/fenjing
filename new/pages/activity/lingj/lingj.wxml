@@ -1,0 +1,60 @@
+<!--pages/lingj/lingj.wxml-->
+<view class="listk" style="background-image:url(http://resource.jiyilive.com/img/index/back.jpg);{{setWidthH}}">
+  <image src="http://resource.jiyilive.com/img/laohj/background.png" class="backimg" mode="widthFix"></image>
+  <view class="back">
+
+    <view class="contk" style="display:{{isListShow}};">
+      <image src="http://resource.jiyilive.com/img/closeb.png" class="cont_close" bindtap="backHome"></image>
+      <view class="contd">
+      
+        <block wx:for="{{allres}}" wx:for-index="i" wx:for-item="r" wx:if="{{r.prizeType!==3}}">
+          <view class="contli">
+            <view class="contl_tit">{{r.prizeName}}
+              <p wx:if="{{r.status}}" class="contl_biaoj"></p>
+              <p wx:else class="contl_biaojac"></p>
+            </view>
+            <view class="contl_dhm">
+              <span wx:if="{{r.prizeType==1}}">兑换码：{{r.drawCode}}</span> 
+              <span wx:if="{{r.contactAddress!==''}}">{{r.contactProvince}}{{r.contactAddress}} {{r.contactName}} {{r.contactPhone}} </span>
+
+              <b class="contl_copy" wx:if="{{r.prizeType==1}}" bindtap="clickCopy" data-ma="{{r.drawCode}}">点击复制</b>
+              <b class="contl_addr" wx:elif="{{r.prizeType==2}}" bindtap="showAddr" data-ind="{{r.prizeId}}" data-cid="{{r.id}}">添加地址</b>
+              <p class="contl_date">{{r.time}}</p>
+            </view>
+            <view class="contl_sm">
+              {{r.rewardDescription}}
+            </view>
+          </view>
+        </block>
+
+      </view>
+    </view>
+  </view>
+</view>
+
+<view class="inpk" style="display:{{isAddrShow}};">
+       <image src="http://resource.jiyilive.com/img/closeb.png" class="cont_close" bindtap="backList"></image>
+      <view class="contd">
+        <view class="inpd">
+          <label class="inptit" for="name">收货人</label>
+          <input type="text" class="input" id="name" placeholder="请输入收货人姓名" bindblur="inputValue" data-name="named"></input>
+        </view>
+        <view class="inpd">
+          <label class="inptit" for="phone">手机号码</label>
+          <input type="number" class="input" id="phone" placeholder="请输入收货人手机号" bindblur="inputValue" data-name="phoned"></input>
+        </view>
+        <view class="inpd">
+          <label class="inptit" for="prov">所在省市</label>
+          <input type="text" id="prov" class="input" value="{{insteadp}}" placeholder="请输入所在省及所在市"  bindblur="inputValue" data-name="prov"></input>
+          <view class="inpbs" bindtap="findYou">
+            <image src="http://resource.jiyilive.com/img/index/local.png" mode="widthFix"></image>
+            定位
+          </view>
+        </view>
+        <view class="inpd">
+          <label class="inptit" for="addr">详细地址</label>
+          <input type="text" class="input" id="addr" placeholder="请详细到门牌号"  bindblur="inputValue" data-name="addr"></input>
+        </view>
+        <view class="inpbut" bindtap="updatas">提交信息</view>
+      </view>
+    </view>

@@ -1,0 +1,65 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>订单列表</view>
+</cu-custom>
+
+<!-- 顶部tab -->
+<scroll-view scroll-x class="bg-white nav">
+  <view class="flex text-center">
+    <view class="cu-item flex-sub {{index==TabCur?'text-purple cur':''}}" wx:for="{{orderStatusMap}}" wx:key bindtap="tabSelect" data-id="{{index}}">
+      <view class="slid">
+      {{orderStatusMap[index]}}
+      </view>
+    </view>
+  </view>
+</scroll-view>
+
+<!-- 列表区 -->
+<view class="cu-card case">
+  <view wx:if="{{empty}}" class='text-center margin' style='padding-top: 200rpx;'>
+    <image style="width: 400rpx; height: 300rpx;" src='http://image.jiyilive.com/%E6%9A%82%E6%97%A0%E6%95%B0%E6%8D%AE@2x.png'></image>
+    <view class='text-lg'>暂无数据</view>
+  </view>
+  <view wx:for="{{orderList}}" wx:key class="cu-item padding" bindtap="{{item.status == 0?'': 'showDetail'}}" data-id="{{item.id}}" style='box-shadow:0px 2px 5px 5px #f5f5f5;'>
+    <view class="title text-left solid-bottom">
+      <!-- 待支付计时 -->
+      <view wx:if="{{item.status == 0}}" class="text-cut text-red text-bold padding-bottom-sm">
+       待支付时间: {{countDownList[item.id]}}
+      </view>
+      <!-- 已支付 -->
+      <view wx:else class="text-cut text-bold padding-bottom-sm">支付时间: {{item.payTime}}</view>
+    </view>
+    
+    <view class='content margin-top-sm text-black'>
+      <view id='name' class='text-cut margin-tb'>{{item.performance.title}}</view>
+      <view id='showtime'>
+        <text class="cuIcon-time text-gray"></text>
+        {{item.performance.showTime}}
+      </view>
+      <view id='address'>
+        <text class="cuIcon-location lg text-gray"></text>
+        {{item.place.address}}
+      </view>
+      <view id='num'>
+        <text class="cuIcon-form lg text-gray"></text>
+        {{item.ticketNum}}张票
+      </view>
+    </view>
+
+    <view class='footer cf margin-top'>
+      <view class='money text-lg fl'>合计：<text class='text-red'>{{item.price}}</text> 元</view>
+      <view wx:if="{{item.status == 0 && countDownList[item.id] != '已取消'}}" class='fr'>
+        <button bindtap="bindPayNow" data-orderno="{{item.orderNumber}}" data-after="{{item.deliverAddress == null? 30: 10}}" class='cu-btn fr order-btn'>立即支付</button>
+      </view>
+      <view wx:if="{{item.status == 10}}" class='fr'>
+        <button bindtap='showDetail' catchtap data-id="{{item.id}}" class='cu-btn fr order-btn'>查看订单</button>
+      </view>
+      <view wx:if="{{item.status == 20 && item.performanceInfo.ticketDeliverType == 20}}" class='fr'>
+        <button bindtap='showDetail' catchtap data-id="{{item.id}}" class='cu-btn fr order-btn'>查看二维码</button>
+      </view>
+      
+    </view>
+  </view>
+</view>
+

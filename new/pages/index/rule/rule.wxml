@@ -1,0 +1,16 @@
+<!--pages/index/rule/rule.wxml-->
+<import src="../../../wxParse/wxParse.wxml"/>
+<view class="mine_bar" style="background-image:none;background-color:#fff;">
+  <navigator wx:if="{{isNotShare}}" open-type="navigateBack" class="mine_barb"></navigator>
+  <navigator wx:else url="/pages/index/index" open-type="switchTab" class="mine_barb" style="background-image:url(http://resource.jiyilive.com/img2/icon/ic_homeb.png);"></navigator>
+  活动规则
+</view>
+<view class="backk" style="background:{{backColor}};">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/>
+</view>
+<view class="rulebut_k" bindtap="showActList">  
+  <view class="ract_but"><p>戳我拿票</p></view>
+  <!-- <image src="http://resource.jiyilive.com/img2/index/rulebut.png" mode="aspectFit" class="rulebut_i">
+   <image src="http://resource.jiyilive.com/img2/index/rulehand.png" mode="widthFix" class="taped"></image>
+  </image> -->
+</view>

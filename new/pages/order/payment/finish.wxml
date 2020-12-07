@@ -1,0 +1,20 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{false}}">
+  <view slot="content" class='header-title'>购买成功</view>
+</cu-custom>
+
+<view class='imagesize'>
+  <view class="text-center">
+    <view class="text-xsl">
+      <image src='../../../images/pay-succeed.png'></image>
+      <!-- <text class=" cuIcon-roundcheckfill text-green"></text> -->
+    </view>
+    <view class="text-xxl text-bold padding-sm margin-sm">购买成功!</view>
+    <view class=''>
+      <text class='text-xl link padding-xl' bindtap='bindGoIndex'>返回首页</text>
+      <navigator url="/pages/order/list?status={{status}}" class='padding-xl' style='display: inline-block' hover-class="none">
+        <text class='text-xl link'>查看订单</text>
+      </navigator>
+    </view>
+  </view>
+</view>

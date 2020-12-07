@@ -1,0 +1,23 @@
+/* pages/mine/address/edit.wxss */
+page{
+  background-color: white;padding:0;
+  background-image:none;
+}
+.title{
+  width: 25%;
+  color: rgb(51,51,51);
+}
+
+.btn-save{
+  background-image: url(http://image.jiyilive.com/%E6%B7%BB%E5%8A%A0%E6%94%B6%E8%B4%A7%E5%9C%B0%E5%9D%80@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  font-size: 36rpx;
+}
+
+.ract_but{width:690rpx;margin:7rpx auto;box-sizing:border-box;line-height:68rpx;border:2rpx solid #231916;border-radius:36rpx;background:#9fe8ff;text-align:center;position:relative;height:80rpx;background-image:none;}
+.ract_but p{display:block;position:relative;z-index:10;color:#231916;font-size:28rpx;font-weight:bold;}
+.ract_but:after{content:"";display:block;position:absolute;left:-2rpx;top:-2rpx;width:690rpx;border:2rpx solid #231916;height:70rpx;border-radius:35rpx;background:#fff388;box-sizing:border-box;}
+.ract_but button{width:690rpx;height:80rpx;position:absolute;left:0;top:0;z-index:99;opacity:0;}

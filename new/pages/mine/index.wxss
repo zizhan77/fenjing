@@ -1,0 +1,110 @@
+/* pages/mine/index.wxss */
+page{
+  background-image: url(http://resource.jiyilive.com/img2/mine/mineback.png);
+  background-color: white;
+  min-height:100%;position:relative;
+  box-sizing:border-box;
+  padding-bottom:80rpx;
+}
+/* zt */
+  .loginBtn{
+    width:80%;height:80rpx;
+    font-size:32rpx;
+    font-weight: bold;
+    text-align: left;
+    position: relative;
+    left:-50rpx;bottom:30rpx;
+  }
+  .btn1{
+   width:100%;height:600rpx;
+   position: absolute;
+   top:0;
+  }
+  button::after{
+    border:none;
+  }
+  button{
+    background: transparent;
+  }
+  .btn1.focus, .btn1:focus, .btn1:hover {
+    color: #333;
+    text-decoration: none;
+    background: transparent;
+}
+
+/* end */
+.header{
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.menu-title{
+  display:block;
+  float:left;
+  width:300rpx;text-align:Left;
+  font-size: 32rpx;
+  font-weight:bold;
+  color: rgb(24, 24, 24)
+}
+.menu-desc{
+  flex:0 0 100px;
+  text-align:right;
+  display:inline-block;  
+  color:#fe5d7e;
+  font-size:30rpx;
+  font-weight:bold;
+}
+.menu-desc image{display:inline-block;width:30rpx;height:30rpx;margin:0 0 0 15rpx;opacity:0.6;vertical-align: middle;}
+
+.order-status > image{
+  width: 60rpx; 
+  height: 52rpx;
+}
+
+.order-status > text{
+  display: block; 
+  font-size: 24rpx;
+}
+
+.btn-login{
+  background-image:url(http://image.jiyilive.com/%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A21@2x.png);
+  background-position: center;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+
+.inlineimg{width:34rpx;height:34rpx;display:inline-block;vertical-align:-3rpx;max-width:34rpx;margin-right:20rpx;}
+
+.mine_k{width:100%;box-sizing:border-box;padding:30rpx 30rpx 0;}
+.mine_tou{width:100%;height:100rpx;text-align:left;margin-bottom:40rpx;}
+.mine_tou image{display:block;width:100rpx;height:100rpx;float:left;margin-right:20rpx;border-radius:50%;}
+.mine_ttit{width:460rpx;height:45rpx;line-height:45rpx;margin:6rpx 0 5rpx;float:left;font-size:32rpx;color:#202020;font-weight:bold;}
+.mine_tcon{width:560rpx;height:37rpx;line-height:37rpx;font-size:26rpx;color:#666;white-space:nowrap;float:left;}
+
+.mine_res{width:690rpx;height:100rpx;display:flex;justify-content: space-between;}
+.mine_resd{width:211rpx;height:100rpx;border-right:2rpx solid #202020;border-radius:10rpx;position:relative;padding-right:9rpx;box-sizing:border-box;}
+.mine_resco1{background:#fff388;}
+.mine_resco1 .mine_dot{background:#fff388}
+.mine_resco2{background:#9fe8ff;}
+.mine_resco2 .mine_dot{background:#9fe8ff}
+.mine_resco3{background:#ff9fca;}
+.mine_resco3 .mine_dot{background:#ff9fca;}
+.mine_resdc{width:204rpx;height:100rpx;border:2rpx solid #202020;border-radius:10rpx;box-sizing:border-box;padding:8rpx 10rpx;text-align:center;line-height:47rpx;font-weight:bold;color:#ff3e25;font-size:40rpx;background:#fff;}
+.mine_resdc span{display:block;width:100%;height:37rpx;line-height:37rpx;font-size:26rpx;color:#202020}
+.mine_dot{display:inline-block;width:10rpx;height:10rpx;vertical-align:6rpx;box-sizing:border-box;border:1rpx solid #202020;border-radius:5rpx;}
+.mine_hr{width:100%;height:1px;background:#ccc;margin-top:58rpx;}
+
+.cu-list.menu>.cu-item{padding:0;height:120rpx;}
+.cu-list.menu>.cu-item:after{border-bottom:none;}
+
+
+
+/*zt  */
+.showTowns{
+  width:90%;height: 100rpx;
+  background: transparent;
+  position: absolute;
+  box-sizing: border-box;
+}
+/* end */

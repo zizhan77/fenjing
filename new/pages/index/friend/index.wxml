@@ -1,0 +1,21 @@
+<!--pages/index/friend/index.wxml-->
+<view class="mine_bar" style="background-image:none;">
+  <navigator open-type="navigateBack" class="mine_barb"></navigator>
+  好友列表
+</view>
+
+<view class="list_k">
+  <block wx:for="{{friends}}" wx:key>
+    <view class="list_d">
+      <view class="list_di">
+        <image src="{{item.avatarurl}}"></image>
+      </view>
+      {{item.name}}
+      <span>{{item.createTime}}</span>
+    </view>
+  </block>
+</view>
+
+
+
+

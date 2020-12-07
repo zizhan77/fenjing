@@ -1,0 +1,110 @@
+/* pages/order/express/detail.wxss */
+page {
+  font-size: 0.8rem;
+  background: white;
+}
+
+.topExpress {
+  width: 720rpx;
+  height: 180rpx;
+  margin: 10rpx auto;
+  display: flex;
+  border-radius: 5px;
+}
+
+.topExpress-left {
+  width: 100rpx;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.topExpress-right {
+  color: #333;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20rpx 5rpx;
+}
+
+.topExpress-right-middle {
+  font-size: 0.8rem;
+}
+
+.topExpress-right-bottom {
+  color: #666;
+}
+
+.express-container {
+  width: 720rpx;
+  margin: 50rpx auto;
+  border-radius: 5px;
+  padding: 10rpx 0;
+}
+
+.express-item {
+  display: flex;
+  width: 100%;
+  justify-content: start;
+}
+
+.express-middle-axis {
+  display: flex;
+  width: 48rpx;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.express-left-date {
+  display: flex;
+  width: 300rpx;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.dot-closing {
+  width: 14rpx;
+  height: 14rpx;
+  border-radius: 50%;
+  margin-top: 6rpx;
+  margin-bottom: 6rpx;
+  background: #999;
+}
+
+.dot-online {
+  width: 10rpx;
+  height: 10rpx;
+  border-radius: 50%;
+  margin-top: 6rpx;
+  margin-bottom: 6rpx;
+  background: red;
+}
+
+.dot-shou {
+  width: 30rpx;
+  height: 30rpx;
+  border-radius: 50%;
+  background: red;
+  font-size: 18rpx;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.online {
+  width: 1px;
+  height: 80rpx;
+}
+
+.express-right {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  margin: 0 20rpx;
+  justify-content: center;
+}

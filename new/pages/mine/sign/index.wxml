@@ -1,0 +1,150 @@
+<!--pages/mine/sign/index.wxml-->
+<import src="../../../wxParse/wxParse.wxml" />
+<view class="mine_bar" style="background-image:none;background-color:#fff;">
+  <navigator open-type="navigateBack" class="mine_barb"></navigator>
+  签到领饭团
+</view>
+<view class="cont">
+  <view class="title">
+    <view class="title_d">
+      <view class="title_c">
+        <view class="title_cd">
+          <view class="title_cdd">今日获得饭团</view>
+          {{todayRice}}
+        </view>
+        <view class="title_chr"></view>
+        <view class="title_cd">
+          <view class="title_cdd">累计获得饭团</view>
+          {{allRice}}
+        </view>
+        <view class="title_chr"></view>
+        <navigator url="/pages/mine/rice/index" class="title_cd" style="margin-top:15rpx;">
+          <view>我的饭团</view>
+          <view>流水记录</view>
+        </navigator>
+      </view>
+    </view>
+  </view>
+
+  <view class="tit_con">
+    <view class="tit_cond">
+      <view class="tit_condc">
+        <view class="tit_condct">已连续签到</view>
+        <view class="tit_condcd">
+          <span>{{haveLast}}</span>天
+        </view>
+        <!-- zt -->
+        <block wx:if="{{phoneNum && userLogin}}">
+          <view class="list_conadd" bindtap="makeUserSign" wx:if="{{!haveSignd}}">
+            <p>立即签到 饭团+{{signRice}}</p>
+          </view>
+          <view wx:else class="list_conadd" bindtap="showShare">
+            <p>邀请好友助力</p>
+          </view>
+        </block>
+        <block wx:else>
+          <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telC" wx:if="{{!userLogin}}">
+            <view>获取授权</view>
+          </button>
+          <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" class="telC" wx:else>
+            <view>获取手机号</view>
+          </button>
+        </block>
+        <!-- end -->
+      </view>
+    </view>
+  </view>
+
+  <view class="day_k">
+    <view class="day_ds">
+      <block wx:for="{{signDays}}" wx:key wx:for-index="k">
+        <view class="day_d {{(signedDay-1)>=k ? 'day_dac':''}}">
+          <view class="day_dw">
+            DAY {{k+1}}
+          </view>
+        </view>
+      </block>
+    </view>
+    <view class="day_bq">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_tishi.png"></image>
+      连续{{lastDays}}天签到能获得额外{{lastRices}}个饭团
+    </view>
+  </view>
+  <view class='normaltit'>新手任务
+    <span>/NEW TASK</span>
+  </view>
+  <view class="renwu_k">
+
+    <view url="/pages/index/share/index" class="renwu_d1" bindtap="newPeople">
+      <view class="renwu_di"></view>
+      <view class="renwu_dw">邀请新人</view>
+      <view class="renwu_span">+{{makeNews}}饭团</view>
+    </view>
+
+    <button open-type="getUserInfo" bindgetuserinfo='haveGetUser1' class="telBtn" wx:if="{{!userLogin}}"></button>
+
+    <view url="/pages/mine/userinfo/index" class="renwu_d1 renwu_d2" bindtap="information">
+      <view class="renwu_di"></view>
+      <view class="renwu_dw">完善资料</view>
+      <view class="renwu_span">+{{makeMesses}}饭团</view>
+    </view>
+
+    <button open-type="getUserInfo" bindgetuserinfo='haveGetUser2' class="telBtn1" wx:if="{{!userLogin}}"></button>
+    <navigator url="/pages/index/index" open-type="switchTab" class="renwu_d1 renwu_dzt">
+      <view class="renwu_di"></view>
+      <view class="renwu_dw">参与免费抽奖</view>
+      <view class="renwu_span">+最高9999饭团</view>
+    </navigator>
+  </view>
+  <view class='normaltit'>签到规则
+    <span>/ATTENDANCE RULES</span>
+  </view>
+  <view class="rule">
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+    <!-- 
+    <view>1. 每日来小程序签到，您可以获得16个饭团</view>
+    <view>2. 连续签到3天额外获得100饭团，连续签到7天额外获得300饭团。</view>
+    <view>3. 每日完成签到后，可邀请好友为您助力，每天最多3位好友助力，助力成功后，您将额外获得20个饭团；助力邀请24小时候失效；</view>
+    <view>4. 一个用户一天只能助力3次，新用户与老用户都可以为好友助力。</view> 
+    -->
+  </view>
+
+</view>
+
+<!-- 弹窗 -->
+<view class="getnew_k" wx:if="{{showNew}}">
+  <view class="getnew_d">
+    <image src="http://resource.jiyilive.com/img2/sign/ligntback.png" class="getnew_tt"></image>
+
+    <view class="getnew_con">
+      <image src="http://resource.jiyilive.com/img2/sign/signlogo.png" class="getnew_clogo"></image>
+      <view class="getnew_ccon">
+        <view class="getnew_ccont">恭喜今日签到成功</view>
+        <view class="getnew_ccond">
+          邀请好友助力，最多可得15饭团,最多可有3位好友为你助力
+        </view>
+        <view class="getnew_cconi">
+          <view class="getnew_cconid">
+            <image src="{{getnew[0].avatarurl || defaultImage}}"></image>
+            <view>{{getnew[0].name || '虚位以待'}}</view>
+          </view>
+          <view class="getnew_cconid">
+            <image src="{{getnew[1].avatarurl || defaultImage}}"></image>
+            <view>{{getnew[1].name || '虚位以待'}}</view>
+          </view>
+          <view class="getnew_cconid">
+            <image src="{{getnew[2].avatarurl || defaultImage}}"></image>
+            <view>{{getnew[2].name || '虚位以待'}}</view>
+          </view>
+        </view>
+      </view>
+      <view class="list_conadds">
+        <p>邀请好友</p>
+        <button open-type="share" style="position:absolute;left:0;top:0;width:240rpx;height:60rpx;z-index:99;opacity:0;"></button>
+      </view>
+      <image src="http://resource.jiyilive.com/img2/icon/closew.png" class="getnew_close" bindtap="hideShare"></image>
+    </view>
+
+
+  </view>
+</view>

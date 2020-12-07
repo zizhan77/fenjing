@@ -1,0 +1,136 @@
+{
+  "description": "项目配置文件",
+  "packOptions": {
+    "ignore": []
+  },
+  "setting": {
+    "urlCheck": false,
+    "es6": true,
+    "enhance": false,
+    "postcss": true,
+    "preloadBackgroundData": false,
+    "minified": true,
+    "newFeature": true,
+    "coverView": true,
+    "nodeModules": false,
+    "autoAudits": false,
+    "showShadowRootInWxmlPanel": true,
+    "scopeDataCheck": false,
+    "uglifyFileName": true,
+    "checkInvalidKey": true,
+    "checkSiteMap": true,
+    "uploadWithSourceMap": true,
+    "compileHotReLoad": false,
+    "useMultiFrameRuntime": false,
+    "useApiHook": true,
+    "babelSetting": {
+      "ignore": [],
+      "disablePlugins": [],
+      "outputPath": ""
+    },
+    "enableEngineNative": false,
+    "useIsolateContext": true,
+    "useCompilerModule": true,
+    "userConfirmedUseCompilerModuleSwitch": false,
+    "userConfirmedBundleSwitch": false,
+    "packNpmManually": false,
+    "packNpmRelationList": [],
+    "minifyWXSS": true,
+    "bundle": false
+  },
+  "compileType": "miniprogram",
+  "libVersion": "2.8.0",
+  "appid": "wxf09eb9d150c1d694",
+  "projectname": "%E7%B2%89%E9%B2%B8%E9%A5%AD%E5%9B%A22.0",
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "isGameTourist": false,
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
+  "condition": {
+    "search": {
+      "list": []
+    },
+    "conversation": {
+      "list": []
+    },
+    "plugin": {
+      "list": []
+    },
+    "game": {
+      "currentL": -1,
+      "list": []
+    },
+    "gamePlugin": {
+      "list": []
+    },
+    "miniprogram": {
+      "list": [
+        {
+          "id": 0,
+          "name": "排行榜",
+          "pathName": "pages/discover/index",
+          "query": "u=955",
+          "scene": null
+        },
+        {
+          "id": 12,
+          "name": "首页",
+          "pathName": "pages/index/index",
+          "query": "id=57&name=傻逼",
+          "scene": null
+        },
+        {
+          "id": 2,
+          "name": "排行详情",
+          "pathName": "pages/discover/performance/detail",
+          "query": "id=68",
+          "scene": null
+        },
+        {
+          "id": 4,
+          "name": "活动详情",
+          "pathName": "pages/activity/performance/detail",
+          "query": "cu=992&id=98",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "pages/mine/sign/index",
+          "pathName": "pages/mine/sign/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "分享领饭团",
+          "pathName": "pages/index/share/index",
+          "query": "",
+          "scene": null
+        },
+        {
+          "id": 6,
+          "name": "明星详情",
+          "pathName": "pages/discover/star/detail",
+          "query": "id= 100001",
+          "scene": null
+        },
+        {
+          "id": 7,
+          "name": "drawshare",
+          "pathName": "pages/darwShare/darwShare",
+          "query": "id=162",
+          "scene": null
+        },
+        {
+          "id": -1,
+          "name": "艺人排行榜",
+          "pathName": "pages/discover/star/index",
+          "query": "id= 100001",
+          "scene": null
+        }
+      ]
+    }
+  }
+}

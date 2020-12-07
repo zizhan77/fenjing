@@ -1,0 +1,148 @@
+<view class="mine_bar">
+  <navigator wx:if="{{isNotShare}}" open-type="navigateBack" class="mine_barb"></navigator>
+  <navigator wx:else url="/pages/index/index" open-type="switchTab" class="mine_barb" style="background-image:url(http://resource.jiyilive.com/img2/icon/ic_homeb.png);"></navigator>
+  排行详情</view>
+<!-- 概要 -->
+<view class="cu-card no-card article" style='position: relative;padding-bottom:15rpx;margin-bottom:35rpx;'>
+  <view class="backimage" style='background-image: url({{performanceInfo.url}});'></view>
+  <view class="zhe_tit"></view>
+  <view class="cu-item" style='position: relative; margin-top: 10px; width: 750rpx; background-color: rgba(1,1,1,0);z-index:10;'>
+    <view class="content">
+      <view class="topBack">TOP{{performanceInfo.sort||''}}</view>
+      <view class="topBackd"></view>
+      <image style='margin-top: 10rpx; height: 11em;position:relative;' src="{{performanceInfo.url}}" mode="aspectFill">
+      </image>
+      <view class="desc" style="display:block;">
+        <view class='title margin-top pertit'>{{performanceInfo.name}}</view>
+        <view class="itemdesc">
+          <image src="http://resource.jiyilive.com/img2/icon/ic_shijianw.png"></image>距结束:{{lastTime}}
+        </view>
+        <view class="itemdesc">
+          <image src="http://resource.jiyilive.com/img2/icon/ic_weizhiw.png"></image>{{performanceInfo.provence}}
+        </view>                                                                                                        
+        <view class="endTime">
+          <b>{{performanceInfo.count}}</b>饭团
+          <span>(排名越高免费票赠送越多)</span>
+        </view>
+      </view>
+    </view>
+  </view>
+
+</view>
+
+<!-- 详情 -->
+<view class='detail bg-white' style="margin:15rpx 0;position:relative;">
+  <view class="normaltit">演出详情
+    <span>/PERFORMANCE DETAILS</span>
+  </view>
+  <view id="detail-content" class="detail-content padding text-lg" style='min-height:50rpx;padding:0 46rpx 20rpx;margin-bottom:20rpx;font-size:26rpx;color:#666;'>
+    <!-- <import src="../../../wxParse/wxParse.wxml"/>
+    <template is="wxParse" data="{{wxParseData:content.nodes}}"/> -->
+    <div class="{{isShow?'close':'showUp'}}">
+      <rich-text nodes="{{cont}}" class="isShowF"></rich-text>
+    </div>
+    <view class="isShow" bindtap="tigger">{{isShow?isShowF:isShowT}}
+      <image src="{{isShow?'http://resource.jiyilive.com/top.png':'http://resource.jiyilive.com/down.png'}}" style="width:30rpx;height:30rpx;vertical-align: middle"></image>
+    </view>
+  </view>
+</view>
+<view class="cont_tit">
+  <image src="http://resource.jiyilive.com/img2/icon/ic_flower.png"></image>
+  TOP100粉丝应援荣誉榜
+  <image src="http://resource.jiyilive.com/img2/icon/ic_flower.png" class="cont_timgf"></image>
+  <span>- - 未上榜的童鞋要继续加油努力哦 - -</span>
+</view>
+<view class="list_k">
+  <view class="list_minek">
+    <view class="list_mine">
+      <view class="list_minet">
+        <image src="{{mineDetal.avatarurl  || defaultimg}}"></image>
+        <view class="list_minect">{{mineDetal.name}}</view>
+        <view class="list_minecs">已投:{{mineDetal.rankintegral || 0}}</view>
+      </view>
+      <view class="list_minec">
+        <view class="list_minect">{{mineDetal.sort || '无'}}</view>
+        <view class="list_minecs">-排名-</view>
+      </view>
+    </view>
+    <image class="list_mback" src="http://resource.jiyilive.com/img2/back/nameback.png"></image>
+  </view>
+  <view class="list_topk">
+    <block wx:for="{{rankListt}}" wx:for-index="k" wx:key>
+      <view class="list_topd {{item.number==0 ? 'list_topac':''}}">
+        <view class="list_topdik">
+          <image src="http://resource.jiyilive.com/img2/back/ic_{{item.number==0 ? 'one':item.number==1 ? 'two':'three'}}.png" class="list_topdib"></image>
+          <image src="{{item.avatarurl  || defaultimg}}" class="list_topdit"></image>
+        </view>
+        <view class="list_topn">{{item.name || '匿名用户'}}</view>
+        <view class="list_topnc">{{item.sort}}个饭团</view>
+      </view>
+    </block>
+  </view>
+
+  <view class="list_k">
+    <block wx:for="{{rankList}}" wx:for-index="k" wx:key>
+      <view class="list_d">
+        <view class="list_dno">{{k+4}}</view>
+        <image src="{{item.avatarurl  || defaultimg}}" class="list_dt"></image>
+        <view class="list_dna">{{item.name || '匿名用户'}}</view>
+        <view class="list_dco">丢了{{item.sort}}个饭团</view>
+      </view>
+    </block>
+  </view>
+  <view class="list_conadd" bindtap="getRankingList" wx:if="{{!noMore}}">
+    <p>点击查看更多</p>
+  </view>
+  <view wx:if="{{noMore}}" class='text-center text-gray' style="padding:15rpx 0 20rpx;opacity:0.5;">没有更多了 o(╥﹏╥)o~</view>
+</view>
+
+<view class="normaltit">赞助商
+  <span>/SPONSOR</span>
+</view>
+<view class="spon_k">
+  <scroll-view class="spon_d" scroll-x="1" scroll-y="">
+    <view class="spon_lik">
+      <block wx:for="{{sponsors}}" wx:key>
+        <view class="spon_li" bindtap="sponsor" data-spid="{{item.id}}">
+          <image src="{{item.thumburl}}"></image>
+          <view>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+
+<!-- 底部按钮 -->
+
+<block wx:if="{{phoneNum && userLogin}}">
+  <view id="bottom-bar" class="cu-bar tabbar bg-white shadow foot">
+    <view class='enter_act' bindtap='bindAddRice'>
+      <p>丢饭团应援</p>
+    </view>
+  </view>
+</block>
+<!-- <block>wx:if="{{!userLogin}}" wx:elif="{{!phoneNum}}"-->
+<block wx:else>
+  <view id="bottom-bar" class="cu-bar tabbar bg-white shadow foot" wx:if="{{!userLogin}}">
+    <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telC">
+      <view>获取授权</view>
+    </button>
+  </view>
+  <view id="bottom-bar" class="cu-bar tabbar bg-white shadow foot" wx:elif="{{!phoneNum}}">
+    <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" class="telC" >
+      <view>获取手机号</view>
+    </button>
+  </view>
+</block>
+<!-- 投饭团弹窗 -->
+<view class="addrice_k" wx:if="{{isShowAdd}}" bindtap="closeRicek">
+  <view class="addrice_d" style="bottom:{{inputBottom}}px;" catchtap="{{1}}">
+    <view class="rice_tit">想投多少个饭团？</view>
+    <view class="addrice_inpk">
+      <input class="home_search" value="{{haveAdded}}" placeholder="您当前有{{mineDetal.integral}}个饭团" type="number" bindinput="checkNum" cursor-spacing="30rpx" focus="true"></input>
+      <view class="rice_conadd" catchtap="sendRiceAdd">
+        <p>投饭团</p>
+      </view>
+    </view>
+  </view>
+</view>

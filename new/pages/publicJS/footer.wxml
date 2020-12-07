@@ -1,0 +1,11 @@
+
+<view class="row footer">
+  <block wx:for="{{list}}" wx:key="{{index}}">
+    <view class="col ztcol " bindtap="tohome" data-index="{{index}}">
+      <view class="footerimg ">
+        <image src="{{obj[item.text]?item.selurl:item.url}}"></image>
+      </view>
+      <text class="{{obj[item.text]?'active':''}}">{{item.text}}</text>
+    </view>
+  </block>
+</view>

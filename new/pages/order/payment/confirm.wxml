@@ -1,0 +1,240 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>订单确认</view>
+</cu-custom>
+
+
+<view class="cu-card article solids-bottom">
+  <view class="cu-item shadow">
+    <view class="content margin-top">
+      <image src="{{performanceInfo.thumbUrl}}"></image>
+      <view class="desc">
+        <view class='title' style='line-height: 40rpx; padding:0'>{{performanceInfo.title}}</view>
+
+        <view class="time padding-tb">{{time}}</view>
+
+        <view class="charge">
+          <text wx:if="{{price != ''}}" class="fl padding-10">{{price}}元</text>
+          <text class='text-xl fr'>x{{num}}</text>
+        </view>
+    
+      </view>
+    </view>
+    <view class='footer flex justify-between margin-top-sm solids-top'>
+      <button class='cu-btn sm bg-gray margin-top-sm margin-left' bindtap='bindRule'>退赔规则</button>
+      <view class='padding-right padding-top-sm text-lg'>合计: <text class='text-red text-bold'>{{totalPrice}}</text>元</view>
+    </view>
+  </view>
+</view>
+
+<!-- 订单信息 -->
+<view class="cu-list menu card-menu sm-border">
+  <view class="cu-item">
+    <text class='item-title'>取票方式</text>
+    <button class='cu-btn sm bg-gray'>{{performanceInfo.ticketDeliverType == 10? '快递':'电子票'}}</button>
+  </view>
+
+  <view class="cu-item arrow">
+    <text class='item-title'>优惠券</text>
+    <view>
+      <!-- <navigator class="content" hover-class="none" url="../../mine/coupon/list?chooseCoupon=1"> -->
+        <text>{{coupon}}</text>
+      <!-- </navigator> -->
+    </view>
+  </view>
+
+  <view wx:if="{{placeInfo.chooseSeat == 1}}" class="cu-item arrow">
+    <text class='item-title'>座位</text>
+    <view>
+      <text class='padding-left-xs'>{{choosedSeatsStr}}</text>
+    </view>
+  </view>
+
+  <view  wx:if="{{performanceInfo.ticketDeliverType == 10}}" class="cu-item arrow">
+    <text class='item-title'>收货信息</text>
+    <view class='text-right'>
+      <navigator class="content" hover-class="none" url="../../mine/address/list?chooseAddress=1">
+        <text>{{address}}</text>
+      </navigator>
+    </view>
+    
+  </view>
+
+  <view wx:if="{{performanceInfo.ticketDeliverType == 10}}" class="cu-item">
+    <text class='item-title'>运费</text>
+    <text>{{deliverPrice}}元</text>
+  </view>
+</view>
+
+<view class="cu-card article">
+  <view class="cu-item shadow">
+    <view class="title solid-bottom">
+      <view class="text-cut">{{performanceInfo.ticketDeliverType == 20?'支付成功后，凭二维码入场':'请仔细核对您的订单'}}</view>
+    </view>
+    <view class="">
+      <view class='text-red padding-lr' style='font-size:24rpx;'>温馨提示：请您仔细核对订单信息，因演出票品的唯一性、时效性，票品不支持7天内无理由退换，购买后无法退换。</view>
+      <view class='padding-left padding-tb' style='line-height: 24rpx; font-size: 24rpx; display:inline-block' bindtap='bindAccept'>
+        <image style='width: 24rpx; height: 24rpx;' src="/images/{{isAccept?'uncheck': 'checked'}}.png"></image>
+        <text>我已阅读并同意</text>
+      </view>
+      <text class='text-blue' bindtap='showXieyi'>《粉鲸饭团订票服务条款》</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- 合计 -->
+<view class='total margin-top padding solid-top cf bg-white' style='line-height: 80rpx; height: 140rpx; width: 100%'>
+  <view class='text-xl fl'>合计金额：<text class='text-bold'>{{totalPrice - couponPrice + deliverPrice}}元</text></view>
+  <view class='fr confirm-btn text-center text-align text-white text-bold' style="width: 200rpx;" bindtap='makeOrder'>立即支付</view>
+  
+</view>
+
+<!-- 用户协议 -->
+<view class="cu-modal {{showXieyi?'show': ''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar justify-end">
+      <view class='content text-lg'>粉鲸饭团订票服务条款</view>
+    </view>
+    <view class='padding-lr-xl padding-bottom'>
+      <scroll-view id="content-main" scroll-y style='height: 200px;' class='text-left'>
+
+<view>
+    <br/>
+</view>
+<view>
+    欢迎您访问北京壹漾网络科技有限公司（以下简称“粉鲸饭团”）所经营的粉鲸饭团平台。粉鲸饭团为您提供演出订票、活动抽奖服务，请您阅读并同意《粉鲸饭团订票服务条款》（以下简称为“本订票条款”或“本条款”）。当您点击“同意”后，本条款将在您和粉鲸饭团之间成立并发生法律效力。如对本条款有疑问，您可以随时联系我们的客服人员进行咨询，您可以通过粉鲸饭团小程序联系“在线客服”。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    如您对本条款内容有异议，您有权利立即停止订购并拒绝接受粉鲸饭团提供的订票服务。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    一、本订票条款的成立、生效与取消
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    1、粉鲸饭团将通过项目展示页向您提供项目的基本信息，视具体项目不同，基本信息可能会有所差异，但一般情况下会包括项目名称、时间、地点、注意事项、是否支持退票等能让您充分了解项目概况的关键信息。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    2、在您下单订票前，请仔细阅读所订购项目展示页中的全部信息，确认已全面了解并认同该等信息。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    3、自您在粉鲸饭团成功提交订单之时，本订票条款即成立，即订单成立；自您完成付款之时，本订票条款即正式生效，即订单生效。在您下单后完成付款前，建议您再次确认所订购的票品项目信息是否符合预期，如不符合预期请放弃支付。若您在成功提交订单后的规定时间内（一般是15分钟内）未能完成付款，系统将自动取消该订单，您与粉鲸饭团双方均无需向对方承担任何责任。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    4、为了保护粉鲸饭团会员的切身利益，对于异常订购行为，粉鲸饭团有权在订单成立或者生效之后取消相应订单。异常订购行为包括但不限于以下情形：（1）通过同一ID订购超出限购张数的订单；（2）经合理判断认为非真实消费者的下单行为，包括但不限于通过批量相同或虚构的支付账号、收货地址（包括下单时填写及最终实际收货地址）、收件人、电话号码订购超出限购张数的订单。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    二、票品配送及其他
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    1、票品类型：票品一般分为纸质票与电子票两种，不同的项目所提供的票品类型不同，具体以项目展示页上显示信息为准。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    （1）若您所订购的票品为纸质票，您可以选择快递配送方式，若您选择快递配送则意味着您同意委托我们安排第三方快递公司（如EMS、顺丰等其他快递公司）为您进行票品配送；无论何种方式，当您获得票品后，请与您的订单仔细核对，若有不符请第一时间联系粉鲸饭团客服。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    （2）若您所订购的票品为电子票，请您依据不同类型电子票的入场要求提前准备相应的入场凭证，举例来说，对于未使用身份证登记的普通电子票将以二维码作为入场凭证；对于身份证电子票将以身份证作为入场凭证；对于需兑换成纸质票的电子票，则需要您在限定时间内将电子票兑换成纸质票，兑换时限、地点及方法我们将通过项目展示页、电子票票夹或者短信通知等方法告知，您也可以直接询问我们的客服。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    2、除展示页明确标明为“实名制”的项目外，项目门票一般系不记名票品，该类不记名票品可以自行转送他人。若因您不慎将不记名票品遗失，您将无法入场观演，亦无法进行补印，因此需要您妥善保管防止遗失。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    三、项目延迟或取消
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    社会因素和自然因素对于演出的举办具有决定性的影响，受该类不可抗力因素影响，项目有可能会取消或延迟举办。一旦发生此类情况，粉鲸饭团将主动通知您解决方案，且不会向您收取任何额外费用（座位或区域升级除外）。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    四、用户自身原因退票、换票
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    1、项目门票不支持7天无理由退货
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    因演出票品具有唯一性、时效性的特点，票品不支持7天无理由退还，购买后无法退换。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    2、不同项目的退票政策
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    根据各项目主办方的不同要求，并非所有项目都支持因用户原因发起的退票，具体请以各项目展示页说明信息为准。对于支持用户原因退票的项目，请您依照本条第3点、第4点关于退票的约定办理退票并承担相应的退票手续费；对于不支持退票的项目，请您自行按需处理票品。
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    五、其他
+</view>
+<view>
+    <br/>
+</view>
+<view>
+    本条款为《粉鲸饭团会员服务协议》的专项补充条款，与其有同等法律效力，本条款未约定事宜，均适用《粉鲸饭团会员服务协议》相关约定。
+</view>
+<view>
+    <br/>
+</view>
+
+      </scroll-view>
+
+    </view>
+    <view class="cu-bar bg-green light" bindtap='hideXieyi'>
+      <view class='action margin-0 flex-sub  solid-left'>我知道了</view>
+    </view>
+  </view>
+</view>

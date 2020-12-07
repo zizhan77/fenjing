@@ -1,0 +1,64 @@
+<!--pages/pict/pict.wxml-->
+<canvas class="can" canvas-id="haibao" width="{{sysWidth}}" height="{{sysHeight}}" wx:if="{{isSaved}}" style="width:{{sysWidth}}px;height:{{sysHeight}}px;"></canvas>
+
+<view class="mine_bars">
+  免费拿票
+</view>
+<canvas canvas-id="makepic" class="makepic" width="{{cWidth}}" height="{{cHeight}}" style="display:{{isCanShow}};"></canvas>
+<canvas class="makepiczz" width="{{cWidth}}" height="{{cHeight}}" style="display:{{isCanShow}};"></canvas>
+<view class="loadk" style="display:{{isCanShow}};"></view>
+
+<view class="newpic_k">
+  <view class="randombut" bindtap="randomPos" style="display:{{isResetShow}};">
+    <image src="http://resource.jiyilive.com/img/wish/resetb.png"></image>
+    重置
+  </view>
+  <view class="exitbut" bindtap="backhome">
+    <image src="http://resource.jiyilive.com/img/wish/exitb.png"></image>
+    退出任务
+  </view>
+  <!-- 示例的完成图片 -->
+  <view class="model_k">
+    <view class="model"><image src="{{timg}}" datasrc="{{timg}}" mode="widthFix" bindtap="viewImage"></image></view>
+    <view class="modely"></view>
+    <view class="modeltext">{{spotext}}</view>
+    该关卡由 {{spotext}} 提供
+  </view>
+  <view class="pintuk">
+  <!-- 拼图框 -->
+    <block wx:for="{{cutImg}}" wx:key="inmd">    
+      <image src="{{item}}" class="pintu" style="{{positions[imgPos[index].pos]+imgPos[index].width+imgPos[index].show}};" data-id="{{index}}" data-pos="{{imgPos[index].pos}}" bindtap="makeStep"></image>
+    </block>
+    <view class="shuom"><image src="http://resource.jiyilive.com/img2/icon/ic_tishi.png" mode="widthFix"></image>点选拼图，将图片复原即可过关</view>
+  </view>
+</view>
+<!-- 统一提示框 没次数-->
+<view class="act_tan" wx:if="{{isHaveShare}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/hovenotime.png" class="act_tani" mode="widthFix"></image>
+    <view class="act_butk">
+      <!-- <view class="act_butsb" bindtap="makeHaib">生成助力海报</view> -->
+      <view class="act_buts" bindtap="haveShared">立即分享
+        <button open-type="share" style="position:absolute;width:280rpx;height:70rpx;left:0;top:0;right:0;bottom:0;margin:auto;opacity:0;"></button>
+      </view>
+    </view>
+    <view class="act_closek" bindtap="giveUpCount">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" ></image>
+    </view>
+  </view>
+</view>
+<!-- 统一提示框 过关了-->
+<view class="act_tan" wx:if="{{isHavePassed}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/havepass.png" class="act_tani" mode="widthFix"></image>
+    <view class="act_butk">
+      <view class="act_butsb" bindtap="goToLaohj">马上抽奖</view>      
+    </view>
+    <navigator url="/pages/index/index" open-type="switchTab" class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png"></image>
+    </navigator>
+  </view>
+</view>
+
+
+

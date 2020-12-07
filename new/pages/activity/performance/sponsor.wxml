@@ -1,0 +1,46 @@
+<view class="mine_bar">
+  <navigator wx:if="{{isNotShare}}" open-type="navigateBack" class="mine_barb"></navigator>
+  <navigator wx:else url="/pages/index/index" open-type="switchTab" class="mine_barb"
+    style="background-image:url(http://resource.jiyilive.com/img2/icon/ic_homeb.png);"></navigator>
+  赞助商简介
+</view>
+<view class="cont">
+  <image src="{{listAll.thumburl}}"></image>
+  <view class="title">
+    <image src="{{listAll.thumburl}}"></image>
+  </view>
+  <text>{{listAll.name}}</text>
+  <!-- <view class="yellow">
+    <image src="http://resource.jiyilive.com/yellow.png"></image>
+    <text>访问官网</text>
+  </view> -->
+</view>
+<view class="border"></view>
+<view class="sponsor">
+  <view class="main">
+    <view class="normaltit">赞助商简介
+      <span>/SPONSOR</span>
+    </view>
+  </view>
+  <view class="">
+    <block wx:if="{{listAll.intro!=null}}">
+      <view class="textC {{isShow?'close':'showUp'}}">
+        <rich-text nodes=" {{listAll.intro}}"></rich-text>
+
+      </view>
+      <view class="isShow isShow1" bindtap="tigger" wx:if="{{listAll.intro!=null}}">{{isShow?isShowF:isShowT}}
+        <image src="{{isShow?'http://resource.jiyilive.com/top.png':'http://resource.jiyilive.com/down.png'}}"
+          style="width:30rpx;height:30rpx;vertical-align: middle"></image>
+      </view>
+    </block>
+    <view style="padding-left:40rpx;" wx:else>暂无简介</view>
+    <view class="main" style="margin-top:30rpx;">
+      <view class="normaltit">优惠券
+        <span>/COUPON</span>
+      </view>
+    </view>
+    <block wx:for="{{listAll.prize}}">
+      <view style="padding-left:40rpx;">{{item}}</view>
+    </block>
+  </view>
+</view>

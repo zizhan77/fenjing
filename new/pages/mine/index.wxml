@@ -1,0 +1,84 @@
+<view class="mine_bar">
+  <!-- <navigator path="/pages/index/index" class="mine_barb"></navigator> -->
+  我的
+</view>
+<!-- 登陆状态 -->
+<view class="mine_k">
+  <view class="mine_tou">
+    <image src="{{userInfo.avatarUrl || logoimg}}"></image>
+    <view class="mine_ttit">
+      {{userInfo.nickName}}
+    </view>
+    <block wx:if="{{userLoginNo}}">
+      <button open-type='getUserInfo' bindgetuserinfo='haveGetUser' class="loginBtn">点击注册/登录</button>
+    </block>
+    <block wx:else>
+      <view class="mine_tcon">
+        {{isGetAddr ? "童靴 今天又是元气满满的一天哦～":"童靴 快去完善你的个人信息中的地址哦～"}}
+      </view>
+    </block>
+  </view>
+  <view class="mine_res">
+    <view class="mine_resd mine_resco1">
+      <navigator url="/pages/mine/protect/index" bindtap="getAllRice" class="mine_resdc">
+        {{mine.whocount}}
+        <span>
+          <b class="mine_dot"></b>
+          我的应援
+          <b class="mine_dot"></b>
+        </span>
+      </navigator>
+    </view>
+    <view class="mine_resd mine_resco2">
+      <navigator url="/pages/mine/joind/index" bindtap="getAllRice" class="mine_resdc">
+        {{mine.actcount }}
+        <span>
+          <b class="mine_dot"></b>
+          参与活动
+          <b class="mine_dot"></b>
+        </span>
+      </navigator>
+    </view>
+    <view class="mine_resd mine_resco3">
+      <navigator url="/pages/mine/rice/index" bindtap="getAllRice" class="mine_resdc">
+        {{mine.integral }}
+        <span>
+          <b class="mine_dot"></b>
+          我的饭团
+          <b class="mine_dot"></b>
+        </span>
+      </navigator>
+    </view>
+    <!-- zt -->
+    <view class="showTowns" catchtap="nojump" wx:if="{{userLoginNo}}"></view>
+    <!-- end -->
+  </view>
+  <view class="mine_hr"></view>
+</view>
+<view class="cu-list menu card-menu sm-border" style="position:relative;">
+  <navigator class="cu-item arrow" hover-class="none" url="prizes/index">
+    <view class="menu-title">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_zhongjiang.png" class="inlineimg"></image>我的奖品</view>
+  </navigator>
+  <navigator class="cu-item arrow" hover-class="none" url="/pages/mine/sign/index">
+    <view class="menu-title">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_qiandaom.png" class="inlineimg"></image>签到领饭团</view>
+  </navigator>
+  <navigator class="cu-item arrow" hover-class="none" url="/pages/index/share/index">
+    <view class="menu-title">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_fenxiangm.png" class="inlineimg"></image>分享领饭团</view>
+  </navigator>
+  <navigator class="cu-item arrow" hover-class="none" url="userinfo/index">
+    <view class="menu-title">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_geren.png" class="inlineimg"></image>我的信息/地址</view>
+  </navigator>
+  <button class="content cu-item arrow" style='text-align: left' open-type="contact">
+    <view class="menu-title">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_kefu.png" class="inlineimg"></image>在线客服</view>
+  </button>
+  <!-- wx:if="{{userLoginNo}}" -->
+  <block wx:if="{{userLoginNo}}">
+    <button open-type='getUserInfo' bindgetuserinfo='haveGetUser' class="btn1"></button>
+  </block>
+</view>
+<!-- <footComponent></footComponent> -->

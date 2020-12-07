@@ -1,0 +1,8 @@
+.cu-card.article>.cu-item .content>image {
+  /* margin-top: 30rpx; */
+  height: 10em;
+}
+
+page{
+  background-color: white;
+}

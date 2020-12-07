@@ -1,0 +1,503 @@
+/* pages/index/performance/detail.wxss */
+@import "/wxParse/wxParse.wxss";
+
+.detail-content {
+  overflow: hidden;
+}
+
+.stepper {
+  height: 46rpx;
+  float: right;
+  width: 190rpx;
+  /*给主容器设一个边框*/
+  border-radius: 3px;
+}
+
+/*加号和减号*/
+
+.stepper text {
+  width: 46rpx;
+  line-height: 46rpx;
+  background: #f0f0f0;
+  border-radius: 4rpx;
+  text-align: center;
+  float: left;
+}
+
+/*数值*/
+
+.stepper input {
+  width: 40px;
+  height: 26px;
+  float: left;
+  margin: 0 auto;
+  text-align: center;
+  font-size: 12px;
+  /*给中间的input设置左右边框即可*/
+}
+
+/*普通样式*/
+
+.stepper .normal {
+  color: black;
+}
+
+/*禁用样式*/
+
+.stepper .disabled {
+  color: #ccc;
+}
+
+#fold-pannel {
+  min-height: 100rpx;
+}
+
+#fold-pannel image {
+  width: 100rpx;
+  height: 50rpx;
+}
+
+.bg-choosed {
+  background-image: url(http://resource.jiyilive.com/img/ico/butchesed.png);
+  background-size: 100%;
+  background-position: center center;
+  color: #916bc6 !important;
+}
+
+.bg-unchoose {
+  background-image: url(http://image.jiyilive.com/%E5%B7%B2%E9%80%89%E4%B8%AD%E6%97%B6%E9%97%B4@2x.png);
+  background-size: 100%;
+  background-position: center center;
+}
+
+.btn-notice {
+  background-image: url(http://image.jiyilive.com/%E8%B4%AD%E7%A5%A8%E9%A1%BB%E7%9F%A5@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+}
+
+.btn-finish {
+  background-image: url(http://image.jiyilive.com/%E5%9C%86%E8%A7%92%E7%9F%A9%E5%BD%A211@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+}
+
+.btn-presale {
+  background-image: url(http://image.jiyilive.com/%E8%B7%9D%E5%BC%80%E5%94%AE@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 64rpx;
+  line-height: 64rpx;
+  color: rgb(255, 255, 255);
+}
+
+.btn-buy {
+  background-image: url(http://image.jiyilive.com/%E7%AB%8B%E5%88%BB%E8%B4%AD%E4%B9%B0@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 73rpx;
+  line-height: 73rpx;
+  color: rgb(255, 255, 255);
+}
+
+.btn-buy-free {
+  background-image: url(http://image.jiyilive.com/%E4%BB%98%E8%B4%B9%E8%B4%AD%E4%B9%B0-%E9%80%81%E6%88%91@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  width: 100%;
+  height: 73rpx;
+  line-height: 73rpx;
+  color: rgb(255, 255, 255);
+}
+
+#free {
+  width: 26px;
+  height: 16px;
+  position: absolute;
+  top: 10rpx;
+  right: 50rpx;
+  display: inline-block;
+}
+
+.btn-goIndex {
+  background-image: url(http://image.jiyilive.com/%E5%9B%9E%E5%88%B0%E9%A6%96%E9%A1%B5@2x.png);
+  background-size: 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  position: fixed;
+  bottom: 120rpx;
+  right: 50rpx;
+  width: 120rpx;
+  height: 120rpx;
+  padding: 32rpx;
+}
+
+.btn-goIndex text {
+  font-size: 28rpx;
+  color: #916bc6;
+  position: relative;
+  top: -14rpx;
+}
+
+.btn-goBuy {
+  background-image: url(http://image.jiyilive.com/%E7%AB%8B%E5%8D%B3%E6%8A%A2%E7%A5%A8@2x.png);
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  width: 200rpx;
+  margin: 10rpx 30rpx 10rpx 10rpx;
+}
+
+.btn-empty {
+  background-size: 100% 100%;
+  background-position: center center;
+  background-repeat: no-repeat;
+  color: white;
+  width: 200rpx;
+  margin: 10rpx 30rpx 10rpx 10rpx;
+}
+
+.cu-modal.bottom-modal .cu-dialog {
+  background: #fff;
+  border-top-left-radius: 25rpx;
+  border-top-right-radius: 25rpx;
+  padding-top: 20rpx;
+}
+
+.enter_act {
+  width: 690rpx;
+  height: 86rpx;
+  border: 1rpx solid #202020;
+  margin: 4rpx auto;
+  border-radius: 43rpx;
+  background: #9fe8ff;
+  line-height: 76rpx;
+  font-size: 28rpx;
+  color: #202020;
+  float: right;
+  position: relative;
+  text-aligN: center;
+  font-weight: bold;
+}
+
+.enter_act p {
+  position: relative;
+  z-index: 5;
+}
+
+.enter_act:after {
+  content: "";
+  display: block;
+  width: 690rpx;
+  height: 80rpx;
+  border: 1rpx solid #202020;
+  border-radius: 40rpx;
+  background: #fff388;
+  position: absolute;
+  left: -1rpx;
+  top: -4rpx;
+  z-index: 0;
+  box-sizing: border-box;
+}
+
+/* background-image:url(http://resource.jiyilive.com/img/index/addbackn.png); */
+
+.enter_actno {
+  width: 64%;
+  height: 70rpx;
+  line-height: 70rpx;
+  background-color: #ddd;
+  background-size: 100% 100%;
+  border-radius: 35rpx;
+  color: #777;
+  text-align: Center;
+  font-size: 28rpx;
+  margin: 0 auto;
+}
+
+page {
+  padding-top: 140rpx;
+}
+
+.mine_bar {
+  display: block;
+  width: 100%;
+  height: 140rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  line-height: 90rpx;
+  font-size: 34rpx;
+  color: #666;
+  text-align: center;
+  z-index: 999;
+  background: #fff;
+  padding-top: 50rpx;
+  font-weight: bold;
+}
+
+.mine_back {
+  position: absolute;
+  width: 90rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  text-align: center;
+  font-size: 30rpx;
+  color: #666;
+  left: 0;
+  bottom: 0;
+  transform: scale(1, 1.8);
+}
+
+.leaveCard {
+  width: 100%;
+  text-aligN: left;
+  color: #fff;
+  font-weight: bold;
+  font-size: 28rpx;
+  margin-top: 30rpx;
+}
+
+.leaveCard span {
+  font-size: 22rpx;
+}
+
+.zhe_tit {
+  width: 100%;
+  background: #fff;
+  border-radius: 20rpx;
+  position: absolute;
+  top: 228rpx;
+  left: 0;
+  z-index: 5;
+  height: 500rpx;
+}
+
+.cu-card.article>.cu-item .title {
+  line-height: 37rpx;
+  padding: 0;
+  color: #fff;
+}
+
+.pertit {
+  line-height: 37rpx;
+  font-size: 32rpx;
+  white-space: normal;
+  word-break: break-all;
+  height: 75rpx;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  line-clamp: 2;
+  display: -webkit-box;
+  text-overflow: -o-ellipsis-lastline;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}
+
+.list_conp {
+  width: 268rpx;
+  height: 40rpx;
+  border-radius: 20rpx;
+  border: 1px solid #202020;
+  box-sizing: border-box;
+  margin: 31rpx 0 0;
+  background: linear-gradient(120deg, #9fe8ff 0%, #9fe8ff 50%, #fff 50%, #fff 100%);
+  overflow: hidden;
+  position: relative;
+}
+
+.list_conpb {
+  width: 50%;
+  float: left;
+  text-align: Center;
+  line-height: 38rpx;
+  color: #202020;
+  font-size: 24rpx;
+}
+
+.list_conxx {
+  position: absolute;
+  left: 50%;
+  top: -15rpx;
+  height: 70rpx;
+  transform: rotate(30deg);
+  border-left: 1rpx solid #202020;
+  width: 0;
+}
+
+.endTime {
+  width: 100%;
+  height: 29rpx;
+  line-height: 29rpx;
+  font-size: 24rpx;
+  color: #666;
+  margin-top: 61rpx;
+}
+
+.endTime span {
+  width: 100%;
+  height: 29rpx;
+  color: #fe5d7e;
+  font-size: 30rpx;
+}
+
+.backimage {
+  background-repeat: no-repeat;
+  background-size: 100%;
+  filter: blur(18px) brightness(70%);
+  height: 373rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: 100%;
+}
+
+.itemdesc {
+  width: 644rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  font-size: 32rpx;
+  color: #595959;
+  padding: 0;
+  margin: 55rpx 46rpx 0rpx 46rpx;
+  font-weight: 500;
+  overflow: hidden;
+}
+.itemdesc image {
+  display: inlnie-block;
+  vertical-align: -3rpx;
+  width: 30rpx;
+  height:30rpx;
+  padding:0;margin:0;
+  margin-right: 17rpx;
+}
+.normaltit {
+  width: 644rpx;
+  text-align: Left;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 32rpx;
+  color: #202020;
+  font-weight: bold;
+  margin: 0 46rpx 18rpx;
+}
+
+.normaltit span {
+  display: inline-block;
+  padding: 0 10rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 24rpx;
+  color: #eee;
+}
+
+.extendDik {
+  width: 644rpx;
+  margin: 0 46rpx;
+  text-align: right;
+  line-height: 40rpx;
+}
+
+.extendBut {
+  font-size: 26rpx;
+  color: #ff4227;
+}
+
+page {
+  padding-bottom: 90rpx;
+}
+
+.title_c {
+  width: 645rpx;
+  height: 122rpx;
+  border: 1px dashed #202020;
+  border-radius: 20rpx;
+  color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin: 50rpx 46rpx;
+}
+
+.title_cd {
+  flex: 0 0 162rpx;
+  height: 84rpx;
+  line-height: 37rpx;
+  font-size: 32rpx;
+  text-align: left;
+  font-weight: bold;
+  text-align: center;
+}
+
+.title_cdd {
+  height: 37rpx;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 26rpx;
+  font-weight: normal;
+}
+
+.title_chr {
+  width: 0;
+  height: 60rpx;
+  border-left: 1px dashed #666;
+  flex: 0 0 0;
+}
+
+/* 赞助商横向 */
+
+.spon_k {
+  width: 100%;
+  margin: 50rpx 0rpx;
+  overflow: hidden;
+}
+
+.spon_d {
+  width: 100%;
+}
+
+.spon_lik {
+  padding-left: 46rpx;
+  width: auto;
+  white-space: nowrap;
+  height: 130rpx;
+  line-height: 116rpx;
+  overflow-y: hidden;
+}
+
+.spon_li {
+  display: inline-block;
+  width: 120rpx;
+  height: 130rpx;
+  line-height: 20rpx;
+  font-size: 22rpx;
+  color: #4c4c4c;
+  text-align: center;
+  overflow: Hidden;
+  margin: 0 36rpx 0 0;
+}
+
+.spon_li image {
+  box-sizing: border-box;
+  width: 96rpx;
+  height: 96rpx;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  margin: 0 12rpx;
+}
+
+
+/* zt按钮样式 */
+  .telC{
+    width:280rpx;height:60rpx;border:1rpx solid #202020;border-radius:34rpx;background:#9FE8FF;line-height:50rpx;font-size:28rpx;color:#202020;position:relative;text-aligN:center;margin:0 auto;font-weight:bold;
+  }
+.telC view{position:absolute;z-index:5;width:280rpx;height:56rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;left:-1rpx;top:-4rpx;box-sizing:border-box;}
+/* end */

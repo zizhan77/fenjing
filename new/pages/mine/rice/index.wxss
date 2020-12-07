@@ -1,0 +1,30 @@
+/* pages/mine/rice/index.wxss */
+page{background-image:none;padding-top:321rpx;}
+.cont{padding:0 30rpx;}
+.tit{width:690rpx;height:138rpx;background-color:#fff;box-sizing:border-box;padding-top:38rpx;display:flex;background-size:100% 100%;justify-content:space-around;align-items:flex-start;margin:5rpx 0 50rpx;position:fixed;left:30rpx;top:154rpx;z-index:150;}
+.titco{height:70rpx;line-height:70rpx;text-align:center;flex:1 1 150rpx;font-size:26rpx;color:#666;}
+.titco span{font-size:60rpx;color:#ff3e25;}
+
+.li_k{width:100%;}
+.li_tit{width:100%;height:45rpx;line-height:45rpx;font-size:32rpx;color:#666;}
+.li_hr{width:100%;height:1rpx;background:#ccc;margin:10rpx 0 10rpx;}
+.li_d{width:690rpx;margin:20rpx 0 30rpx;position:relative;}
+.li_c{display:flex;width:100%;align-items:center;}
+.li_dt{flex:1 1 500rpx;font-size:32rpx;color:#202020;font-weight:bold;}
+.li_dt b{display:inline-block;background:#ff3e25;width:112rpx;height:36rpx;line-height:36rpx;font-size:24rpx;color:#fff;text-align:center;vertical-align:3rpx;border-top-right-radius:18rpx;border-bottom-left-radius:18rpx;}
+.li_dt span{display:block;width:100%;line-height:33rpx;font-weight:normal;font-size:26rpx;color:#666;}
+.li_ico,.li_icon{width: 100rpx;height: 34rpx;line-height:34rpx;text-align:right;font-size:32rpx;font-weight:bold;}
+.li_icon span{color:#ff3e25;}
+.li_icon b{color:#25c3ff;}
+.li_ico:after{width: 30rpx;
+height: 30rpx;color:#999;
+content: "\e6a3";
+font-size: 34rpx;
+font-family: "cuIcon";}
+.li_zz{position:absolute;width:100%;height:100%;left:0;top:0;z-index:99;background:rgba(0,0,0,0);}
+
+
+
+
+
+

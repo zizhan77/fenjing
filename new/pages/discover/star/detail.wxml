@@ -1,0 +1,75 @@
+<!--pages/discover/star/detail.wxml-->
+<view class="mine_bars">
+  <navigator class="mine_barw" open-type="navigateBack" role="navigation"></navigator>
+  艺人详情
+</view>
+<image src="{{star.url}}" class="backimage" mode="aspectFill"></image>
+<view class="star_tit">
+  <view class="star_toux">
+    <view class="spon_t{{star.count<4 ? star.count:'4'}}"></view>
+    <image src="{{star.url}}" mode="aspectFill"></image>
+  </view>
+  <view class="star_text">
+      <view class="star_textit">{{star.name}}</view>
+      <view class="star_textp">
+        <p></p> {{star.integral}}</view>
+       <view class="star_but"  bindtap='bindAddRice'><p>我要丢饭团应援</p></view>
+  </view>
+</view>
+
+<view class="star_con">  
+  <view>
+    <scroll-view scroll-left='{{leftPos}}' scroll-x="1" scroll-y="" class="star_menuk">
+      <view class="star_menu">
+        <block wx:for="{{tdate}}" wx:key wx:for-index="index">
+          <view class="star_m {{tripact[index]}}" bindtap="showMonth" data-ind="{{index}}">
+              {{item.y}}年{{item.m}}月
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+    <view class="star_butfree" bindtap="showActived" wx:if="{{clicktitle}}"><p>{{clicktitle}}…【点击免费拿票】</p></view>
+    <view class="star_trip">
+
+      <block wx:for="{{tripShowList}}" wx:key wx:for-index="ind">
+        <view class="star_tripd {{item.activityflag==0 ? '':'tri'+Math.ceil(Math.random()*3)}}">
+          <view class="star_trtime">
+            {{item.time}} <view wx:if="{{item.activityflag!='null'}}" class="star_trtbut {{item.activityflag==0 ? 'star_over':'star_run'}}"></view>
+          </view>
+          <view class="star_trtime">{{item.address}}</view>
+          <view class="star_trtit">{{item.name}}</view>
+          <view class="star_tripdzz" bindtap="showTripDetail" data-tind="{{ind}}" data-act="{{item.activityflag}}" data-tid="{{item.activityid}}"></view>
+        </view>
+      </block>
+      <view class="no_datas" wx:if="{{tripShowList.length == 0}}">暂无行程</view>
+    </view>
+  </view>
+</view>
+<view class="star_detailsk" wx:if="{{isShowStarDet}}">    
+    <view class="star_details">
+      <view class="star_detclose"><p bindtap="closeStarDetail"></p></view>
+      <view class="star_detaild">
+        <view class="star_detd">
+          <p>{{nowTrip.tripname}}</p>
+          <view>行程时间：{{nowTrip.time}}</view>
+          <view>行程地点：{{nowTrip.address}}</view>
+        </view>
+        <view class="star_detdid">
+          <import src="../../../wxParse/wxParse.wxml" />
+          <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+        </view>
+      </view>
+    </view>
+</view>
+<!-- 投饭团弹窗 -->
+<view class="addrice_k" wx:if="{{isShowAdd}}" bindtap="closeRicek">
+  <view class="addrice_d" style="bottom:{{inputBottom}}px;" catchtap="{{1}}">
+    <view class="rice_tit">想投多少个饭团？</view>
+    <view class="addrice_inpk">
+      <input class="home_search" value="{{haveAdded}}" placeholder="您当前有{{mineDetal.integral}}个饭团" type="number" bindinput="checkNum" cursor-spacing="30rpx" focus="true"></input>
+      <view class="rice_conadd" catchtap="sendRiceAdd">
+        <p>投饭团</p>
+      </view>
+    </view>
+  </view>
+</view>

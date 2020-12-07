@@ -1,0 +1,46 @@
+<!-- 添加地址、修改地址用一个模板，根据action和有无id区别展示 -->
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>{{action=='edit'?'修改': '添加'}}地址</view>
+</cu-custom>
+
+<!-- 地址表单 -->
+<form bindsubmit='submitForm'>
+	<view class="cu-form-group margin-top">
+		<view class="title">收货人</view>
+		<input name='userName' bindinput='editName' value="{{userName}}" placeholder="请输入收货人姓名" style='color:rgb(0,0,0)'></input>
+	</view>
+
+  <view class="cu-form-group">
+		<view class="title">手机号码</view>
+		<input name='mobile' bindinput='editMobile' value="{{mobile}}" placeholder="请填写手机号" style='color:rgb(0,0,0)'></input>
+	</view>
+
+	<view class="cu-form-group" style='justify-content: start'>
+		<view class="title">收货地址</view>
+    <picker mode="region" bindchange="RegionChange" value="{{region}}" custom-item="{{customItem}}" style='position: inherit;'>
+			<view class="picker" style='text-align: left; color:{{region[0] == ""? "gray": "rgb(0,0,0)"}};'>
+				{{region[0] == ""? "请选择地址": ""}} {{region[0]}} {{region[1]}} {{region[2]}}
+			</view>
+		</picker>
+    <!-- <view bindtap='bindGetLocation'>
+      <text class="cuIcon-location text-gray"></text>
+      <text>定位</text>
+    </view> -->
+	</view>
+  <view class="cu-form-group">
+    <view class="title">详细地址</view>
+    <input name='detailAddress' bindinput='editDetailAddress' value='{{detailAddress}}' style='color:rgb(0,0,0);'></input>
+  </view>
+
+  <view class="cu-form-group" style='justify-content:flex-end' bindtap='bindChoose'>
+		<checkbox checked="{{isDefault}}" class="round mauve" style='transform: scale(0.6,0.6); opacity: 1;'></checkbox>
+    <view>设为默认地址</view>
+	</view>
+  <view class='text-center' style='width: 100%; position: fixed; bottom: 50rpx;'>
+		<view class="ract_but" ><p>保存</p>
+      <button role="button" aria-label="" aria-disabled="false" formType="submit"></button>
+    </view>
+	</view>
+</form>

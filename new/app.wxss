@@ -1,0 +1,367 @@
+@import "colorui/main.wxss";
+@import "colorui/icon.wxss";
+
+.header-title {
+  color: rgb(15, 15, 15);
+  font-size: 36rpx;
+}
+
+page {
+  font-family: PingFang SC;
+}
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+.listk {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10;
+  transform-origin: center center;
+  -webkit-transform-origin: center center;
+  background-size: auto 100%;
+  background-repeat: no-repeat;
+}
+
+/*结果框*/
+
+.resk {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  left: 0;
+  top: 0;
+  z-index: 9999;
+}
+
+.resd {
+  position: absolute;
+  width: 600rpx;
+  height: 400rpx;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  background: #fff;
+  border-radius: 15rpx;
+  padding: 65rpx 30rpx 30rpx;
+  overflow: visible;
+}
+
+.resd_tit {
+  width: 100%;
+  top: -40rpx;
+  left: 0;
+  text-align: Center;
+  position: absolute;
+  height: 80rpx;
+}
+
+.resd_tit image {
+  width: 55%;
+  margin: 0 auto;
+  display: block;
+  position: absolute;
+  left: 22.5%;
+  bottom: -9rpx;
+}
+
+.resbutk {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.resbut {
+  width: 50%;
+  flex: 0 0 50%;
+  position: relative;
+  text-align: center;
+  overflow: Hidden;
+}
+
+.resbut:nth-of-type(1) p {
+  color: #fe5d7e;
+}
+
+.resbut image {
+  display: block;
+  width: 70%;
+  margin: 0 auto;
+}
+
+.resd_tit p, .resbut p {
+  display: block;
+  width: 120rpx;
+  height: 30rpx;
+  white-space: Nowrap;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 20rpx;
+  margin: auto;
+  font-size: 30rpx;
+  line-height: 30rpx;
+  color: #fff;
+}
+
+.rescon {
+  width: 80%;
+  margin: 10rpx auto;
+  text-align: Center;
+  color: #333;
+  font-size: 34rpx;
+  line-height: 40rpx;
+  height: 220rpx;
+  overflow-y: auto;
+  white-space: Nowrap;
+}
+
+.rescon image {
+  display: block;
+  max-width: 25%;
+  margin: 10rpx auto;
+}
+
+/*导航栏*/
+
+page {
+  padding-top: 128rpx;
+  background: #fff url(http://resource.jiyilive.com/img/menu/back.jpg) 0 0 no-repeat;
+  background-size: 100% auto;
+  padding-bottom: 40rpx;
+}
+
+.mine_bar {
+  display: block;
+  width: 100%;
+  height: 150rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  line-height: 75rpx;
+  font-size: 32rpx;
+  color: #231916;
+  text-align: center;
+  z-index: 999;
+  background: url(http://resource.jiyilive.com/img/menu/back.jpg) 0 0 no-repeat;
+  background-size: 100% auto;
+  padding-top: 62rpx;
+  font-weight: bold;
+}
+
+.mine_bars {
+  display: block;
+  width: 100%;
+  height: 128rpx;
+  position: fixed;
+  left: 0;
+  top: 0;
+  line-height: 77rpx;
+  font-size: 32rpx;
+  color: #fff;
+  text-align: center;
+  z-index: 999;
+  font-weight: bold;
+  padding-top: 62rpx;
+  background-size: 100% auto;
+  background-position: left top;
+}
+
+.mine_bari {
+  display: inline-block;
+  width: 170rpx;
+  height: 50rpx;
+}
+
+.mine_barb {
+  width: 80rpx;
+  height: 94rpx;
+  background: url(http://resource.jiyilive.com/img/menu/backed.png) 0 0 no-repeat;
+  background-size: 30rpx 30rpx;
+  background-position: center center;
+  position: absolute;
+  left: 17rpx;
+  bottom: 0rpx;
+}
+
+.mine_barw {
+  width: 30rpx;
+  height: 94rpx;
+  background: url(http://resource.jiyilive.com/img/menu/backedw.png) 0 0 no-repeat;
+  background-size: 30rpx 30rpx;
+  background-position: center center;
+  position: absolute;
+  left: 17rpx;
+  bottom: 0rpx;
+}
+
+::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0;
+  height: 0;
+}
+
+/* 活动页面统一弹窗 */
+
+.act_tan {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 999999999999999999999;
+}
+
+.act_tank {
+  width: 676rpx;
+  margin: 260rpx auto;
+  position: relative;
+}
+
+.act_tani {
+  width: 100%;
+  display: block;
+}
+
+.act_butk {
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  height: 77rpx;
+}
+
+.act_but {
+  flex: 0 0 241rpx;
+  box-sizing: border-box;
+  line-height: 68rpx;
+  border: 2rpx solid #231916;
+  border-radius: 36rpx;
+  background: #9fe8ff;
+  text-align: center;
+  position: relative;
+  height: 80rpx;
+}
+
+.act_but p {
+  display: block;
+  position: relative;
+  z-index: 10;
+  color: #231916;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.act_but:after {
+  content: "";
+  display: block;
+  position: absolute;
+  left: -2rpx;
+  top: -2rpx;
+  width: 241rpx;
+  border: 2rpx solid #231916;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #fff388;
+  box-sizing: border-box;
+}
+
+.act_buts {
+  flex: 0 0 241rpx;
+  border: 2rpx solid #231916;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #fff388;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 66rpx;
+  font-weight: bold;
+  position: relative;
+}
+
+.act_butsb {
+  flex: 0 0 241rpx;
+  border: 2rpx solid #231916;
+  height: 70rpx;
+  border-radius: 35rpx;
+  background: #9fe8ff;
+  text-align: center;
+  font-size: 28rpx;
+  line-height: 66rpx;
+  font-weight: bold;
+  position: relative;
+}
+
+.act_but button, .act_butsb button, act_buts button {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  border: 1px solid red;
+  opacity: 0.3;
+  left: 0;
+  top: 0;
+}
+
+.act_closek {
+  margin: 37rpx 0;
+  text-align: center;
+  height: 120rpx;
+  padding: 20rpx 0;
+}
+
+.act_closek image {
+  display: block;
+  margin: 0 auto;
+  width: 42rpx;
+  height: 42rpx;
+}
+
+.changlTime {
+  width: 32rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  font-size: 39rpx;
+  color: #9fe8ff;
+  font-weight: bold;
+  text-align: center;
+  position: absolute;
+  left: 295rpx;
+  top: 467rpx;
+  z-index: 90;
+}
+
+/* 生成海报的框 */
+
+.can {
+  display: block;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  background: #fff;
+}
+
+button::after {
+  border: none;
+}
+
+button {
+  background: transparent;
+}

@@ -1,0 +1,68 @@
+<!--pages/mine/login/login.wxml-->
+
+<!--新添加获取手机号流程-->
+<view class="butk">
+  <image src="http://resource.jiyilive.com/img2/icon/loginlogo.jpg" class="buti"></image>
+  <view class="list_conbut"  wx:if="{{haveNoUser}}">
+    <p>立即登录</p>
+    <button open-type='getUserInfo' bindgetuserinfo='haveGetUser'>登录</button>
+  </view>
+  <view class="list_conbut"  wx:if="{{haveUserPhone}}">
+    <p>授权手机号</p>
+    <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" >获取手机号</button>
+  </view>
+</view>
+<!-- 
+<view class="resk" wx:if="{{isHavePhone}}">
+  <view class="resd">
+    <view class="resd_tit">
+      微信授权
+    </view>
+    <view class="rescon">
+      <image src="http://resource.jiyilive.com/img/index/minelogo1.png" mode="widthFix"></image>
+      粉鲸饭团 申请获得以下权限
+      <view class="reshr"></view>
+      <p>●申请获取您的微信绑定手机号！</p>
+    </view>
+    <view class="resbutk">
+      <view class="resbut" bindtap="backIndex">
+        拒绝
+      </view>
+      <view class="resbut">        
+        允许
+        <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber">获取</button>
+      </view>
+    </view>
+  </view>
+</view> -->
+
+<!-- 统一提示框 -->
+<view class="act_tan" wx:if="{{isRegister}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/getcount.png"  mode="widthFix" class="act_tani"></image>    
+    <view class="act_butk">
+      <view class="act_but" bindtap='getCount'><p>立即领取</p></view>
+    </view>
+    <view class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" bindtap="giveUpCount"></image>
+    </view>
+  </view> 
+</view>
+
+<!-- 统一提示框 -->
+<view class="act_tan" wx:if="{{isGetCount}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/register.png"  mode="widthFix" class="act_tani"></image>    
+    <view class="act_butk">
+      <view class="act_but" bindtap='makeAiDou'><p>马上应援爱豆</p></view>
+    </view>
+    <view class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" bindtap="giveUpCount"></image>
+    </view>
+  </view> 
+</view>
+
+<view class="lawk">
+  <navigator url="/pages/mine/mess/law">用户协议</navigator> 和 
+  <navigator url="/pages/mine/mess/rule">隐私政策</navigator>
+</view>

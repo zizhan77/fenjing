@@ -1,0 +1,62 @@
+/* pages/index/share/index.wxss */
+page{background-image:url(http://resource.jiyilive.com/img2/sign/shareback.jpg);background-size:100% auto;background-repeat:no-repeat;background-color:#b1cbfe;}
+.cont{width:690rpx;margin:0 30rpx;padding-bottom:35rpx;text-align:center;}
+.message_k{width:100%;position:fixed;left:0;top:141rpx;z-index:150;text-aligN:center;height:50rpx;white-space:nowrap;}
+.message{background:rgba(84,52,167,0.6);display:inline-block;height:50rpx;line-height:50rpx;border-radius:25rpx;color:#fff;text-align:center;font-size:24rpx;padding:0 25rpx;}
+.message image{display:inline-block;width:29rpx;height:25rpx;vertical-align:-3rpx;}
+
+.tit_img{width:550rpx;height:175rpx;margin:98rpx auto 90rpx;}
+.res_k{width:690rpx;height:378rpx;border-radius:20rpx;background:rgba(255,255,255,0.7);box-sizing:border-box;padding:28rpx 30rpx;position:relative;margin:0rpx 0 40rpx;}
+.res_d{width:100%;height:100%;padding:67rpx 54rpx 0;text-align:center;
+background:
+radial-gradient(ellipse 30rpx 20rpx at top left,transparent 30px,#fff 0) top left,
+radial-gradient(ellipse 30rpx 20rpx at top right,transparent 30px,#fff 0) top right,
+radial-gradient(ellipse 30rpx 20rpx at bottom left,transparent 30px,#fff 0) bottom left,
+radial-gradient(ellipse 30rpx 20rpx at bottom right,transparent 30px,#fff 0) bottom right;
+background:
+-webkit-radial-gradient(ellipse 30rpx 20rpx at top left,transparent 30px,#fff 0) top left,
+-webkit-radial-gradient(ellipse 30rpx 20rpx at top right,transparent 30px,#fff 0) top right,
+-webkit-radial-gradient(ellipse 30rpx 20rpx at bottom left,transparent 30px,#fff 0) bottom left,
+-webkit-radial-gradient(ellipse 30rpx 20rpx at bottom right,transparent 30px,#fff 0) bottom right;
+background-size:51% 51%;
+background-repeat:no-repeat;
+}
+.res_titk{width:405rpx;height:65rpx;position:absolute;left:50%;margin-left:-202rpx;top:-50rpx;background:#769de9;border-radius:16rpx;line-height:65rpx;font-size:34rpx;color:#fff;z-index:15;}
+.res_titb{width:200rpx;height:50rpx;position:absolute;left:49%;margin-left:-208rpx;top:-50rpx;background:#6793e9;border-radius:16rpx;z-index:10;transform:skewX(-25deg);}
+.res_titb1{width:200rpx;height:50rpx;position:absolute;left:52%;margin-right:-208rpx;top:-50rpx;background:#6793e9;border-radius:16rpx;z-index:10;transform:skewX(25deg);}
+
+.res_showk{width:100%;height:93rpx;display:flex;justify-content:space-between;}
+.res_show{flex:0 0 178rpx;height:89rpx;font-size:30rpx;line-height:37rpx;color:#202020;text-align:center;}
+.res_show span{font-weight:bold;font-size:50rpx;margin-bottom:23rpx;display:block;width:100%;}
+.res_showhr{width:3rpx;height:93rpx;background:rgba(0,0,0,0.1);}
+
+
+/* button */
+.list_conbut{width:364rpx;height:84rpx;border:1rpx solid #202020;margin:54rpx auto 0rpx;border-radius:44rpx;background:#9FE8FF;line-height:70rpx;font-size:28rpx;color:#202020;position:relative;text-aligN:center;font-weight:bold;}
+.list_conbut p,.list_conbuts p{position:relative;z-index:5;}
+.list_conbut:after{content:"";display:block;width:364rpx;height:79rpx;border:1rpx solid #202020;border-radius:40rpx;background:#fff388;position:absolute;left:-1rpx;top:-4rpx;z-index:0;box-sizing:border-box;}
+
+/* 活动规则 */
+.rule_k{width:690rpx;border-radius:20rpx;background:rgba(255,255,255,0.7);box-sizing:border-box;padding:39rpx 27rpx 10rpx;text-align:center;}
+.rule_tit1{width:308rpx;height:34rpx;margin-bottom:37rpx;}
+.rule_tit2{width:350rpx;height:35rpx;margin-bottom:37rpx;}
+.rule_con{width:100%;margin-bottom:40rpx;}
+
+/* zt */
+  .btn{
+    position: absolute;
+    top:0;left:50rpx;
+    z-index:9;
+    width:400rpx;
+    /* background: transparent; */
+  }
+  button::after{
+    border:none;
+  }
+/* zt按钮样式 */
+  .telC{
+    width:364rpx;height:84rpx;border:1rpx solid #202020;border-radius:34rpx;background:#9FE8FF;font-size:28rpx;color:#202020;position:relative;text-aligN:center;margin:0 auto;font-weight:bold;
+    line-height: 84rpx;top:50rpx;
+  }
+.telC view{position:absolute;z-index:5;width:364rpx;height:79rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;left:-1rpx;top:-4rpx;box-sizing:border-box;}
+/* end */

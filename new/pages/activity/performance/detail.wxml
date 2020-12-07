@@ -1,0 +1,102 @@
+<view class="mine_bar">
+  <navigator wx:if="{{isNotShare}}" open-type="navigateBack" class="mine_barb"></navigator>
+  <navigator wx:else url="/pages/index/index" open-type="switchTab" class="mine_barb" style="background-image:url(http://resource.jiyilive.com/img2/icon/ic_homeb.png);"></navigator>
+  演出详情</view>
+<!-- 概要 -->
+<view class="cu-card no-card article" style='position: relative;border-bottom:1px solid rgba(0,0,0,0.1);padding-bottom:15rpx;margin-bottom:35rpx;'>
+  <view class="backimage" style='background-image: url({{performanceInfo.thumbnailUrl}});'></view>
+  <view class="zhe_tit"></view>
+  <view class="cu-item" style='position: relative; margin-top: 10px; width: 750rpx; background-color: rgba(1,1,1,0);z-index:10;'>
+    <view class="content">
+      <image style='margin-top: 10rpx; height: 11em;' src="{{performanceInfo.thumbnailUrl}}" mode="aspectFill"></image>
+      <view class="desc" style="display:block;">
+        <view class='title margin-top pertit'>{{performanceInfo.activityTitle}}</view>
+        <view class="list_conp">
+          <view class="list_conpb">剩余{{performanceInfo.totalNum || 0}}张</view>
+          <view class="list_conpb">送出{{performanceInfo.givedNum || 0}}张</view>
+          <view class="list_conxx"></view>
+        </view>
+        <view class="endTime">
+          距离活动剩余：
+          <span>{{lastTime}}</span>
+        </view>
+      </view>
+    </view>
+    <view class="itemdesc">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>{{performanceInfo.endDate}}
+    </view>
+    <view class="itemdesc">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_weizhi.png"></image>{{performanceInfo.provence}}
+    </view>
+  </view>
+
+</view>
+
+<!-- 详情 -->
+<view class='detail bg-white' style="margin:15rpx 0;position:relative;">
+  <view class="normaltit">演出介绍
+    <span>/DROP THE CURTAI</span>
+  </view>
+  <view id="detail-content" class="detail-content padding text-lg" style='height: {{foldHeight}};min-height:291rpx;padding:0 46rpx 20rpx;font-size:26rpx;color:#666;'>
+    <import src="../../../wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:content.nodes}}" />
+  </view>
+  <!-- 折叠按钮 -->
+  <view class="extendDik" bindtap='unfold' wx:if="{{isExtend}}">
+    <view class='extendBut'>
+      展开
+      <image style='width: 35rpx; height: 35rpx;vertical-align:-7rpx;' src='http://resource.jiyilive.com/img2/icon/ic_xiangxia.png'></image>
+    </view>
+  </view>
+
+</view>
+<view class="normaltit">如何拿到免费票
+  <span>/FREE TICKETS</span>
+</view>
+<view class="title_c">
+  <view class="title_cd">
+    STEP 1
+    <view class="title_cdd">参与小游戏</view>
+  </view>
+  <view class="title_chr"></view>
+  <view class="title_cd">
+    STEP 2
+    <view class="title_cdd">完成抽奖游戏</view>
+  </view>
+  <view class="title_chr"></view>
+  <view class="title_cd">
+    STEP 3
+    <view class="title_cdd">中奖免费拿票</view>
+  </view>
+</view>
+<view class="normaltit">赞助商
+  <span>/SPONSOR</span>
+</view>
+<view class="spon_k">
+  <scroll-view class="spon_d" scroll-x="1" scroll-y="">
+    <view class="spon_lik">
+      <block wx:for="{{sponsors}}">
+        <view class="spon_li" bindtap="sponsor" data-spid="{{item.id}}">
+          <image src="{{item.thumburl}}"></image>
+          <view>{{item.name}}</view>
+        </view>
+      </block>
+    </view>
+  </scroll-view>
+</view>
+<!-- 底部按钮  -->
+<view id="bottom-bar" class="cu-bar tabbar bg-white shadow foot">
+  <block wx:if="{{phoneNum && userLogin}}">
+    <view class='enter_act' bindtap='bindBuy'>
+      <p>进入活动</p>
+    </view>
+  </block>
+  <block wx:else>
+    <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telC" wx:if="{{!userLogin}}">
+      <view>获取授权</view>
+    </button>
+    <button open-type="getPhoneNumber" bindgetphonenumber="onGetPhoneNumber" class="telC" wx:elif="{{!phoneNum}}">
+      <view>获取手机号</view>
+    </button>
+  </block>
+</view>

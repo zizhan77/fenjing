@@ -1,0 +1,490 @@
+/* pages/activity/index1/index.wxss */
+
+page {
+  background-image: url(http://resource.jiyilive.com/img2/active/back.jpg);
+  background-attachment: fixed;
+  background-size: auto 100%;
+}
+
+.title {
+  width: 678rpx;
+  height: 156rpx;
+  box-sizing: border-box;
+  border: 4rpx solid #202020;
+  border-radius: 20rpx;
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-top: 20rpx;
+  margin: auto;
+  background: #9fe8ff;
+}
+
+.title_d {
+  width: 647rpx;
+  height: 131rpx;
+  border: 4rpx solid #202020;
+  border-radius: 16rpx;
+  background: #fff388;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+  padding: 12rpx 15rpx;
+}
+
+.title_c {
+  width: 100%;
+  height: 100%;
+  border: 1px dashed #fff;
+  border-radius: 10rpx;
+  color: #202020;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.title_cd {
+  flex: 0 0 162rpx;
+  height: 84rpx;
+  line-height: 37rpx;
+  font-size: 32rpx;
+  text-align: left;
+  font-weight: bold;
+}
+
+.title_cdd {
+  height: 37rpx;
+  margin-top: 10rpx;
+  color: #666;
+  font-size: 26rpx;
+  font-weight: normal;
+}
+
+.title_chr {
+  width: 0;
+  height: 60rpx;
+  border-left: 1px dashed #fff;
+  flex: 0 0 0;
+}
+
+.main_k {
+  width: 630rpx;
+  height: 800rpx;
+  position: absolute;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  margin: auto;
+  z-index: 10;
+  padding-top: 30rpx;
+}
+
+.main_tit {
+  width: 630rpx;
+  height: 114rpx;
+  border: 4rpx solid #202020;
+  border-radius: 20rpx;
+  background: #fff;
+  position: relative;
+  z-index: 5;
+  padding: 12rpx 60rpx;
+}
+
+.main_tcon {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.main_tcon p {
+  font-size: 28rpx;
+  color: #202020;
+  font-weight: bold;
+  text-align: Center;
+  line-height: 42rpx;
+  flex: 1 1 80%;
+}
+
+.main_titdz {
+  position: absolute;
+  left: -24rpx;
+  top: 0;
+  width: 28rpx;
+  height: 106rpx;
+  z-index: 0;
+}
+
+.main_titdzr {
+  position: absolute;
+  right: -24rpx;
+  top: 0;
+  width: 28rpx;
+  height: 106rpx;
+  z-index: 0;
+  transform: rotate(180deg);
+  -webkit-transform: rotate(180deg);
+}
+
+.main_bs {
+  position: absolute;
+  left: 45rpx;
+  bottom: -32rpx;
+  width: 16rpx;
+  height: 47rpx;
+  z-index: 10;
+}
+
+.main_bsr {
+  position: absolute;
+  right: 45rpx;
+  bottom: -32rpx;
+  width: 16rpx;
+  height: 47rpx;
+  z-index: 10;
+}
+
+.spons_k {
+  width: 600rpx;
+  height: 641rpx;
+  border: 4rpx solid #202020;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: relative;
+  z-index: 4;
+  background: #fff;
+  margin: 16rpx auto 0;
+}
+
+.spons_d {
+  width: 600rpx;
+  height: 641rpx;
+  border: 4rpx solid #202020;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: absolute;
+  right: -6rpx;
+  bottom: -19rpx;
+  z-index: 1;
+  background: #9fe8ff;
+}
+
+.spons_k image {
+  display: block;
+  max-width: 96%;
+  max-height: 96%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  margin: auto;
+}
+
+.start_but {
+  width: 600rpx;
+  height: 94rpx;
+  line-height: 80rpx;
+  border: 4rpx solid #202020;
+  border-radius: 45rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30rpx;
+  margin: auto;
+  background: #9fe8ff;
+}
+
+.start_but p {
+  position: relative;
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #202020;
+  line-height: 72rpx;
+  z-index: 10;
+  font-weight: bold;
+}
+
+.start_but:after {
+  content: "";
+  display: block;
+  width: 600rpx;
+  height: 80rpx;
+  box-sizing: border-box;
+  border: 4rpx solid #202020;
+  border-radius: 40rpx;
+  position: absolute;
+  z-index: 3;
+  left: -4rpx;
+  top: -4rpx;
+  background: #fff388;
+}
+
+.start_con {
+  width: 100%;
+  text-align: Center;
+  opacity: 0.8;
+  font-size: 26rpx;
+  color: #202020;
+  height: 37rpx;
+  line-height: 37rpx;
+  position: absolute;
+  top: -67rpx;
+  left: -4rpx;
+}
+
+button {
+  position: fixed;
+  bottom: 0;
+}
+
+/* zt按钮样式 */
+
+.telC {
+  width: 600rpx;
+  height: 94rpx;
+  line-height: 80rpx;
+  border: 4rpx solid #202020;
+  border-radius: 45rpx;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 30rpx;
+  margin: auto;
+  background: #9fe8ff;
+}
+
+.telC view {
+  display: block;
+  width: 100%;
+  text-align: center;
+  font-size: 32rpx;
+  color: #202020;
+  line-height: 72rpx;
+  z-index: 10;
+  font-weight: bold;
+  height: 80rpx;
+  box-sizing: border-box;
+  border: 4rpx solid #202020;
+  border-radius: 40rpx;
+  position: absolute;
+  left: -4rpx;
+  top: -4rpx;
+  background: #fff388;
+}
+.line{
+  position: relative;
+  top:-140rpx;left: 202rpx;
+  width:auto;height: auto;
+}
+
+.onebox{
+  width:600rpx;height: 640rpx;
+  border: 4rpx solid #202020;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: relative;
+  z-index: 4;
+  background: #fff;
+  margin: 16rpx auto 0;
+}
+.oneImage>image{
+  width:500rpx;height: 500rpx;
+  border-radius: 10rpx;
+  border:1rpx solid #ccc;
+  overflow: hidden;
+  margin-left:24rpx;
+  margin-top:20rpx;
+  }
+.oneImage>text{
+  display: block;
+  text-align: center;
+  font-size:28rpx;
+}
+.twoBox{
+  width:600rpx;height: 640rpx;
+  border: 4rpx solid #202020;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  position: relative;
+  z-index: 4;
+  background: #fff;
+  margin: 16rpx auto 0;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+}
+.TwoImage{
+  height: 318rpx;
+  margin-top:175rpx;
+}
+.TwoImage>image{
+  width:240rpx;height:240rpx;
+  border:1rpx solid #CCCCCC;
+  border-radius:10px;
+  overflow: hidden;
+}
+.TwoImage>text{
+  display: block;
+  text-align: center;
+  font-size:28rpx;
+}
+.threebox1{
+  width:220rpx;height: auto;
+  position: absolute;
+  top:0;left:0;
+  margin-top: 50rpx;
+  margin-left:calc((600rpx - 220rpx)/2);
+}
+.threebox1>image{
+  width:220rpx;height: 220rpx;
+}
+.threebox2{
+  margin-top:360rpx;
+  margin-left:50rpx;
+}
+.threebox3{
+  margin-top:360rpx;
+  margin-left:330rpx;
+}
+.fourbox{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content:space-between;
+}
+.fourItem{
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top:10rpx;
+}
+.fourImage{
+  width:220rpx;height:300rpx;
+}
+.fourImage>image{
+  width:220rpx;height: 220rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  border:1rpx solid #ccc;
+}
+.fourImage>text{
+  display: block;
+  text-align: center;
+}
+.fivebox{
+  width:600rpx;height: auto;
+}
+.five1{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top:50rpx;
+}
+.fiveImage1{
+  width:220rpx;height:300rpx;
+}
+.fiveImage1>image{
+  width:220rpx;height: 220rpx;
+  border-radius: 10rpx;
+  overflow: hidden;
+  border:1rpx solid #ccc;
+}
+.fiveImage1>text{
+  text-align: center;
+  display: block;
+}
+.five2{
+  margin-top:30rpx;
+}
+.fiveImage2{
+  width:130rpx;height:160rpx;
+}
+.fiveImage2>image{
+  width:130rpx;height:130rpx;
+}
+.fiveImage2>text{
+  display: block;
+  text-align: center;
+}
+.sixBox{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  margin-top:110rpx;
+  margin-left:20rpx;
+  height:425rpx;
+}
+.sixImage{
+  width:130rpx;height: 200rpx;
+  margin-right:20rpx;
+}
+.sixImage>image{
+  width:100%;height: 130rpx;
+  border-radius: 10rpx ;
+  border:1rpx solid #ddd;
+}
+.sixImage>text{
+  display: block;
+  text-align: center;
+}
+.sevenImage{
+  position: absolute;
+  left:0rpx;top:90rpx;
+}
+.seven1{
+  width:130rpx;height: 160rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top:-16rpx;  
+  position:relative;
+  top:30rpx;
+}
+.seven1>text{
+  display: block;
+  text-align: center;
+}
+.seven2{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+.eight{
+  display: flex;
+  flex-direction: row;
+  width:400rpx;
+  margin-left:10rpx;
+  justify-content: space-around;
+}
+.eightitem{
+  display: flex;
+  flex-direction: column;
+}
+.eightitem>text{
+  display: block;
+  text-align: center;
+}
+.eightBox{
+  margin-top:10rpx;
+  position: absolute;
+  top:198rpx ;left:0rpx;
+}
+.eightBox .sixImage{
+  margin-bottom:10rpx;
+}
+.nine1{
+  margin-bottom:0rpx;
+}
+.ninebox{
+  margin-top:16rpx;
+}
+/* end */

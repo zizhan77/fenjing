@@ -1,0 +1,243 @@
+
+
+<!-- 模拟title -->
+<view class="mine_bar">
+  <!-- <navigator path="/pages/index/index" class="mine_barb"></navigator> -->
+  <image class="mine_bari" src="http://resource.jiyilive.com/img2/menu/word.png" mode="widthFix" style="height:150rpx;"></image>
+</view>
+<!-- 包装整个 -->
+<!-- catch:touchend="conTouchEnd" catch:touchstart="conTouchStart" catch:touchmove="conTouchMove" style="top:{{conTop}}px;" animation="{{conAnima}}" -->
+<scroll-view class="slidek" scroll-y="1" bindscrolltoupper="onPullDownRefresh" bindscrolltolower="isReachBot" bindscroll="checkReachBot">
+  <!-- style="margin-bottom:{{paddingBot}}rpx;" -->
+  <view class="slided" bindtouchend="slideTouchEnd">
+    <!-- 普通轮播图 indicator-dots  indicator-color="#ddd" indicator-active-color="#bbb" -->
+    <swiper circular="true" autoplay="true" interval="5000" duration="500" previous-margin="0rpx" next-margin="0rpx" indicator-dots="{{true}}" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="rgba(255,255,255,1)">
+      <swiper-item wx:for="{{swiperList}}" wx:key bindtap='showDetail' data-id="{{item.url}}" data-type="{{item.thumbType}}" class="showdImg">
+        <image src="{{item.thumbUrl}}" mode="aspectFill" wx:if="{{item.type==1}}" class=""></image>
+        <video src="{{item.thumbUrl}}" autoplay loop muted show-play-btn="{{false}}" controls="{{false}}" objectFit="cover" wx:if="{{item.type=='video'}}"></video>
+        <!-- <view class="showdword">{{item.bannerName}}</view>
+        <view class="showdshad"></view> -->
+      </swiper-item>
+    </swiper>
+    <view class="newAddButs" >
+      <navigator url="/pages/mine/sign/index" open-type="navigateTo" class="newAddBut" bindtap="tosign">
+        <image src="http://resource.jiyilive.com/img2/icon/ic_qiandao.png"></image>
+        签到领饭团
+      </navigator>
+      <navigator url="/pages/index/share/index" class="newAddBut" bindtap="shareAddRice">
+        <image src="http://resource.jiyilive.com/img2/icon/ic_fenxiang.png"></image>
+        分享领饭团
+      </navigator>
+      <navigator url="/pages/mine/rice/index" class="newAddBut">
+        <image src="http://resource.jiyilive.com/img2/icon/ic_huodong.png"></image>
+        我的饭团
+      </navigator>
+      <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telBtn" wx:if="{{userLogin}}"></button>
+    </view>
+    <image src="http://resource.jiyilive.com/newbanner.png" class="ruleimg" mode="widthFix" bindtap="showTheTrueRule"></image>
+    <!-- <image src="http://resource.jiyilive.com/img2/index/rule.png" class="ruleimg" mode="widthFix" bindtap="showTheTrueRule"></image> -->
+    <view class="allcont">
+      <view class='normaltit'>玩游戏 拿免费门票
+        <span>/FREE TICKETS</span>
+        <!-- <b class="normalzb" bindtap="showMore">查看更多<image src="http://resource.jiyilive.com/img2/icon/ic_gengduo.png"></image></b> -->
+      </view>
+      <view class="list_ph" wx:for="{{paihang}}" wx:for-index="k" wx:key>
+        <view class="list_spo" bindtap="tosponsor" data-spid="{{item.spid}}">
+          <image src="{{item.bgUrl}}" data-id="{{item.spurl}}" data-type="{{item.spthumbtype}}"></image>
+          {{item.spname}}
+        </view>
+        <view class="list_phk">
+          <image src="{{item.thumbnailUrl}}" class="list_pic" mode="aspectFill" bindtap="showPaih" data-id="{{item.id}}"></image>
+          <view class="list_con">
+            <view class="list_cont">{{item.activityTitle}}</view>
+            <view class="list_conbz" wx:if="{{item.sday}}">
+              <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+              开启时间：{{item.startTime}}
+            </view>
+            <view class="list_conbz" wx:if="{{!item.sday}}">
+              <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+              倒计时：{{item.endDate}}
+            </view>
+            <view class="list_conbz">
+              <image src="http://resource.jiyilive.com/img2/icon/ic_weizhi.png"></image>
+              {{item.provence}}
+            </view>
+            <view class="list_conp" wx:if="{{!item.sday}}">
+              <view class="list_conpb">剩余{{item.totalNum || 0}}张</view>
+              <view class="list_conpb">送出{{item.givedNum || 0}}张</view>
+              <view class="list_conxx"></view>
+            </view>
+            <view class="list_conps" wx:if="{{item.sday}}">
+              <image src="http://resource.jiyilive.com/img2/icon/ic_shouzhi.png" mode="widthFix"></image>
+              为Ta打榜 助力活动开启
+            </view>
+            <!-- <view class="list_conbut" wx:if="{{!item.sday}}" ><p>免费拿票</p>
+          <view class="list_conbuts" wx:if="{{item.sday}}"><p>敬请期待</p></view> -->
+          </view>
+        </view>
+        <view class="list_zz" data-id="{{item.id}}" data-ti="{{item.startTime}}" bindtap="{{!item.sday ? 'showActive':'showNot'}}" data-ofranking="{{item.ofranking}}" ></view>
+      </view>
+      <!-- <view class="list_conadd" bindtap="checkHowToApply" wx:if="{{!noMore}}">
+        <p>点击查看更多</p>
+      </view> -->
+      <view class="jing">
+        <image src="http://resource.jiyilive.com/jing.png"></image>
+        <text>正在努力加载中...</text>
+      </view>
+    </view>
+    <view  class='text-center text-gray' style="padding:15rpx 0 80rpx;" wx:if="{{noMore}}">
+      <text style="opacity:0.5;">没有更多了 o(╥﹏╥)o~</text>
+      <view class="botcon">
+        <view class='normaltit'> 平台数据
+          <span>/PLATFORM DATA</span>
+        </view>
+        <view class="botcli">
+          <view class="botclid" style="background:#fff388;">150
+            <span>个在线项目</span>
+          </view>
+          <view class="botclid" style="background:#9fe8ff;">250
+            <span>个合作赞助商</span>
+          </view>
+          <view class="botclid" style="background:#ff9fca;">3600
+            <span>张免费送</span>
+          </view>
+        </view>
+        <view class="bottit">
+          <image src="http://resource.jiyilive.com/img2/icon/ic_zhuangshi1.png"></image>
+          平台模式
+        </view>
+        <view class="botdes">
+          B2B2C的平台模式，有效撮合主办方、品牌商、粉丝三方资源，消除信息不对称。
+        </view>
+        <view class="bottit">
+          <image src="http://resource.jiyilive.com/img2/icon/ic_zhuangshi2.png"></image>
+          粉丝为先
+        </view>
+        <view class="botdes">
+          为粉丝构建爱豆助力生态，让粉丝可以通过自己的力量为爱豆提升商业价值。
+        </view>
+        <view class="bottit">
+          <image src="http://resource.jiyilive.com/img2/icon/ic_zhuangshi3.png"></image>
+          严选项目
+        </view>
+        <view class="botdes">
+          为品牌方选择市面上流量大、风险低、收益高的优秀类项目，进行定制化推荐服务。
+        </view>
+      </view>
+    </view>
+
+  </view>
+</scroll-view>
+<!-- zt -->
+<!-- <view class="botcon">
+  <view class='normaltit'> 平台数据
+    <span>/PLATFORM DATA</span>
+  </view>
+  <view class="botcli">
+    <view class="botclid" style="background:#fff388;">150
+      <span>个在线项目</span>
+    </view>
+    <view class="botclid" style="background:#9fe8ff;">250
+      <span>个合作赞助商</span>
+    </view>
+    <view class="botclid" style="background:#ff9fca;">3600
+      <span>张免费送</span>
+    </view>
+  </view>
+  <view class="bottit">
+    <image src="http://resource.jiyilive.com/img2/icon/ic_zhuangshi1.png"></image>
+    平台模式
+  </view>
+  <view class="botdes">
+    B2B2C的平台模式，有效撮合主办方、品牌商、粉丝三方资源，消除信息不对称。
+  </view>
+  <view class="bottit">
+    <image src="http://resource.jiyilive.com/img2/icon/ic_zhuangshi2.png"></image>
+    粉丝为先
+  </view>
+  <view class="botdes">
+    为粉丝构建爱豆助力生态，让粉丝可以通过自己的力量为爱豆提升商业价值。
+  </view>
+  <view class="bottit">
+    <image src="http://resource.jiyilive.com/img2/icon/ic_zhuangshi3.png"></image>
+    严选项目
+  </view>
+  <view class="botdes">
+    为品牌方选择市面上流量大、风险低、收益高的优秀类项目，进行定制化推荐服务。
+  </view>
+</view> -->
+<!-- end -->
+
+<!-- 开屏页 -->
+<view class="cu-modal {{showStartModal? (isOpen == 1? 'show': ''):''}}">
+  <view class="cu-dialog text-center" style='background-color: rgba(1,1,1,0);'>
+    <view class="bg-img" bindtap='showDetail' data-id="{{openBannerInfo.url}}" data-type="{{openBannerInfo.thumbType}}" style="background-image: url('{{openBannerInfo.thumbUrl}}');width: 620rpx; height: 861rpx; margin: 0 auto; margin-top:100rpx; ">
+    </view>
+    <view class="jump" ><text bindtap="tojumpZ">跳过</text> | {{openTime}}秒</view>
+    <!-- <view class="cu-bar justify-center text-white">
+      <view class="action" bindtap="hideModal">
+        <image src='http://image.jiyilive.com/%E5%8F%89%E5%8F%B7.png' style='width: 49rpx; height: 49rpx;'></image>
+      </view>
+    </view> -->
+  </view>
+</view>
+
+<!-- 投递饭团弹窗 -->
+<view class="addrice_k" wx:if="{{isShowAdd}}">
+  <image src="http://resource.jiyilive.com/img/index/close.png" class="close" bindtap="closeTan" style="bottom:300rpx;"></image>
+  <view class="addrice_d">
+    <view class="addrice_tit">{{nowTitle}}</view>
+    <input class="home_search" value="{{haveAdded}}" style="background:#f0f0f0;" placeholder="" type="number" bindinput="checkNum"></input>
+    <view class="addrice_desc">您当前有{{minecount}}个饭团</view>
+    <view class="addrice_but" bindtap="sendRiceAdd">确定</view>
+  </view>
+</view>
+<!-- 下面是可以拖动的规则按钮 -->
+<!-- <view class="rulebut" hover-class="none" catch:touchend="showTheRule" catch:touchstart="icoTouchStart" catch:touchmove="icoTouchMove" style="{{icon.icoLeft}}:{{icon.icoPosX}};{{icon.icoTop}}:{{icon.icoPosY}};" >
+  <image src="http://resource.jiyilive.com/img/new/rule4.png" mode="widthFix"></image>
+</view> -->
+
+<!-- 统一提示框新人领88饭团  -->
+<!-- <view class="act_tan" wx:if="{{isRegister}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/getcount.png" mode="widthFix" class="act_tani"></image>
+    <view class="act_butk">
+      <view class="act_but" bindtap='getCount'>
+        <p>立即领取</p>
+      </view>
+    </view>
+    <view class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" bindtap="giveUpCount"></image>
+    </view>
+  </view>
+</view> -->
+
+<!-- 新人领饭团新弹框 -->
+<view class="newTomst" wx:if="{{isRegister}}">
+  <image src="http://resource.jiyilive.com/pink.png"></image>
+  <text bindtap="giveUpCount"></text>
+  <text bindtap="getCount"></text>
+</view> 
+
+<!-- 统一提示框 -->
+<view class="act_tan" wx:if="{{isGetCount}}">
+  <view class="act_tank">
+    <image src="http://resource.jiyilive.com/img2/active/tan/register.png" mode="widthFix" class="act_tani"></image>
+    <view class="act_butk">
+      <view class="act_but" bindtap='makeAiDou'>
+        <p>马上应援爱豆</p>
+      </view>
+    </view>
+    <view class="act_closek">
+      <image src="http://resource.jiyilive.com/img2/active/tan/close.png" bindtap="giveUpCount"></image>
+    </view>
+  </view>
+</view>
+
+<!-- <footComponent></footComponent> -->
+
+
+<!-- http://resource.jiyilive.com/newbanner.png -->
+<!-- http://resource.jiyilive.com/pink.png -->
+
+

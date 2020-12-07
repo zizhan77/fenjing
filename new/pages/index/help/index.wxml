@@ -1,0 +1,87 @@
+<!--pages/index/help/index.wxml-->
+<view class="mine_bars" style="background-image:url(http://resource.jiyilive.com/img2/share/back.png);">
+  <navigator url="/pages/index/index" open-type="switchTab" class="mine_barw" style="background-image:url(http://resource.jiyilive.com/img2/icon/ic_homew.png);"></navigator>
+  助力好友
+</view>
+<image class="stitle" src="http://resource.jiyilive.com/img2/share/zhultit.png"></image>
+<view class="cont_k">
+  <view class="cont_d">
+    <view class='slist_conadd'>
+      <p>
+        <span>{{lastTime}}</span>
+      </p>
+    </view>
+    <view class="cont">
+      <image src="http://resource.jiyilive.com/img2/share/star.jpg" class="cont_zs1"></image>
+      <image src="http://resource.jiyilive.com/img2/share/star.jpg" class="cont_zs2"></image>
+      <view class="cont_zs3"></view>
+      <view class="cont_zs4"></view>
+      <image src="{{mess.avatarurl || defaultimg}}" class="cont_img"></image>
+      <view class="cont_name">{{mess.name}}</view>
+      <view class="cont_dc">
+        饭圈朋友最团结！快帮我助力一下， 用饭团为爱豆演出打榜，还能拿免费门票。
+      </view>
+      <block wx:if="{{isuserLogin}}">
+        <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telC" >
+          <view>获取授权</view>
+        </button>
+      </block>
+      <block wx:else>
+        <view class='slist_conadds' bindtap="makeShit" wx:if="{{isHelped}}">
+          <p>为TA助力得饭团</p>
+        </view>
+        <!-- bindtap="makeShit1"  -->
+        <navigator url="/pages/mine/sign/index" open-type="redirectTo" class='slist_conadds' wx:else>
+          <p>我也要签到</p>
+        </navigator>
+      </block>
+
+    </view>
+  </view>
+
+  <view class='normaltit'>玩游戏 拿免费门票
+    <span>/FREE TICKETS</span>
+
+    <view class="list_ph" wx:for="{{paihang}}" wx:for-index="k" wx:key>
+      <view class="list_spo">
+        <image src="{{item.spthumburl}}" data-id="{{item.spurl}}" data-type="{{item.spthumbtype}}"></image>
+        {{item.spname}}
+      </view>
+      <view class="list_phk">
+        <image src="{{item.thumbnailUrl}}" class="list_pic" mode="aspectFill" bindtap="showPaih" data-id="{{item.id}}"></image>
+        <view class="list_con">
+          <view class="list_cont">{{item.activityTitle}}</view>
+          <view class="list_conbz" wx:if="{{!item.sday}}">
+            <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+            开启时间：{{item.startTime}}
+          </view>
+          <view class="list_conbz" wx:if="{{item.sday}}">
+            <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+            倒计时：{{item.endDate}}
+          </view>
+          <view class="list_conbz">
+            <image src="http://resource.jiyilive.com/img2/icon/ic_weizhi.png"></image>
+            {{item.provence}}
+          </view>
+          <view class="list_conp" wx:if="{{!item.sday}}">
+            <view class="list_conpb">剩余{{item.totalNum || 0}}张</view>
+            <view class="list_conpb">送出{{item.givedNum || 0}}张</view>
+            <view class="list_conxx"></view>
+          </view>
+          <view class="list_conps" wx:if="{{item.sday}}">
+            <image src="http://resource.jiyilive.com/img2/icon/ic_shouzhi.png" mode="widthFix"></image>
+            为Ta打榜 助力活动开启
+          </view>
+          <!-- <view class="list_conbut" wx:if="{{!item.sday}}" ><p>免费拿票</p>
+          <view class="list_conbuts" wx:if="{{item.sday}}"><p>敬请期待</p></view> -->
+        </view>
+      </view>
+      <view class="list_zz" data-id="{{item.id}}" bindtap="showActive"></view>
+    </view>
+
+    <view class="list_conadd" bindtap="checkHowToApply" wx:if="{{!noMore}}">
+      <p>点击查看更多</p>
+    </view>
+  </view>
+  <view wx:if="{{noMore}}" class='text-center text-gray' style="padding:15rpx 0 80rpx;opacity:0.5;">没有更多了 o(╥﹏╥)o~</view>
+</view>

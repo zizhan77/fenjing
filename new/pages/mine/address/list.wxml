@@ -1,0 +1,75 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>我的地址</view>
+</cu-custom>
+
+<!-- 列表 -->
+<view class="cu-card case">
+  <view wx:if="{{empty}}" class='text-center margin' style='padding-top: 200rpx;'>
+    <image style="width: 400rpx; height: 300rpx;" src='http://resource.jiyilive.com/img2/errors/havenone.jpg'></image>
+    <view class='text-lg'>您还未添加地址哦</view>
+  </view>
+<view class="list_k">
+  <block wx:for="{{addressList}}" wx:key>
+  <view class="list_d">
+    <view class="list_tit">{{item.receiverName}} {{item.receiverMobile}}</view>
+    <view class="list_con">{{item.destOneAddress}} {{item.destTwoAddress}} {{item.destThreeAddress}} {{item.destFourAddress?item.destFourAddress:''}} {{item.address}}</view>
+    <view class="list_butk">
+      <view class="list_default">
+        <checkbox checked="{{item.isDefault==1 ? 'true':isDefault}}" bindtap="makeDefault" data-info="{{item}}" class="round mauve" style='transform: scale(0.6,0.6); opacity: 1;'></checkbox>
+        <text class="{{item.isDefault==1 ? 'list_defch':'list_defte'}}"></text>
+      </view>
+      <view class="list_edit" bindtap='editAddress' data-info="{{item}}">
+        <image src="http://resource.jiyilive.com/img2/icon/ic_edit.jpg"  catchtap='editAddress' data-info="{{item}}"></image>
+        编辑
+      </view>
+      <view class="list_edit" bindtap='deleteAddress' data-id="{{item.id}}">
+        <image src="http://resource.jiyilive.com/img2/icon/ic_delete.jpg"  catchtap='deleteAddress' data-id="{{item.id}}"></image>
+        删除
+      </view>
+    </view>
+  </view>
+  </block>
+</view>
+  <view wx:for="{{addressList}}" wx:key class="cu-item shadow padding" style='position: relative;display:none;box-shadow:0px 2px 5px 5px #f5f5f5;'>
+    <view class='content margin-sm text-black' bindtap="{{chooseAddress?'bindChooseAddress':''}}" data-id="{{item.id}}" data-address="{{item.destOneAddress + ' ' + item.destTwoAddress + ' ' + item.destThreeAddress + '\n' + item.address}}">
+      <view wx:if="{{item.isDefault==1}}" class='cu-tag bg-purple'>默认</view>
+      <view class='flex justify-between margin-tb'>
+        <view class='title'>收货人姓名</view>
+        <view class='value'>{{item.receiverName}}</view>
+      </view>
+      <view class='flex justify-between margin-tb'>
+        <view class='title'>电话</view>
+        <view class='value'>{{item.receiverMobile}}</view>
+      </view>
+      <view class='flex justify-between margin-tb'>
+        <view class='title'>收货地址</view>
+        <view class='value'>
+          <text style='display: block;'>{{item.destOneAddress}} {{item.destTwoAddress}} {{item.destThreeAddress}}</text>
+          <text style='display: block; text-align: right;'>{{item.destFourAddress?item.destFourAddress:''}} {{item.address}}</text>
+        </view>
+      </view>
+    </view>
+    <view class='footer flex justify-end padding-top-sm solid-top text-orange'>
+        <button bindtap='editAddress' data-info="{{item}}" class='cu-btn bg-white solid margin-right'>修改地址</button>
+        <button bindtap='deleteAddress' data-id="{{item.id}}" class='cu-btn bg-white solid'>删除</button>
+    </view>
+  </view>
+</view>
+
+<view class='flex justify-center margin-top-lg' style='position:fixed; bottom:50rpx; width: 100%;'>
+  <view class="ract_but" bindtap='addAddress'><p>{{empty? '新增地址': '+添加收货地址'}}</p></view>
+</view>
+
+<view class="cu-modal bottom-modal {{deleteAddressId!=0?'show':''}}">
+  <view class="cu-dialog">
+    <view class="cu-bar bg-white">
+      <view class="action text-green" bindtap='confirm'>确定</view>
+      <view class="action text-blue" bindtap="hideModal">取消</view>
+    </view>
+    <view class="padding-xl">
+      确认删除此地址？
+    </view>
+  </view>
+</view>

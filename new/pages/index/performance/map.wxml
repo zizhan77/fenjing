@@ -1,0 +1,8 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>位置信息</view>
+</cu-custom>
+
+<!--地图容器-->
+<map-route route-info="{{routeInfo}}"></map-route>

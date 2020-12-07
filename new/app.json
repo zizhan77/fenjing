@@ -1,0 +1,89 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/darwShare/darwShare",
+    "pages/mine/prizes/index",    
+    "pages/activity/laohj/index",
+    "pages/mine/protect/index",
+    "pages/webview/webview",
+    "pages/activity/performance/sponsor",
+    "pages/activity/index/index",    
+    "pages/publicJS/footer",
+    "pages/index/help/index",
+    "pages/discover/index",
+    "pages/index/rule/rule",
+    "pages/mine/sign/index",
+    "pages/mine/index",
+    "pages/discover/performance/detail",
+    "pages/activity/performance/detail",
+    "pages/index/share/index",
+    "pages/mine/userinfo/index",
+    "pages/index/performance/detail",
+    "pages/mine/userinfo/integral",
+    "pages/mine/address/list",
+    "pages/mine/address/edit",   
+    "pages/index/performance/map",    
+    "pages/errors/404",
+    "pages/index/performance/chooseSite",
+    "pages/activity/mess/mess",
+    "pages/activity/pict/pict",
+    "pages/discover/performance/map",
+    "pages/activity/address/edit",
+    "pages/mine/mess/law",
+    "pages/mine/mess/rule",       
+    "pages/mine/login/login",
+    "pages/mine/prizes/address/list",
+    "pages/mine/prizes/address/edit",
+    "pages/mine/rice/index",
+    "pages/mine/joind/index",
+    "pages/index/friend/index",
+    "pages/discover/star/index",
+    "pages/discover/star/detail"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "backgroundColor": "#ffffff",
+    "navigationBarBackgroundColor": "#fff",
+    "navigationBarTitleText": "Memovox",    
+    "navigationBarTextStyle": "black",
+    "navigationStyle": "custom"
+  },
+  "usingComponents": {
+    "cu-custom": "/colorui/components/cu-custom"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "color": "#dddddd",
+    "selectedColor": "#666666",
+    "borderStyle": "black",
+    "list": [
+      {
+        "selectedIconPath": "images/tabbar/performance_cur.png",
+        "iconPath": "images/tabbar/performance.png",
+        "pagePath": "pages/index/index",
+        "text": "首页"
+      },
+      {
+        "selectedIconPath": "images/tabbar/activity_cur.png",
+        "iconPath": "images/tabbar/activity.png",
+        "pagePath": "pages/discover/index",
+        "text": "排行榜"
+      },
+      {
+        "selectedIconPath": "images/tabbar/me_cur.png",
+        "iconPath": "images/tabbar/me.png",
+        "pagePath": "pages/mine/index",
+        "text": "我的"
+      }
+    ]
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "小程序请求您的地理位置"
+    }
+  },
+  "navigateToMiniProgramAppIdList":[
+    "wx7649daed8f2335c4",
+    "wx50000fc6bf4dcd4b"
+  ]
+}

@@ -1,0 +1,98 @@
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>订单详情</view>
+</cu-custom>
+
+
+<view class="cu-card article">
+  <view class="cu-item shadow" style='border: 1px solid #eee;'>
+    <view class="content">
+      <image src="{{performanceInfo.thumbUrl}}" mode="aspectFill"></image>
+      <view class="desc">
+        <view class='title margin-top' style='line-height: 40rpx; padding:0'>{{performanceInfo.title}}</view>
+
+        <view class="time padding-tb">{{performanceInfo.showTime}}</view>
+
+        <view class="charge">
+          <!-- <text class="text-price fl padding-10">200</text> -->
+          <text class='text-xl fr'>x{{orderInfo.ticketNum}}</text>
+        </view>
+    
+      </view>
+    </view>
+    <view class='footer flex justify-end margin-top-sm solids-top sm'>
+      <text class='padding-right padding-top-sm text-lg'>合计: <text class='text-red'>{{orderInfo.price}}</text>元</text>
+    </view>
+  </view>
+</view>
+
+<!-- 订单信息 -->
+<view class='text-lg margin-left-lg text-bold'>订单信息</view>
+<view class="cu-list menu sm-border card-menu margin-top-sm" style='border: 1px solid #eee;'>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>订单编号:</text>
+        <text>{{orderInfo.orderNumber}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>订单金额:</text>
+        <text>{{orderInfo.price}}元</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>下单时间:</text>
+        <text>{{orderInfo.createTime}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>订单状态:</text>
+        <text>{{orderStatusMap[orderInfo.status]}}</text>
+      </view>
+    </view>
+</view>
+
+<!-- 配送信息 -->
+<block wx:if="{{performanceInfo.ticketDeliverType == 10}}">
+  <view class='text-lg margin-top margin-left-lg text-bold'>配送信息</view>
+  <view class="cu-list menu sm-border card-menu margin-top-sm margin-bottom" style='border: 1px solid #eee;'>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>姓名:</text>
+        <text>{{deliverInfo.name}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>电话:</text>
+        <text>{{deliverInfo.phoneNumber}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content">
+        <text class='margin-right-sm'>地址:</text>
+        <text>{{deliverInfo.address}}</text>
+      </view>
+    </view>
+    <view class="cu-item">
+      <view class="content cf">
+        <text class='margin-right-sm'>快递单号:</text>
+        <text>{{deliverInfo.waybillCode}}</text>
+        <text class='fr text-blue' bindtap='showExpress'>查看快递</text>
+      </view>
+    </view>
+  </view>
+</block>
+
+<!-- 电子码 -->
+<view wx:if="{{performanceInfo.ticketDeliverType == 20}}" class='margin-tb flex justify-center'>
+  <view style='width: 300rpx; height: 350rpx;'>
+    <image style='width: 100%;' mode="widthFix" src="data:image/jpeg;base64,{{qrCode}}"></image>
+    <view style="width:100%;text-align:Center;margin:15rpx 0;">{{orderInfo.waybillCode}}</view>
+  </view>    
+</view>
+<view wx:if="{{performanceInfo.ticketDeliverType == 20}}" class='text-center margin-bottom text-lg'>凭二维码入场</view>

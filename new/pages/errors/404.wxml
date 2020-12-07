@@ -1,0 +1,10 @@
+<!--pages/errors/404.wxml-->
+<!-- 导航 -->
+<cu-custom bgColor="bg-white" isBack="{{true}}">
+  <view slot="backText">返回</view>
+  <view slot="content" class='header-title'>很遗憾o(╥﹏╥)o~</view>
+</cu-custom>
+
+<view class='imagesize'>
+  <image src="http://resource.jiyilive.com/img2/errors/404.png" class='in-image' mode="widthFix"></image>
+</view>

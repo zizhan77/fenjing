@@ -1,0 +1,76 @@
+/* pages/mine/joind/index.wxss */
+page{background:#fff;background-image:none;padding-top:186rpx;}
+
+/*新列表样式 */
+
+.nav_k{width:100%;background:#fff;border-radius:20rpx;position:relative;padding:20rpx 30rpx 20rpx;z-index:1;}
+.nav_zh1{position:absolute;width:200rpx;height:200rpx;left:-76rpx;top:-71rpx;z-index:0;}
+.nav_zh2{position:absolute;width:310rpx;height:310rpx;right:-159rpx;top:-211rpx;z-index:0;}
+.nav_dh{width:100%;display:flex;justify-content:space-around;align-items:center;height:58rpx;position:fixed;left:0;top:150rpx;background:#fff;z-index:999;
+}
+.nav_dhd{flex:0 0 160rpx;text-align:center;font-size:30rpx;color:#666;line-height:45rpx;height:58rpx;white-space:Nowrap;}
+.nav_dhdac{color:#202020 !important;position:relative;overflow:Hidden;font-weight:bold;}
+.nav_dhdac:after{content:"";display:block;position:absolute;height:16rpx;width:38rpx;border-radius:8rpx;bottom:-8rpx;left:50%;margin-left:-19rpx;background:#ff9fca;}
+
+.nav_lik{width:100%;min-height:375rpx;}
+.nav_li{width:100%;box-sizing:border-box;line-height:45rpx;margin:38rpx 0 29rpx;overflow:Hidden;text-overflow:ellipsis;font-size:32rx;color:#202020;font-weight:bold;position:relative;padding:0 0 15rpx 120rpx;
+}
+.nav_lif{width:80rpx;height:80rpx;float:left;margin-right:30rpx;position:absolute;left:0;top:5rpx;}
+.li_tit{max-height:90rpx;min-height:45rpx;
+  overflow:hidden;
+text-overflow:ellipsis;
+line-clamp:2;
+display:-webkit-box;
+text-overflow:-o-ellipsis-lastline;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;}
+.nav_lilo{width:80rpx;height:80rpx;float:left;margin-right:30rpx;box-sizing:border-box;border:2rpx solid #202020;border-radius:15rpx;position:absolute;left:0;top:5rpx;}
+.nav_li span{font-size:26rpx;color:#666;display:block;width:100%;font-weight:normal;}
+.nav_li b{color:#ff3e25;display:inline;word-break: break-all;}
+
+.nav_lico{width:100%;text-align:left;height:74rpx;min-height:74rpx;box-sizing:border-box;position:relative;line-height:37rpx;font-size:26rpx;color:#666;margin-bottom:32rpx;overflow:Hidden;}
+.nav_liex{position:absolute;width:82rpx;height:37rpx;line-height:37rpx;right:0;bottom:0;text-align:right;color:#9FE8FF;z-index:10;background:linear-gradient(90deg,rgba(255,255,255,0) 0%,#fff 33%,#fff 100%);}
+.nav_copy{width:94rpx;height:40rpx;border:2rpx solid #202020;border-radius:20rpx;box-sizing:border-box;text-align:center;line-height:36rpx;font-size:24rpx;color:#202020;background:#fff388;float:right;}
+/* 新排行列表 */
+.list_ph{border-radius:10rpx;box-sizing:border-box;padding:0rpx 30rpx 30rpx;margin:30rpx 0 10rpx;width:690rpx;height:310rpx;position:relative;}
+/* box-shadow:0 0 8rpx 0 rgba(68,0,2,0.1); */
+.list_phk{display:flex;align-items:center;justify-content:space-between;}
+.list_spo{width:100%;height:0rpx;font-size:26rpx;color:#666;line-height:80rpx;margin-bottom:30rpx;}
+.list_spo image{display:block;float:left;width:40rpx;height:40rpx;margin:20rpx 4rpx;border-radius:50%;box-sizing:border-box;border:1rpx solid #ccc;}
+.list_pic{width:180rpx;height:250rpx;border-radius:10rpx;}
+
+.list_con{width:420rpx;height:250rpx;}
+.list_cont{width:100%;height:90rpx;margin-bottom:20rpx;line-height:45rpx;color:#202020;overflow:Hidden;font-size:32rpx;font-weight:bold;text-overflow:ellipsis;
+line-clamp:2;
+display:-webkit-box;
+text-overflow:-o-ellipsis-lastline;
+-webkit-line-clamp:2;
+-webkit-box-orient:vertical;}
+.list_conbz{width:100%;font-size:26rpx;color:#666;height:37rpx;line-height:37rpx;margin:10rpx 0 5rpx 0;}
+.list_conbz image{display:inline-block;width:30rpx;height:30rpx;float:left;margin:4rpx 5rpx 0 0;}
+.list_conp{width:268rpx;height:40rpx;border-radius:20rpx;border:1px solid #202020;box-sizing:border-box;margin:20rpx 0 15rpx;
+background:linear-gradient(120deg,#9FE8FF 0%,#9FE8FF 50%,#ffffff 50%,#ffffff 100%);overflow:hidden;position:relative;}
+.list_conxx{position:absolute;left:50%;top:-15rpx;height:70rpx;transform:rotate(30deg);border-left:1rpx solid #202020;width:0;}
+.list_conps{width:268rpx;height:32rpx;border-radius:16rpx;border:1px solid #202020;box-sizing:border-box;margin:15rpx 0;
+background:#fff388;color:#202020;line-height:30rpx;font-size:20rpx;white-space:Nowrap;text-align:center;}
+.list_conps image{width:24rpx;height:20rpx;vertical-align:middle;display:inline-block;}
+.list_conpb{width:50%;float:left;text-align:Center;line-height:40rpx;color:#202020;font-size:24rpx;}
+/* .list_conpb:nth-of-type(2){color:#202020;} */
+
+.list_conbut{width:170rpx;height:66rpx;border:1rpx solid #202020;margin:4rpx auto 40rpx;border-radius:34rpx;background:#9FE8FF;line-height:50rpx;font-size:28rpx;color:#202020;float:right;position:relative;text-aligN:center;font-weight:bold;}
+.list_conbut p,.list_conbuts p{position:relative;z-index:5;}
+.list_conbut:after{content:"";display:block;width:170rpx;height:60rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;position:absolute;left:-1rpx;top:-4rpx;z-index:0;box-sizing:border-box;}
+
+.list_conbuts{width:170rpx;height:64rpx;border:1rpx solid #202020;margin:4rpx auto 40rpx;border-radius:30rpx;background:#fff;line-height:50rpx;font-size:28rpx;color:#202020;float:right;position:relative;text-aligN:center;font-weight:bold;}
+.list_conbuts:after{content:"";display:block;width:170rpx;height:60rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff;position:absolute;left:-1rpx;top:-4rpx;z-index:0;box-sizing:border-box;}
+
+.list_conadd{width:230rpx;height:66rpx;border:1rpx solid #202020;border-radius:34rpx;background:#9FE8FF;line-height:50rpx;font-size:28rpx;color:#202020;position:relative;text-aligN:center;margin:30rpx auto 40rpx;font-weight:bold;}
+.list_conadd p{position:relative;z-index:5;}
+.list_conadd:after{content:"";display:block;width:230rpx;height:60rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;position:absolute;left:-1rpx;top:-4rpx;z-index:0;box-sizing:border-box;}
+/* .list_conadd{width:230rpx;height:60rpx;border-radius:30rpx;background:linear-gradient(90deg,#555555 0%,#202020 100%);line-height:60rpx;font-size:28rpx;color:#ffe5ba;text-align:center;margin:30rpx auto 40rpx;} */
+
+.list_zz{position:absolute;width:690rpx;height:390rpx;left:0;top:0rpx;z-index:15;background:rgba(0,0,0,0);}
+
+
+
+

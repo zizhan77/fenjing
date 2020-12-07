@@ -1,0 +1,221 @@
+<block wx:if="{{show}}">
+  <view class="mine_bar">
+    <!-- <navigator path="/pages/mine/index" open-type="switchTab" class="mine_barb"></navigator> -->
+    排行榜
+  </view>
+  <view class="paih_k">
+    <view class="paih_d" style="background-image:url(http://resource.jiyilive.com/img2/back/aidouback.png);">
+      <view class='normaltit'>我的资产
+        <span>/MY PROPERTY</span>
+      </view>
+      <view class="paih_con">
+        <navigator url="/pages/mine/rice/index" bindtap="checkRice" class="paih_cond">
+          我的饭团
+          <span>{{mineRice}}</span>
+        </navigator>
+        <view class="paih_hr"></view>
+        <navigator url="/pages/mine/protect/index" bindtap="checkRice" class="paih_cond">
+          应援演出
+          <span>{{mineShow}}</span>
+        </navigator>
+        <view class="paih_hr"></view>
+        <navigator url="/pages/mine/protect/index" bindtap="checkRice" class="paih_cond">
+          成功守护
+          <span>{{mineActive}}</span>
+        </navigator>
+      </view>
+    </view>
+    <view class="paih_dk"></view>
+  </view>
+  <!-- <view class="cont_k">
+    <view class='normaltit'>饭团太少了？
+      <span>/TOO FEW RICE BALLS?</span>
+    </view>
+    <view class="cont_txx">
+      <navigator url="/pages/mine/sign/index" class="cont_txxd" style="background-image:url(http://resource.jiyilive.com/img2/back/butback.png);background-color:#fff338;">
+        <view class="cont_txv">
+          签到领饭团
+        </view>
+      </navigator>
+      <navigator url="/pages/index/share/index" class="cont_txxd" style="background-image:url(http://resource.jiyilive.com/img2/back/butback.png);background-color:#9fe8ff;">
+        <view class="cont_txv">
+          分享领饭团
+        </view>
+      </navigator>
+      <navigator url="/pages/index/index" open-type="switchTab" class="cont_txxd" style="background-image:url(http://resource.jiyilive.com/img2/back/butback.png);background-color:#ff9fca;">
+        <view class="cont_txv">
+          活动抽饭团
+        </view>
+      </navigator>
+    </view> -->
+  <view class="cont_k">
+    <view class='normaltit'>艺人排行榜
+      <span>/ARTIST LEADERBOARD</span>
+       <!-- <navigator url="star/index" open-type="navigateTo" class="normalzb">查看更多 ></navigator> -->
+    </view>
+    <scroll-view class="star_sortk" scroll-x="1" scroll-y="">
+      <view class="spon_lik">
+        <block wx:for="{{stars}}" wx:key wx:for-index='ind'>
+          <view class="spon_li" bindtap="showStar" data-id="{{item.id}}">
+            <view class="spon_tag {{item.count<4 ? 'spon_t'+item.count:'spon_t4'}}">TOP {{item.count}}</view>
+            <image src="{{item.url}}" mode="aspectFill" data-id="{{item.id}}"></image>
+            <view class="spon_lit">{{item.name}}</view>
+            <view class="spon_lid">{{item.integral}}</view>
+          </view>
+        </block>
+      </view>
+    </scroll-view>
+
+    <view class="cont_tit">
+      <image src="http://resource.jiyilive.com/img2/icon/ic_title.png"></image>
+      守护榜TOP3
+      <image src="http://resource.jiyilive.com/img2/icon/ic_title.png"></image>
+      <span>- - 守护榜排名越靠前，免费的数量越多 - -</span>
+    </view>
+    <view class="list_k">
+      <block wx:for="{{discoverList}}" wx:for-index="k" wx:key>
+        <block wx:if="{{k<2}}">
+          <view class="list_ph">
+            <view class="paim_dk paim_b1" wx:if="{{k==0}}"></view>
+            <view class="paim_dk paim_b2" wx:if="{{k==1}}"></view>
+            <view class="paim_dk paim_b3" wx:if="{{k==2}}"></view>
+            <view class="paim_dk paim_b4" wx:if="{{k>2}}"></view>
+            <view class="paim_wo">TOP {{k+1}}</view>
+            <view class="list_phk">
+              <image src="{{item.url}}" class="list_pic" mode="aspectFill"></image>
+              <view class="list_con">
+                <view class="list_cont">{{item.name}}</view>
+                <view class="list_conbz">
+                  <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+                  距结束：{{item.sday}}
+                </view>
+                <view class="list_conbz">
+                  <image src="http://resource.jiyilive.com/img2/icon/ic_shouhuzhe.png"></image>
+                  <b>
+                    <block wx:for="{{item.users}}" wx:for-item="img" wx:for-key>
+                      <image src="{{img.avatarurl || defaultimg}}"></image>
+                    </block>
+                  </b>
+                </view>
+                <view class="list_conbk">
+                  <view class="list_conbut">
+                    <p>投饭团</p>
+                  </view>
+                  <view class="list_conbz" style="width:180rpx;float:left;">
+                    <image src="http://resource.jiyilive.com/img2/icon/ic_fantuanb.png"></image>
+                    <span>{{item.count}}</span>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="list_zz" data-id="{{item.id}}" bindtap="showPaih"></view>
+          </view>
+        </block>
+        <block wx:if="{{k==2}}">
+          <view class="list_ph">
+            <view class="paim_dk paim_b1" wx:if="{{k==0}}"></view>
+            <view class="paim_dk paim_b2" wx:if="{{k==1}}"></view>
+            <view class="paim_dk paim_b3" wx:if="{{k==2}}"></view>
+
+            <view class="paim_dk paim_b4" wx:if="{{k>2}}"></view>
+            <view class="paim_wo">TOP {{k+1}}</view>
+            <view class="list_phk">
+              <image src="{{item.url}}" class="list_pic" mode="aspectFill"></image>
+              <view class="list_con">
+                <view class="list_cont">{{item.name}}</view>
+                <view class="list_conbz">
+                  <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+                  距结束：{{item.sday}}
+                </view>
+                <view class="list_conbz">
+                  <image src="http://resource.jiyilive.com/img2/icon/ic_shouhuzhe.png"></image>
+                  <b>
+                    <block wx:for="{{item.users}}" wx:for-item="img" wx:for-key>
+                      <image src="{{img.avatarurl || defaultimg}}"></image>
+                    </block>
+                  </b>
+                </view>
+                <view class="list_conbk">
+                  <view class="list_conbut">
+                    <p>投饭团</p>
+                  </view>
+                  <view class="list_conbz" style="width:180rpx;float:left;">
+                    <image src="http://resource.jiyilive.com/img2/icon/ic_fantuanb.png"></image>
+                    <span>{{item.count}}</span>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="list_zz" data-id="{{item.id}}" bindtap="showPaih"></view>
+          </view>
+
+          <view class="cont_tit">
+            <image src="http://resource.jiyilive.com/img2/icon/ic_title.png"></image>
+            潜力爱豆
+            <image src="http://resource.jiyilive.com/img2/icon/ic_title.png"></image>
+            <span>- - 用丢饭团来提升你爱豆的排名吧 - -</span>
+          </view>
+
+        </block>
+        <block wx:if="{{k>=3}}">
+          <view class="list_ph">
+            <view class="paim_dk paim_b1" wx:if="{{k==0}}"></view>
+            <view class="paim_dk paim_b2" wx:if="{{k==1}}"></view>
+            <view class="paim_dk paim_b3" wx:if="{{k==2}}"></view>
+
+            <view class="paim_dk paim_b4" wx:if="{{k>2}}"></view>
+            <view class="paim_wo">TOP {{k+1}}</view>
+            <view class="list_phk">
+              <image src="{{item.url}}" class="list_pic" mode="aspectFill"></image>
+              <view class="list_con">
+                <view class="list_cont">{{item.name}}</view>
+                <view class="list_conbz">
+                  <image src="http://resource.jiyilive.com/img2/icon/ic_shijian.png"></image>
+                  距结束：{{item.sday}}
+                </view>
+                <view class="list_conbz">
+                  <image src="http://resource.jiyilive.com/img2/icon/ic_shouhuzhe.png"></image>
+                  <b>
+                    <block wx:for="{{item.users}}" wx:for-item="img" wx:for-key>
+                      <image src="{{img.avatarurl || defaultimg}}"></image>
+                    </block>
+                  </b>
+                </view>
+                <view class="list_conbk">
+                  <view class="list_conbut">
+                    <p>投饭团</p>
+                  </view>
+                  <view class="list_conbz" style="width:180rpx;float:left;">
+                    <image src="http://resource.jiyilive.com/img2/icon/ic_fantuanb.png"></image>
+                    <span>{{item.count}}</span>
+                  </view>
+                </view>
+              </view>
+            </view>
+            <view class="list_zz" data-id="{{item.id}}" bindtap="showPaih"></view>
+          </view>
+        </block>
+      </block>
+    </view>
+  </view>
+  <view wx:if="noMore" class='text-center text-gray' style="padding:20rpx 0;opacity:0.5;">没有更多了 o(╥﹏╥)o~</view>
+  <!-- 
+<view class="rulebut" hover-class="none" catch:touchend="showTheRule" catch:touchstart="icoTouchStart" catch:touchmove="icoTouchMove" style="{{icon.icoLeft}}:{{icon.icoPosX}};{{icon.icoTop}}:{{icon.icoPosY}};" >
+  <image src="http://resource.jiyilive.com/img/new/rule4.png" mode="widthFix"></image>
+</view> -->
+</block>
+<block wx:else>
+  <view class="ztCont">
+    <view class="ztbox">
+      <image src="http://resource.jiyilive.com/shouquan.png"></image>
+    </view>
+    <text>登录后查看应援排行榜</text>
+    <button open-type="getUserInfo" bindgetuserinfo='haveGetUser' class="telC" style="margin-top:30rpx;">
+      <view>微信授权登录</view>
+    </button>
+     <!-- <button open-type='getUserInfo' bindgetuserinfo='haveGetUser' style="background:red;">微信登录授</button> -->
+  </view>
+</block>
+
+
+<!-- <footComponent></footComponent> -->

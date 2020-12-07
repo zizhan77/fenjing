@@ -1,0 +1,7 @@
+/* pages/mine/userinfo/integral.wxss */
+page{
+  background-color: white;
+}
+.more{
+  height: 80px;
+}

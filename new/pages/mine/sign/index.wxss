@@ -1,0 +1,107 @@
+/* pages/mine/sign/index.wxss */
+page{background-image:none;}
+
+.cont{width:100%;padding:0 30rpx;}
+
+.title{width:690rpx;min-height:200rpx;box-sizing:border-box;position:relative;margin:15rpx 0;}
+.title_d{width:690rpx;height:131rpx;border:4rpx solid #202020;border-radius:16rpx;background:#fff388;position:absolute;top:8rpx;left:0;padding:12rpx 15rpx;z-index:15;}
+.title_c{width:100%;height:100%;border:1px dashed #fff;border-radius:10rpx;color:#202020;display:flex;align-items:center;justify-content: space-around;}
+.title_cd{flex:0 0 162rpx;height:84rpx;line-height:37rpx;font-size:26rpx;text-align:center;font-weight:bold;}
+.title_cdd{height:37rpx;margin:5rpx 0;color:#666;font-size:26rpx;font-weight:normal;}
+.title_chr{width:0;height:60rpx;border-left:1px dashed #fff;flex:0 0 0;}
+
+.tit_con{width:608rpx;height:332rpx;box-sizing:border-box;border:4rpx solid #202020;border-radius:20rpx;padding:18rpx;background:url(http://resource.jiyilive.com/img2/sign/signback.png) 0 0 no-repeat;background-size:100% 100%;margin:-115rpx auto 0;}
+.tit_cond{width:567rpx;height:295rpx;box-sizing:border-box;border:4rpx solid #202020;border-radius:16rpx;position:relative;
+  background:#fff url(http://resource.jiyilive.com/img2/sign/gezi.png) 0 0 repeat;background-size:22rpx 22rpx;
+}
+.tit_condc{width:280rpx;height:204rpx;position:absolute;left:0;top:0;right:0;bottom:0;margin:auto;text-align:center;}
+.tit_condct{height:37rpx;line-height:37rpx;color:#666;font-size:26rpx;}
+.tit_condcd{height:70rpx;font-size:26rpx;line-height:70rpx;margin:10rpx 0 25rpx;}
+.tit_condcd span{font-size:60rpx;color:#202020;font-weight:bold;}
+/* button */
+.list_conadd{width:280rpx;height:60rpx;border:1rpx solid #202020;border-radius:34rpx;background:#9FE8FF;line-height:50rpx;font-size:28rpx;color:#202020;position:relative;text-aligN:center;margin:0 auto;font-weight:bold;}
+.list_conadd p{position:relative;z-index:5;}
+.list_conadd:after{content:"";display:block;width:280rpx;height:56rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;position:absolute;left:-1rpx;top:-4rpx;z-index:0;box-sizing:border-box;}
+.list_conadds{width:240rpx;height:60rpx;border:1rpx solid #202020;border-radius:34rpx;background:#9FE8FF;line-height:50rpx;font-size:28rpx;color:#202020;position:relative;text-aligN:center;margin:0 auto;font-weight:bold;}
+.list_conadds p{position:relative;z-index:5;}
+.list_conadds:after{content:"";display:block;width:240rpx;height:56rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;position:absolute;left:-1rpx;top:-4rpx;z-index:0;box-sizing:border-box;}
+
+.list_butzz{position:absolute;width:230rpx;height:66rpx;opacity:0;left:0;top:0;z-index:99;}
+
+/* days */
+.day_k{width:690rpx;height:200rpx;background:#f6f6f6;padding:30rpx 30rpx 23rpx;box-sizing:border-box;border-radius:20rpx;margin:32rpx 0 50rpx;}
+.day_ds{width:100%;height:90rpx;display:flex;justify-content:space-between;margin-bottom:20rpx;}
+.day_d{height:90rpx;width:74rpx;border-radius:8rpx;border:1px solid #202020;overflow:Hidden;position:relative;background-color:#f6f6f6;background-image:url(http://resource.jiyilive.com/img2/sign/ricenone.png);background-size:34rpx auto;background-repeat:no-repeat;background-position:center 16rpx;}
+.day_dw{position:absolute;width:100%;height:26rpx;left:0;bottom:0;border-top:1rpx solid #202020;line-height:26rpx;color:#666;font-size:22rpx;text-align:center;background:#fff;}
+.day_dac{background-color:#9FE8FF !important;background-image:url(http://resource.jiyilive.com/img2/sign/rice.png);}
+.day_dac .day_dw{color:#ff9fca;}
+.day_bq{width:100%;text-align:center;font-size:26rpx;color:#666;white-space: nowrap;}
+.day_bq image{display:inline-block;width:30rpx;height:30rpx;vertical-align:-3rpx;}
+
+/* 通用标题 */
+.normaltit{width:100%;text-align:Left;height:45rpx;line-height:45rpx;font-size:32rpx;color:#202020;font-weight:bold;}
+.normaltit span{display:inline-block;padding:0 10rpx;height:32rpx;line-height:32rpx;font-size:24rpx;color:#eee;}
+
+.renwu_k{width:690rpx;display:flex;height:184rpx;justify-content:space-between;margin:30rpx 0 52rpx;position: relative;}
+.renwu_d1{flex:0 0 214rpx;text-align:center;height:184rpx;}
+.renwu_di{width:90rpx;height:90rpx;box-sizing:border-box;border-radius:50%;border-width:4rpx;border-style:solid;margin:0 auto;background-size:44rpx auto;background-position:center center;background-repeat:no-repeat;}
+.renwu_d1 .renwu_di{border-color:#fff388;background-image:url(http://resource.jiyilive.com/img2/sign/ic_yaoqing.png);}
+.renwu_d2 .renwu_di{border-color:#9FE8FF;background-image:url(http://resource.jiyilive.com/img2/sign/ic_ziliao.png);}
+.renwu_dzt .renwu_di{border-color:#ff9fca;background-image:url(http://resource.jiyilive.com/img2/sign/ic_choujiang.png);}
+.renwu_dw{width:100%;height:37rpx;margin:10rpx 0 5rpx;text-align:center;color:#202020;font-size:26rpx;}
+.renwu_span{display:inline-block;height:42rpx;border-radius:21rpx;border:2rpx solid #ff3e25;text-align:center;font-size:26rpx;color:#ff3e25;padding:0 10rpx;font-weight:bold;white-space:Nowrap;}
+
+.rule{text-aligN:justify;font-size:26rpx;color:#666;line-height:40rpx;margin:20rpx 0 48rpx;}
+
+/* 显示拉新弹窗 */
+.getnew_k{position:fixed;width:100%;height:100%;left:0;top:0;z-index:1099;background:rgba(0,0,0,0.7);}
+.getnew_d{position:absolute;width:674rpx;height:974rpx;left:37rpx;top:64rpx;text-align:center;color:#666;padding-top:346rpx;}
+.getnew_tt{width:674rpx;height:674rpx;position:absolute;left:0;top:0;z-index:1;animation:roll 5s linear infinite;-webkit-animation:roll 5s linear infinite;}
+@keyframes roll{
+  0%{transform:rotate(0deg);}
+  100%{transform:rotate(360deg);}
+}
+@-webkit-keyframes roll{
+  0%{-webkit-transform:rotate(0deg);}
+  100%{-webkit-transform:rotate(360deg);}
+}
+.getnew_con{width:560rpx;height:482rpx;position:relative;z-index:10;margin:126rpx auto 0;background:#fff;border-radius:16rpx;padding:0 60rpx;box-sizing:border-box;}
+
+.getnew_con:before{content:"";display:block;height:120rpx;width:560rpx;position:absolute;left:0;top:-115rpx;
+background:
+ linear-gradient(156deg, transparent 50%,#fff 0) top left,
+    linear-gradient(-156deg, transparent 50%,#fff 0) top right;
+background-size:50% 100%; 
+
+background-repeat:no-repeat;
+}
+
+.getnew_clogo{position:absolute;width:177rpx;height:152rpx;top:-198rpx;left:50%;margin-left:-89rpx;z-index:2;}
+.getnew_ccon{width:100%;text-align:center;margin-top:-30rpx;position:relative;z-index:10;}
+.getnew_ccont{font-size:32rpx;color:#ff3e25;font-weight:bold;margin-bottom:10rpx;}
+.getnew_ccond{font-size:26rpx;line-height:37rpx;color:#202020;}
+.getnew_cconi{width:100%;height:167rpx;display:flex;justify-content:space-between;margin:30rpx 0 50rpx;}
+.getnew_cconid{height:167rpx;width:120rpx;text-align:center;}
+.getnew_cconid image{width:120rpx;height:120rpx;border-radius:50%;}
+.getnew_cconid view{width:100%;height:37rpx;line-height:37rpx;margin:5rpx;color:#666;white-space:nowrap;overflow:Hidden;text-overflow:ellipsis;}
+.getnew_close{width:45rpx;height:45rpx;position:absolute;left:50%;margin-left:-22rpx;bottom:-80rpx;opacity:0.7;}
+
+
+
+
+/* zt按钮样式 */
+  .telC{
+    width:280rpx;height:60rpx;border:1rpx solid #202020;border-radius:34rpx;background:#9FE8FF;line-height:50rpx;font-size:28rpx;color:#202020;position:relative;text-aligN:center;margin:0 auto;font-weight:bold;
+  }
+.telC view{position:absolute;z-index:5;width:280rpx;height:56rpx;border:1rpx solid #202020;border-radius:30rpx;background:#fff388;left:-1rpx;top:-4rpx;box-sizing:border-box;}
+.telBtn{
+  width:120rpx;height: 200rpx;
+  position: absolute;
+  top:0;left:30rpx;
+}
+.telBtn1{
+  width:120rpx;height: 200rpx;
+  position: absolute;
+  top:0;left:290rpx;
+}
+/* end */

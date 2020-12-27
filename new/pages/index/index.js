@@ -528,11 +528,11 @@ Page({
     app.apiRequest({
       url: '/banner/queryBanner',
       success: res => {
-        console.log("轮播图：",res);
+        // console.log("轮播图：",res);
         let jingcaituijian = res.data.data[0].thumbUrl;
         let jingcaituijianId = res.data.data[0].url;
         let jingcaituijtype = res.data.data[0].thumbType;
-        res.data.data.splice(0, 1);
+        // res.data.data.splice(0, 1);
         this.setData({
           swiperList: res.data.data,
           jingcaituijian: jingcaituijian,

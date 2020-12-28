@@ -263,10 +263,11 @@ Page({
     }
     console.log(tid, coun)
     app.apiRequest({
-      url: '/actor/pc/updateActor',
+      url: '/ranking/addActor',
       data: {
         id: tid,
-        integral: coun + this.data.star.integral
+        // integral: coun + this.data.star.integral
+        count:coun
       },
       success: res => {
         console.log(res)
@@ -275,6 +276,7 @@ Page({
             title: "投递成功~"
           })
           _this.getMineDetal(_this.data.tid);
+          _this.getActor();
           // _this.getPerformanceDetail(_this.data.activityId)
           // _this.data.pageInit.number=1
           // _this.data.rankList=[];

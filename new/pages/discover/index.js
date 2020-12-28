@@ -86,7 +86,6 @@ Page({
       this.data.ruleTrueHeight = 160 / 750 * this.data.sys.windowWidth;
       this.data.ruleTrueBottom = 140 / 750 * this.data.sys.windowWidth;
       // this.getActivities();
-      this.checkRice()
     // });
     // 新增获取明星列表
     this.getStarlist()
@@ -252,7 +251,10 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow: function() {},
+  onShow: function() {
+    this.checkRice()
+
+  },
   /**
    * 生命周期函数--监听页面隐藏
    */
